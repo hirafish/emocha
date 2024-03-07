@@ -11,14 +11,21 @@ services:
       # Dockerイメージをビルドするためのコンテキスト
       context: .
       # Dockerfileの場所
-      dockerfile: ./docker/frontend/Dockerfile    
-    # ボリュームのマウント設定
-    volumes:
-      # ホストの"./front"ディレクトリをコンテナの"/front"にマウント
-      - ./frontend:/frontend
+      dockerfile: ./docker/frontend/Dockerfile
+
+    # ユーザをnodeに変更
+    user: "node"
 
     # 作業ディレクトリの設定
-    working_dir: /frontend
+    working_dir: /home/node/frontend
+
+    # システム環境最適化
+    environment:
+      - NODE_ENV=production
+      
+    # ボリュームのマウント設定
+    volumes:
+      - ./frontend:/home/node/frontend 
 
     # コンテナ内で実行されるコマンド
     command: node
