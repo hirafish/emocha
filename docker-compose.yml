@@ -1,0 +1,31 @@
+# Docker Composeのバージョン
+version: "3"
+
+# サービスの定義
+services:
+  # "frontend"というサービスの設定
+  frontend:
+    # イメージのビルド情報
+    container_name: frontend-app
+    build:
+      # Dockerイメージをビルドするためのコンテキスト
+      context: .
+      # Dockerfileの場所
+      dockerfile: ./docker/frontend/Dockerfile    
+    # ボリュームのマウント設定
+    volumes:
+      # ホストの"./front"ディレクトリをコンテナの"/front"にマウント
+      - ./frontend:/frontend
+
+    # 作業ディレクトリの設定
+    working_dir: /frontend
+
+    # コンテナ内で実行されるコマンド
+    command: node
+
+    # 公開用のポート指定。ホスト側:コンテナ側
+    ports:
+      - '5173:5173'
+
+    # ttyを有効にする（コンテナと対話的なセッションを可能にする）
+    tty: true
