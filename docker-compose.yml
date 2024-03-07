@@ -9,9 +9,9 @@ services:
     container_name: frontend-app
     build:
       # Dockerイメージをビルドするためのコンテキスト
-      context: .
+      context: ./docker/frontend/
       # Dockerfileの場所
-      dockerfile: ./docker/frontend/Dockerfile
+      dockerfile: ./Dockerfile
 
     # ユーザをnodeに変更
     user: "node"
