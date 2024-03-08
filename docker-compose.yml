@@ -13,11 +13,8 @@ services:
       # Dockerfileの場所
       dockerfile: ./Dockerfile
 
-    # ユーザをnodeに変更
-    user: "node"
-
     # 作業ディレクトリの設定
-    working_dir: /home/node/frontend
+    working_dir: /frontend
 
     # システム環境最適化
     environment:
@@ -25,14 +22,14 @@ services:
 
     # ボリュームのマウント設定
     volumes:
-      - ./frontend:/home/node/frontend 
+      - ./frontend:/frontend 
 
     # コンテナ内で実行されるコマンド
     command: node
 
     # 公開用のポート指定。ホスト側:コンテナ側
     ports:
-      - '5173:5173'
+      - '3000:3000'
 
     # ttyを有効にする（コンテナと対話的なセッションを可能にする）
     tty: true
@@ -56,7 +53,8 @@ services:
         - ./backend:/home/pyuser/backend
 
     ports:
-      - '3000:3000'
+      # 仮のポート番号
+      - '8000:8000'
       
     tty: true
 
