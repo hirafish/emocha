@@ -40,7 +40,8 @@ services:
     # backendコンテナ起動後にfrontendコンテナを起動する
     depends_on:
         - backend
-  
+
+
   backend:
     container_name: backend-app
     build:
@@ -48,5 +49,7 @@ services:
         dockerfile: ./Dockerfile
     volumes:
         - ./backend:/usr/src/app
+    ports:
+      - '3000:3000'
     tty: true
     
