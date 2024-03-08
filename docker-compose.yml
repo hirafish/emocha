@@ -43,13 +43,18 @@ services:
 
 
   backend:
+
     container_name: backend-app
+
     build:
         context: ./docker/backend/
         dockerfile: ./Dockerfile
+
     volumes:
-        - ./backend:/usr/src/app
+        - ./backend:/home/pyuser/backend
+
     ports:
       - '3000:3000'
+      
     tty: true
     

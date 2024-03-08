@@ -7,9 +7,12 @@ ARG USER_GID=$USER_UID
 RUN groupadd --gid $USER_GID $USERNAME \
     && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME
 
+ENV PYTHONUSERBASE=/home/$USERNAME/.local
+ENV PATH=$PYTHONUSERBASE/bin:$PATH
+
 USER $USERNAME
 
-WORKDIR /usr/src/app
+WORKDIR /home/${USERNAME}/backend
 
 COPY ./requirements.txt ./
 
