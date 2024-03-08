@@ -6,7 +6,7 @@ services:
   # "frontend"というサービスの設定
   frontend:
     # イメージのビルド情報
-    container_name: frontend-app
+    container_name: frontend
     build:
       # Dockerイメージをビルドするためのコンテキスト
       context: ./docker/frontend/
@@ -44,7 +44,7 @@ services:
 
   backend:
 
-    container_name: backend-app
+    container_name: backend
 
     build:
         context: ./docker/backend/
@@ -57,4 +57,31 @@ services:
       - '3000:3000'
       
     tty: true
+
+    depends_on:
+      - database
+
+
+  database:
     
+    container_name: database
+
+    build:
+        context: ./docker/database/
+        dockerfile: ./Dockerfile
+
+    restart: always
+    
+    # メモリ制限
+    shm_size: 128mb
+    
+    volumes:
+      - ./database/store:/var/lib/postgresql/data
+      - ./database/init:/docker-entrypoint-initdb.d
+    
+    environment:
+      - POSTGRES_USER=obake
+      - POSTGRES_PASSWORD=obake
+    
+    ports:
+      - 5432:5432
