@@ -1,8 +1,5 @@
 FROM node:16-bullseye
 
-# Create working directory in container
-WORKDIR /src
-
 # Delete unnecessary apt-get files
 RUN apt-get clean
 
