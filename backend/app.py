@@ -24,3 +24,5 @@ def read_root():
     return {"Hello": "From Python"}
 
 print("Hello, world!")
+
+# uvicorn app:app --host=0.0.0.0 --reload

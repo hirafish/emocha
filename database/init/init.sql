@@ -9,4 +9,4 @@ create table if not exists sample(
     age int
 );
 
-insert into members(name,age) values('hoge',99);
+insert into sample(name,age) values('hoge',99);
