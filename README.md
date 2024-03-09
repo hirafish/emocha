@@ -167,5 +167,31 @@ DB_DATABASE_NAME="emocha_db"
     exit
     ```
 
+### Socket io 通信
+#### backend
+1. backendコンテナに入る
+2. backendコンテナ内で
+    ```
+    python socket_io.py
+    ```
+#### frontend
+1. frontendコンテナに入る
+2. `./frontend/src/App.js`の即時関数をコメントアウトする
+    ```
+    // (async()=>{
+    //   try{
+    //   const data=await fetchFromPython();
+    //   console.log(data);
+    //   }catch(error){
+    //     console.log("(Fetch Error)",error);
+    //   };
+    // })();
+    ```
+3. frontendコンテナ内で
+    ```
+    npm install socket.io-client@4.7.4
+    npm start
+    ```
+
 #
 Made with ❤️ and りんごらてオバケ🍏☕👻
