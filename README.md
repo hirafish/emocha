@@ -1,6 +1,16 @@
 # emocha
 
-## 🍏 Quick start
+## 🍏 Setup
+### docker
+* Docker version 25.0.3
+* Docker Compose version v2.24.5-desktop.1
+
+### .env
+```:.env
+```
+
+
+## ☕ Quick start
 1. dockerコンテナを構築・起動する（２回目以降は`--build`なし）
     ```
     docker compose up --build
@@ -41,7 +51,7 @@
     ```
 
 
-## ☕ Usage
+## 👻 Usage
 ### docker copmose
 * dockerコンテナを構築・起動する
     ```
