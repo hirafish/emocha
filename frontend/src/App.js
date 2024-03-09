@@ -17,10 +17,16 @@ function App() {
     const data=await response.json();
     return data;
   };
+
   (async()=>{
+    try{
     const data=await fetchFromPython();
     console.log(data);
+    }catch(error){
+      console.log("(Fetch Error)",error);
+    };
   })();
+
   return (
     <div className="App">
       <header className="App-header">
