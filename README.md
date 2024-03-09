@@ -6,9 +6,19 @@
 * Docker Compose version v2.24.5-desktop.1
 
 ### .env
-```:.env
+```
+cd backend/
+touch .env
 ```
 
+```
+DB_USERNAME="obake"
+DB_PASSWORD="obake"
+DB_HOST="database"
+DB_PORT="5432"
+DB_DATABASE_NAME="emocha_db"
+```
+（↑環境変数はdocker-composeで定義しているものを使用）
 
 ## ☕ Quick start
 1. dockerコンテナを構築・起動する（２回目以降は`--build`なし）
