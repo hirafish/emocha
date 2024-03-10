@@ -1,12 +1,9 @@
 import LinkButton from "./LinkButton";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
-import { UserIconsCatalogContext } from "../providers/UserIconsCatalogProvider";
 import { UserSettingsContext } from "../providers/UserSettingsProvider";
 import UserIcon from "../UserIcon";
 
 const Navigation=()=>{
-    const userIconsCatalog=useContext(UserIconsCatalogContext);
     const {userSettings}=useContext(UserSettingsContext);
 
     const currentUserIcon=userSettings.icon.icon;
