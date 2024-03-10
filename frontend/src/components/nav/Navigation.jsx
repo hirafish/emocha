@@ -3,18 +3,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
 import { UserIconsCatalogContext } from "../providers/UserIconsCatalogProvider";
 import { UserSettingsContext } from "../providers/UserSettingsProvider";
+import UserIcon from "../UserIcon";
 
 const Navigation=()=>{
     const userIconsCatalog=useContext(UserIconsCatalogContext);
-
     const {userSettings}=useContext(UserSettingsContext);
+
+    const currentUserIcon=userSettings.icon.icon;
+    const currentUserIconColor=userSettings.icon.color;
 
     return (
         <div className="hidden xl:block sm:flex-2 w-64 bg-gray-200">
                 <div className="user-profile text-center">
-                    <div className="w-32 h-32 rounded-full m-auto mt-16 border-2 border-white bg-white shadow-lg flex items-center justify-center">
-                        <FontAwesomeIcon icon={userIconsCatalog.icon[userSettings.icon.icon].fontAwesomeValue+" fa-solid"} className="rounded-full w-2/3 h-2/3 text-purple-400" />
-                    </div>
+                    <UserIcon icon={currentUserIcon} color={currentUserIconColor} />
                     <div className="text-gray-800 mt-8">
                         {userSettings.name}
                         <span className="inline-block align-text-bottom">
