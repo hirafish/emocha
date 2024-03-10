@@ -11,7 +11,7 @@ const Settings=()=>{
         </div>
         <IconSettings userIcon={userIcon}/>
         <div className="flex-1 container flex flex-col items-center justify-center my-8">
-            <h2 className="text-xl py-1 mb-4 border-b-2 border-gray-200">Account name</h2>
+            <h2 className="text-xl py-1 mb-4 border-b-2 border-gray-200">Name</h2>
             <div className="flex justify-evenly w-full max-w-xs mx-auto">
                 <input type="text" placeholder="Name" className="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50" />
                 <button type="button" className="ml-2 inline-flex items-center justify-center px-5 py-2 text-sm font-medium tracking-wide text-white transition-colors duration-200 rounded-md bg-blue-500 hover:bg-neutral-900 focus:ring-2 focus:ring-offset-2 focus:ring-neutral-900 focus:shadow-outline focus:outline-none">
