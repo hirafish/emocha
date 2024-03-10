@@ -7,7 +7,7 @@ const Navigation=()=>{
         <div className="hidden xl:block sm:flex-2 w-64 bg-gray-200">
                 <div className="user-profile text-center">
                     <div className="w-32 h-32 rounded-full m-auto mt-16 border-2 border-white bg-white shadow-lg">
-                        <img src={userIcon} alt="user" className="block rounded-full"/>
+                        <img src={userIcon} alt="user icon" className="block rounded-full"/>
                     </div>
                     <div className="text-gray-800 mt-8">
                         {userName}

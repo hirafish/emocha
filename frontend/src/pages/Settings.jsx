@@ -10,7 +10,7 @@ const Settings=()=>{
         <div className="flex-1 container flex flex-col items-center justify-center my-8">
             <h2 className="text-xl py-1 mb-4 border-b-2 border-gray-200">Icon</h2>
             <div className="w-32 h-32 rounded-full m-auto mb-4 border-2 border-white bg-white">
-                <img src={userIcon} alt="user" className="block rounded-full" />
+                <img src={userIcon} alt="user icon" className="block rounded-full" />
             </div>
             <div className="flex justify-evenly w-full max-w-xs mx-auto">
                 <form className="w-full">
@@ -24,7 +24,7 @@ const Settings=()=>{
                 <button type="button" className="ml-2 inline-flex items-center justify-center px-5 py-2 text-sm font-medium tracking-wide text-white transition-colors duration-200 rounded-md bg-blue-500 hover:bg-neutral-900 focus:ring-2 focus:ring-offset-2 focus:ring-neutral-900 focus:shadow-outline focus:outline-none">
                     Save
                 </button>
-            </div>                                              
+            </div>                              
         </div>
         <div className="flex-1 container flex flex-col items-center justify-center my-8">
             <h2 className="text-xl py-1 mb-4 border-b-2 border-gray-200">Account name</h2>
