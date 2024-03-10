@@ -13,7 +13,7 @@ app.wsgi_app = socketio.WSGIApp(sio, app.wsgi_app)
 
 @app.route('/')
 def index():
-    return render_template('fiddle.html')
+    return "This is the backend server for the chat app."
 
 
 @sio.event
@@ -25,6 +25,11 @@ def connect(sid, environ, auth):
 @sio.event
 def disconnect(sid):
     print('disconnected', sid)
+
+@sio.event
+def send_message(sid, message):
+    print(f"message: {message}")
+    sio.emit('message', message, to=sid)
 
 
 if __name__ == '__main__':
