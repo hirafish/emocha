@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { FetchFromPython } from './api/Sample';
 import { ConnectSocketIo } from './socketio/Socketio';
-import Navigation from './components/Navigation/Navigation';
+import Navigation from "./components/navigation/Navigation";
 import Home from './pages/Home';
 import Settings from './pages/Settings';
 
