@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import { FetchFromPython } from './api/Sample';
-import { ConnectSocketIo } from './socketio/Socketio';
+import { FetchFromPython } from './components/api/Sample';
+import { ConnectSocketIo } from './components/socketio/Socketio';
 import Navigation from "./components/nav/Navigation";
 import Home from './pages/Home';
 import Settings from './pages/Settings';
