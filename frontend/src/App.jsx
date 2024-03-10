@@ -7,10 +7,9 @@ import Home from './pages/Home';
 import Settings from './pages/Settings';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas,faGhost } from '@fortawesome/free-solid-svg-icons';
-import { faTwitter, faFontAwesome } from '@fortawesome/free-brands-svg-icons';
+import { faGhost,faOtter,faHippo,faDog,faPaw,faCat,faCow,faFish,faDragon,faKiwiBird,faHorse,faFrog,faRocket,faSnowman,faFootball,faBaseball,faBasketball } from '@fortawesome/free-solid-svg-icons';
 
-library.add(fas, faTwitter, faFontAwesome,faGhost)
+library.add(faGhost,faOtter,faHippo,faDog,faPaw,faCat,faCow,faFish,faDragon,faKiwiBird,faHorse,faFrog,faRocket,faSnowman,faFootball,faBaseball,faBasketball)
 
 function App() {
   // FastAPIとの通信
