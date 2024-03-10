@@ -1,9 +1,14 @@
 import LinkButton from "./LinkButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useContext } from "react";
+import { UserIconsCatalogContext } from "../providers/UserIconsCatalogProvider";
 
 const Navigation=()=>{
     const userIcon="./logo192.png";
     const userName="りんごらてオバケ";
+
+    const UserIconsCatalog=useContext(UserIconsCatalogContext);
+    console.log(UserIconsCatalog["Ghost"]);
     return (
         <div className="hidden xl:block sm:flex-2 w-64 bg-gray-200">
                 <div className="user-profile text-center">

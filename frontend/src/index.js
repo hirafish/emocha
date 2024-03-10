@@ -2,12 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import { UserIconsCatalogProvider } from './components/providers/UserIconsCatalogProvider';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <UserIconsCatalogProvider>
+      <App />
+    </UserIconsCatalogProvider>
   </React.StrictMode>
 );
 
