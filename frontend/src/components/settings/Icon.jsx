@@ -1,9 +1,11 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 const IconSettings=({userIcon})=>{
     return (
         <div className="flex-1 container flex flex-col items-center justify-center my-8">
             <h2 className="text-xl py-1 mb-4 border-b-2 border-gray-200">Icon</h2>
-            <div className="w-32 h-32 rounded-full m-auto mb-4 border-2 border-white bg-white">
-                <img src={userIcon} alt="user icon" className="block rounded-full" />
+            <div className="w-32 h-32 rounded-full m-auto mb-4 border-2 border-white bg-white flex items-center justify-center">
+                <FontAwesomeIcon icon="fa-solid fa-ghost" className="rounded-full w-2/3 h-2/3 text-purple-400" />
             </div>
             <div className="flex justify-evenly w-full max-w-xs mx-auto">
                 <form className="w-full">

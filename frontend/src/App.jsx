@@ -6,6 +6,12 @@ import Navigation from "./components/nav/Navigation";
 import Home from './pages/Home';
 import Settings from './pages/Settings';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas,faGhost } from '@fortawesome/free-solid-svg-icons';
+import { faTwitter, faFontAwesome } from '@fortawesome/free-brands-svg-icons';
+
+library.add(fas, faTwitter, faFontAwesome,faGhost)
+
 function App() {
   // FastAPIとの通信
 
