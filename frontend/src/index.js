@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { UserIconsCatalogProvider } from './components/providers/UserIconsCatalogProvider';
+import { UserSettingsProvider } from './components/providers/UserSettingsProvider';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <UserIconsCatalogProvider>
-      <App />
+      <UserSettingsProvider>
+        <App />
+      </UserSettingsProvider>
     </UserIconsCatalogProvider>
   </React.StrictMode>
 );

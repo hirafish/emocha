@@ -8,23 +8,23 @@ export const UserIconsCatalogProvider= props =>{
     library.add(faGhost,faOtter,faHippo,faDog,faPaw,faCat,faCow,faFish,faDragon,faKiwiBird,faHorse,faFrog,faRocket,faSnowman,faFootball,faBaseball,faBasketball);
     
     const UserIconsSVGCatalog={
-        Ghost:{awesomeFontValue:"fa-ghost"},
-        Otter:{awesomeFontValue:"fa-otter"},
-        Hippo:{awesomeFontValue:"fa-hippo"},
-        Dog:{awesomeFontValue:"fa-dog"},
-        Paw:{awesomeFontValue:"fa-paw"},
-        Cat:{awesomeFontValue:"fa-cat"},
-        Cow:{awesomeFontValue:"fa-cow"},
-        Fish:{awesomeFontValue:"fa-fish"},
-        Dragon:{awesomeFontValue:"fa-dragon"},
-        KiwiBird:{awesomeFontValue:"fa-kiwi-bird"},
-        Horse:{awesomeFontValue:"fa-horse"},
-        Frog:{awesomeFontValue:"fa-frog"},
-        Rocket:{awesomeFontValue:"fa-rocket"},
-        Snowman:{awesomeFontValue:"fa-snowman"},
-        Football:{awesomeFontValue:"fa-football"},
-        Baseball:{awesomeFontValue:"fa-baseball"},
-        Basketball:{awesomeFontValue:"fa-basketball"}       
+        Ghost:{fontAwesomeValue:"fa-ghost"},
+        Otter:{fontAwesomeValue:"fa-otter"},
+        Hippo:{fontAwesomeValue:"fa-hippo"},
+        Dog:{fontAwesomeValue:"fa-dog"},
+        Paw:{fontAwesomeValue:"fa-paw"},
+        Cat:{fontAwesomeValue:"fa-cat"},
+        Cow:{fontAwesomeValue:"fa-cow"},
+        Fish:{fontAwesomeValue:"fa-fish"},
+        Dragon:{fontAwesomeValue:"fa-dragon"},
+        KiwiBird:{fontAwesomeValue:"fa-kiwi-bird"},
+        Horse:{fontAwesomeValue:"fa-horse"},
+        Frog:{fontAwesomeValue:"fa-frog"},
+        Rocket:{fontAwesomeValue:"fa-rocket"},
+        Snowman:{fontAwesomeValue:"fa-snowman"},
+        Football:{fontAwesomeValue:"fa-football"},
+        Baseball:{fontAwesomeValue:"fa-baseball"},
+        Basketball:{fontAwesomeValue:"fa-basketball"}       
     }
 
     const UserIconsColorCatalog={

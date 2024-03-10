@@ -2,21 +2,21 @@ import LinkButton from "./LinkButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
 import { UserIconsCatalogContext } from "../providers/UserIconsCatalogProvider";
+import { UserSettingsContext } from "../providers/UserSettingsProvider";
 
 const Navigation=()=>{
-    const userIcon="./logo192.png";
-    const userName="りんごらてオバケ";
+    const userIconsCatalog=useContext(UserIconsCatalogContext);
 
-    const UserIconsCatalog=useContext(UserIconsCatalogContext);
-    console.log(UserIconsCatalog.icon["Ghost"]);
+    const {userSettings}=useContext(UserSettingsContext);
+
     return (
         <div className="hidden xl:block sm:flex-2 w-64 bg-gray-200">
                 <div className="user-profile text-center">
                     <div className="w-32 h-32 rounded-full m-auto mt-16 border-2 border-white bg-white shadow-lg flex items-center justify-center">
-                        <FontAwesomeIcon icon="fa-solid fa-ghost" className="rounded-full w-2/3 h-2/3 text-purple-400" />
+                        <FontAwesomeIcon icon={userIconsCatalog.icon[userSettings.icon.icon].fontAwesomeValue+" fa-solid"} className="rounded-full w-2/3 h-2/3 text-purple-400" />
                     </div>
                     <div className="text-gray-800 mt-8">
-                        {userName}
+                        {userSettings.name}
                         <span className="inline-block align-text-bottom">
                             <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" className="w-4 h-4"><path d="M19 9l-7 7-7-7"></path></svg>
                         </span>
