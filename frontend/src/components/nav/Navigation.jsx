@@ -8,7 +8,7 @@ const Navigation=()=>{
     const userName="りんごらてオバケ";
 
     const UserIconsCatalog=useContext(UserIconsCatalogContext);
-    console.log(UserIconsCatalog["Ghost"]);
+    console.log(UserIconsCatalog.icon["Ghost"]);
     return (
         <div className="hidden xl:block sm:flex-2 w-64 bg-gray-200">
                 <div className="user-profile text-center">
