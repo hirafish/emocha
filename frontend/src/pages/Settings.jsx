@@ -1,17 +1,17 @@
-import IconSettings from "../components/settings/Icon";
 import { useContext } from "react";
 import { UserIconsCatalogContext } from "../components/providers/UserIconsCatalogProvider";
 import { UserSettingsContext } from "../components/providers/UserSettingsProvider";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import UserIcon from "../components/UserIcon";
 
 const Settings=()=>{
     const userIcon="./logo192.png";
     const userName="りんごらてオバケ";
 
     const userIconsCatalog=useContext(UserIconsCatalogContext);
-
     const {userSettings,setUserSettings}=useContext(UserSettingsContext);
+
+    const currentUserIcon=userSettings.icon.icon;
+    const currentUserIconColor=userSettings.icon.color;
 
     return (
         <div className="main-body container m-auto w-11/12 h-full flex flex-col">
@@ -21,8 +21,8 @@ const Settings=()=>{
         <div className="flex-1 container flex flex-col items-center justify-center my-8">
             <h2 className="text-xl py-1 mb-4 border-b-2 border-gray-200">Icon</h2>
             <p className='mb-1'>Preview</p>
-            <div className="w-32 h-32 rounded-full m-auto mb-4 border-2 border-white bg-white flex items-center justify-center">
-                <FontAwesomeIcon icon="fa-solid fa-ghost" className="rounded-full w-2/3 h-2/3 text-purple-400" />
+            <div className="mb-4">
+                <UserIcon icon={currentUserIcon} color={currentUserIconColor} />
             </div>
             <div className="flex justify-evenly w-full max-w-xs mx-auto">
                 <form className="w-full">

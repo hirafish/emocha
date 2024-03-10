@@ -12,7 +12,9 @@ const Navigation=()=>{
     return (
         <div className="hidden xl:block sm:flex-2 w-64 bg-gray-200">
                 <div className="user-profile text-center">
-                    <UserIcon icon={currentUserIcon} color={currentUserIconColor} />
+                    <div className="mt-16">
+                        <UserIcon icon={currentUserIcon} color={currentUserIconColor} />
+                    </div>
                     <div className="text-gray-800 mt-8">
                         {userSettings.name}
                         <span className="inline-block align-text-bottom">
