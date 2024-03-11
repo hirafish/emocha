@@ -2,12 +2,12 @@ import { Children, createContext } from "react";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faGhost,faOtter,faHippo,faDog,faPaw,faCat,faCow,faFish,faDragon,faKiwiBird,faHorse,faFrog,faRocket,faSnowman,faFootball,faBaseball,faBasketball } from '@fortawesome/free-solid-svg-icons';
 
-export const UserIconsCatalogContext=createContext({});
+export const IconsCatalogContext=createContext({});
 
-export const UserIconsCatalogProvider= props =>{
+export const IconsCatalogProvider= props =>{
     library.add(faGhost,faOtter,faHippo,faDog,faPaw,faCat,faCow,faFish,faDragon,faKiwiBird,faHorse,faFrog,faRocket,faSnowman,faFootball,faBaseball,faBasketball);
     
-    const UserIconsSVGCatalog={
+    const iconsSVGCatalog={
         Ghost:{fontAwesomeValue:"fa-ghost"},
         Otter:{fontAwesomeValue:"fa-otter"},
         Hippo:{fontAwesomeValue:"fa-hippo"},
@@ -27,7 +27,7 @@ export const UserIconsCatalogProvider= props =>{
         Basketball:{fontAwesomeValue:"fa-basketball"}       
     }
 
-    const UserIconsColorCatalog={
+    const iconsColorCatalog={
         Black:{tailwindClass:"text-balack"},
         Gray:{tailwindClass:"text-gray-900"},
         Red:{tailwindClass:"text-red-600"},
@@ -41,16 +41,16 @@ export const UserIconsCatalogProvider= props =>{
         Pink:{tailwindClass:"text-pink-400"}
     }
 
-    const UserIconsCatalog={
-        icon:UserIconsSVGCatalog,
-        color:UserIconsColorCatalog
+    const iconsCatalog={
+        icon:iconsSVGCatalog,
+        color:iconsColorCatalog
     }
 
     const {children}=props;
 
     return (
-        <UserIconsCatalogContext.Provider value={UserIconsCatalog}>
+        <IconsCatalogContext.Provider value={iconsCatalog}>
             {children}
-        </UserIconsCatalogContext.Provider>
+        </IconsCatalogContext.Provider>
     )
 }
