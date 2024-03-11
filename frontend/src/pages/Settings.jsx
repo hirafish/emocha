@@ -1,17 +1,34 @@
-import { useContext } from "react";
-import { UserIconsCatalogContext } from "../components/providers/UserIconsCatalogProvider";
+import { useContext,useState } from "react";
+import { IconsCatalogContext } from "../components/providers/IconsCatalogProvider";
+import { LanguagesCatalogContext } from "../components/providers/LanguagesCatalogProvider";
 import { UserSettingsContext } from "../components/providers/UserSettingsProvider";
 import UserIcon from "../components/UserIcon";
 
 const Settings=()=>{
-    const userIcon="./logo192.png";
-    const userName="りんごらてオバケ";
+    const iconsCatalog=useContext(IconsCatalogContext);
+    const languagesCatalog=useContext(LanguagesCatalogContext);
 
-    const userIconsCatalog=useContext(UserIconsCatalogContext);
     const {userSettings,setUserSettings}=useContext(UserSettingsContext);
 
-    const currentUserIcon=userSettings.icon.icon;
-    const currentUserIconColor=userSettings.icon.color;
+    // const currentUserIcon=userSettings.icon.icon;
+    // const currentUserIconColor=userSettings.icon.color;
+
+    // const currentUserLanguage=userSettings.language;
+
+    const [previews,setPreviews]=useState(userSettings);
+
+    const handleChangeIconImage=(event)=>{
+        const newImage=event.target.value;
+        console.log(newImage)
+        setPreviews(
+            {
+                ...previews,
+                icon:{
+                    ...previews.icon,
+                    image:newImage
+                }
+            });
+    };
 
     return (
         <div className="main-body container m-auto w-11/12 h-full flex flex-col min-h-0">
@@ -22,21 +39,21 @@ const Settings=()=>{
             <h2 className="text-xl py-1 mb-4 border-b-2 border-gray-200">Icon</h2>
             <p className='mb-1'>Preview</p>
             <div className="mb-4">
-                <UserIcon icon={currentUserIcon} color={currentUserIconColor} size={20}/>
+                <UserIcon image={previews.icon.image} color={previews.icon.color} size={20}/>
             </div>
             <div className="flex justify-evenly w-full max-w-xs mx-auto">
                 <form className="w-full">
-                    <select value={currentUserIcon} onChange={""} id="iconName" className="text-center bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-10 px-3 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        {Object.keys(userIconsCatalog.icon).map((iconName,index)=>{
+                    <select value={previews.icon.image} onChange={handleChangeIconImage} id="iconImages" className="text-center bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-10 px-3 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        {Object.keys(iconsCatalog.image).map((image,index)=>{
                             return (
-                                <option key={index} value={iconName}>{iconName}</option>
+                                <option key={index} value={image}>{image}</option>
                             )
                         })}
                     </select>
                 </form>
                 <form className="w-full ml-2">
-                    <select value={currentUserIconColor} id="countries" className="text-center bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-10 px-3 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        {Object.keys(userIconsCatalog.color).map((color,index)=>{
+                    <select value={previews.icon.color} onChange={""} id="iconColors" className="text-center bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-10 px-3 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        {Object.keys(iconsCatalog.color).map((color,index)=>{
                             return (
                                 <option key={index} value={color}>{color}</option>
                             )
@@ -51,9 +68,12 @@ const Settings=()=>{
             <h2 className="text-xl py-1 mb-4 border-b-2 border-gray-200">Language</h2>
             <div className="flex justify-evenly w-full max-w-xs mx-auto">
                 <form className="w-full">
-                    <select id="countries" className="text-center bg-white border border-neutral-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-10 px-3 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option value="en">English</option>
-                    <option value="ja">日本語</option>
+                    <select value={previews.language} onChange={""} id="languages" className="text-center bg-white border border-neutral-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-10 px-3 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        {languagesCatalog.map((language,index)=>{
+                            return (
+                                <option key={index} value={language}>{language}</option>
+                            )
+                        })}
                     </select>
                 </form>
             </div>      

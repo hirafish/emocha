@@ -1,12 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
-import { UserIconsCatalogContext } from "./providers/UserIconsCatalogProvider";
+import { IconsCatalogContext } from "./providers/IconsCatalogProvider";
 
-const UserIcon=({icon,color,size})=>{
-    const userIconsCatalog=useContext(UserIconsCatalogContext);
+const UserIcon=({image,color,size})=>{
+    const iconsCatalog=useContext(IconsCatalogContext);
 
-    const fontAwesomeValue=userIconsCatalog.icon[icon].fontAwesomeValue;
-    const tailwindClass=userIconsCatalog.color[color].tailwindClass;
+    const fontAwesomeValue=iconsCatalog.image[image].fontAwesomeValue;
+    const tailwindClass=iconsCatalog.color[color].tailwindClass;
     
 
     return (

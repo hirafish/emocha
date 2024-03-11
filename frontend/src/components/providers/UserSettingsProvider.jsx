@@ -7,7 +7,7 @@ export const UserSettingsProvider=props=>{
 
     const [userSettings,setUserSettings]=useState(
         {
-            icon:{icon:"Ghost",color:"Purple"},
+            icon:{image:"Ghost",color:"Purple"},
             name:"りんごらてオバケ",
             language:"English"
         });

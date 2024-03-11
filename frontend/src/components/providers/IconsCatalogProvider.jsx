@@ -20,7 +20,6 @@ export const IconsCatalogProvider= props =>{
         KiwiBird:{fontAwesomeValue:"fa-kiwi-bird"},
         Horse:{fontAwesomeValue:"fa-horse"},
         Frog:{fontAwesomeValue:"fa-frog"},
-        Rocket:{fontAwesomeValue:"fa-rocket"},
         Snowman:{fontAwesomeValue:"fa-snowman"},
         Football:{fontAwesomeValue:"fa-football"},
         Baseball:{fontAwesomeValue:"fa-baseball"},
@@ -42,7 +41,7 @@ export const IconsCatalogProvider= props =>{
     }
 
     const iconsCatalog={
-        icon:iconsSVGCatalog,
+        image:iconsSVGCatalog,
         color:iconsColorCatalog
     }
 
