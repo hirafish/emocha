@@ -6,7 +6,7 @@ import Navigation from "./components/nav/Navigation";
 import Home from './pages/Home';
 import Chat from './pages/Chat';
 import Settings from './pages/Settings';
-import twemoji from "twemoji";
+import Twemoji from 'react-twemoji';
 
 function App() {
   // FastAPIとの通信
@@ -26,8 +26,14 @@ function App() {
 
   // ConnectSocketIo();
 
+
+  // --------------
+
+
+
   return (
-    <div className="w-full h-screen">
+    <div id="App" className="w-full h-screen">
+      <Twemoji options={{ className: 'twemoji' }}>
       <div className='flex h-full'>
         <Navigation />
         <div className="flex-1 bg-gray-100 w-full h-full">
@@ -36,6 +42,7 @@ function App() {
           {/* <Settings /> */}
         </div>
       </div>
+      </Twemoji>
     </div>
   );
 }
