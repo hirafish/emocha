@@ -56,6 +56,7 @@ const Settings=()=>{
             // 実行結果（true / false）をもらう
             const response=true; // or false
             if(response===true){
+                setUserSettings(sendData);
                 console.log("更新しました！");
             }else{
                 console.log("更新できませんでした");
