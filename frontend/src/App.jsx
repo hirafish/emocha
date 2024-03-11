@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div id="App" className="w-full h-screen">
-      <Twemoji options={{ className: 'twemoji' }}>
+      <Twemoji noWrapper={true} options={{ className: 'twemoji' }}>
       <div className='flex h-full'>
         <Navigation />
         <div className="flex-1 bg-gray-100 w-full h-full">
