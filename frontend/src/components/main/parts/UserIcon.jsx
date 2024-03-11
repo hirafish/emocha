@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
-import { IconsCatalogContext } from "../providers/IconsCatalogProvider";
+import { IconsCatalogContext } from "../../providers/IconsCatalogProvider";
 
 const UserIcon=({image,color,size})=>{
     const iconsCatalog=useContext(IconsCatalogContext);
