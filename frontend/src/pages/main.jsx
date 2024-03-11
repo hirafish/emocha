@@ -1,7 +1,7 @@
 import Navigation from "../components/nav/Navigation";
 import { Outlet } from 'react-router-dom';
 
-const MainPage=()=>{
+const MainLayout=()=>{
     return (
         <div className='flex h-full'>
             <Navigation />
@@ -36,4 +36,4 @@ const MainPage=()=>{
     );
 }
 
-export default MainPage;
+export default MainLayout;
