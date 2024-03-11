@@ -10,11 +10,6 @@ const Settings=()=>{
 
     const {userSettings,setUserSettings}=useContext(UserSettingsContext);
 
-    // const currentUserIcon=userSettings.icon.icon;
-    // const currentUserIconColor=userSettings.icon.color;
-
-    // const currentUserLanguage=userSettings.language;
-
     const [previews,setPreviews]=useState(userSettings);
 
     const handleChangeIconImage=(event)=>{
@@ -29,6 +24,7 @@ const Settings=()=>{
             }
         );
     };
+
     const handleChangeIconColor=(event)=>{
         const newColor=event.target.value;
         setPreviews(
@@ -38,6 +34,16 @@ const Settings=()=>{
                     ...previews.icon,
                     color:newColor
                 }
+            }
+        );
+    };
+
+    const handleChangeLanguage=(event)=>{
+        const newLanguage=event.target.value;
+        setPreviews(
+            {
+                ...previews,
+                language:newLanguage
             }
         );
     };
@@ -80,7 +86,7 @@ const Settings=()=>{
             <h2 className="text-xl py-1 mb-4 border-b-2 border-gray-200">Language</h2>
             <div className="flex justify-evenly w-full max-w-xs mx-auto">
                 <form className="w-full">
-                    <select value={previews.language} onChange={""} id="languages" className="text-center bg-white border border-neutral-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-10 px-3 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <select value={previews.language} onChange={handleChangeLanguage} id="languages" className="text-center bg-white border border-neutral-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-10 px-3 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         {languagesCatalog.map((language,index)=>{
                             return (
                                 <option key={index} value={language}>{language}</option>
@@ -90,7 +96,7 @@ const Settings=()=>{
                 </form>
             </div>      
         </div>
-        <div className="flex-1 container flex justify-center items-center max-w-xs mx-auto">
+        <div className="flex-1 container flex justify-center items-start max-w-xs mx-auto">
             <button type="button" className="inline-flex items-center justify-center w-4/5 px-5 py-3 text-sm font-medium tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 focus:shadow-outline focus:outline-none">
                 Save
             </button>
