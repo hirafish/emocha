@@ -75,7 +75,7 @@ const Settings=()=>{
         <div className="flex-1 container flex flex-col items-center justify-center my-8">
             <h2 className="text-xl py-1 mb-4 border-b-2 border-gray-200">Icon</h2>
             <p className='mb-1'>Preview</p>
-            <div className="mb-4">
+            <div className="mb-4 w-20 h-20">
                 <UserIcon image={previews.icon.image} color={previews.icon.color} size={20}/>
             </div>
             <div className="flex justify-evenly w-full max-w-xs mx-auto">

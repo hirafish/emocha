@@ -24,10 +24,10 @@ const Navigation=()=>{
                 </div>
 
                 <div className="menu mt-8">
-                    <LinkButton svgIcon={"./navIcon/home.svg"} pageName={"Home"} link={"./"} isCurrentPage={true} />
-                    <LinkButton svgIcon={"./navIcon/chat.svg"} pageName={"Chat"} link={"./"} isCurrentPage={false} />
-                    <LinkButton svgIcon={"./navIcon/slangs.svg"} pageName={"My slangs"} link={"./"} isCurrentPage={false} />
-                    <LinkButton svgIcon={"./navIcon/settings.svg"} pageName={"Settings"} link={"./"} isCurrentPage={false} />
+                    <LinkButton svgIcon={"./navIcon/home.svg"} pageName={"Home"} to={"/home"} />
+                    <LinkButton svgIcon={"./navIcon/chat.svg"} pageName={"Chat"} to={"/chat"} />
+                    <LinkButton svgIcon={"./navIcon/slangs.svg"} pageName={"My slangs"} to={"/slangs"} />
+                    <LinkButton svgIcon={"./navIcon/settings.svg"} pageName={"Settings"} to={"/settings"} />
                 </div>
             </div>
     )

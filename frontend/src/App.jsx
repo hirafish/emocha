@@ -2,10 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 import { FetchFromPython } from './components/api/Sample';
 import { ConnectSocketIo } from './components/socketio/Socketio';
+import { BrowserRouter } from 'react-router-dom';
+import Router from './components/router/Router';
 import Navigation from "./components/nav/Navigation";
-import Home from './pages/Home';
-import Chat from './pages/Chat';
-import Settings from './pages/Settings';
+
 import Twemoji from 'react-twemoji';
 
 function App() {
@@ -32,18 +32,20 @@ function App() {
 
 
   return (
-    <div id="App" className="w-full h-screen">
-      <Twemoji noWrapper={true} options={{ className: 'twemoji' }}>
-      <div className='flex h-full'>
-        <Navigation />
-        <div className="flex-1 bg-gray-100 w-full h-full">
-          {/* <Home /> */}
-          <Chat />
-          {/* <Settings /> */}
+    <BrowserRouter>
+      <div id="App" className="w-full h-screen">
+        <Twemoji noWrapper={true} options={{ className: 'twemoji' }}>
+        <div className='flex h-full'>
+          <Navigation />
+          <div className="flex-1 bg-gray-100 w-full h-full">
+            <Router />
+          </div>
         </div>
+        </Twemoji>
       </div>
-      </Twemoji>
-    </div>
+
+
+    </BrowserRouter>
   );
 }
 
