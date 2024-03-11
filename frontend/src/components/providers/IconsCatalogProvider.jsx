@@ -28,9 +28,8 @@ export const IconsCatalogProvider= props =>{
 
     const iconsColorCatalog={
         Black:{tailwindClass:"text-balack"},
-        Gray:{tailwindClass:"text-gray-900"},
         Red:{tailwindClass:"text-red-600"},
-        Yellow:{tailwindClass:"text-yellow-400"},
+        Yellow:{tailwindClass:"text-yellow-300"},
         Orange:{tailwindClass:"text-yellow-500"},
         Brown:{tailwindClass:"text-yellow-800"},
         Green:{tailwindClass:"text-green-600"},

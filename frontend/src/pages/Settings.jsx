@@ -19,7 +19,6 @@ const Settings=()=>{
 
     const handleChangeIconImage=(event)=>{
         const newImage=event.target.value;
-        console.log(newImage)
         setPreviews(
             {
                 ...previews,
@@ -27,7 +26,20 @@ const Settings=()=>{
                     ...previews.icon,
                     image:newImage
                 }
-            });
+            }
+        );
+    };
+    const handleChangeIconColor=(event)=>{
+        const newColor=event.target.value;
+        setPreviews(
+            {
+                ...previews,
+                icon:{
+                    ...previews.icon,
+                    color:newColor
+                }
+            }
+        );
     };
 
     return (
@@ -52,7 +64,7 @@ const Settings=()=>{
                     </select>
                 </form>
                 <form className="w-full ml-2">
-                    <select value={previews.icon.color} onChange={""} id="iconColors" className="text-center bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-10 px-3 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <select value={previews.icon.color} onChange={handleChangeIconColor} id="iconColors" className="text-center bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full h-10 px-3 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         {Object.keys(iconsCatalog.color).map((color,index)=>{
                             return (
                                 <option key={index} value={color}>{color}</option>
