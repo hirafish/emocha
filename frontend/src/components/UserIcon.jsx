@@ -7,7 +7,7 @@ const UserIcon=({icon,color,size})=>{
 
     const fontAwesomeValue=userIconsCatalog.icon[icon].fontAwesomeValue;
     const tailwindClass=userIconsCatalog.color[color].tailwindClass;
-    console.log(size)
+    
 
     return (
         <div className={size?"w-"+size+" h-"+size+" rounded-full m-auto  border-2 border-white bg-white  flex items-center justify-center":""}>
