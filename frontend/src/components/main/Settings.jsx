@@ -1,18 +1,24 @@
 import { useContext,useState } from "react";
-import { IconsCatalogContext } from "../components/providers/IconsCatalogProvider";
-import { LanguagesCatalogContext } from "../components/providers/LanguagesCatalogProvider";
-import { UserSettingsContext } from "../components/providers/UserSettingsProvider";
-import UserIcon from "../components/UserIcon";
+import { IconsCatalogContext } from "../providers/IconsCatalogProvider";
+import { LanguagesCatalogContext } from "../providers/LanguagesCatalogProvider";
+import { UserSettingsContext } from "../providers/UserSettingsProvider";
+import UserIcon from "../UserIcon";
 
 const Settings=()=>{
+    // アイコンのデザインセットと言語設定セットを取得
     const iconsCatalog=useContext(IconsCatalogContext);
     const languagesCatalog=useContext(LanguagesCatalogContext);
+    // --------------------------------------
 
+
+    // ユーザ設定を格納するグローバル変数と設定を変更する関数を取得
     const {userSettings,setUserSettings}=useContext(UserSettingsContext);
 
+    // プレビューのための変数
     const [previews,setPreviews]=useState(userSettings);
 
-    // プレビューを更新する
+
+    // プレビューを更新するハンドラー
     const handleChangeIconImage=(event)=>{
         const newImage=event.target.value;
         setPreviews(
@@ -46,6 +52,8 @@ const Settings=()=>{
             }
         );
     };
+// ---------------------------------------------
+
 
     // Sendボタンをクリックした時の処理
     const handleClickSend=()=>{

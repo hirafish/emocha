@@ -1,4 +1,4 @@
-import { Children, createContext } from "react";
+import { createContext } from "react";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faGhost,faOtter,faHippo,faDog,faPaw,faCat,faCow,faFish,faDragon,faKiwiBird,faHorse,faFrog,faRocket,faSnowman,faFootball,faBaseball,faBasketball } from '@fortawesome/free-solid-svg-icons';
 
@@ -6,7 +6,8 @@ export const IconsCatalogContext=createContext({});
 
 export const IconsCatalogProvider= props =>{
     library.add(faGhost,faOtter,faHippo,faDog,faPaw,faCat,faCow,faFish,faDragon,faKiwiBird,faHorse,faFrog,faRocket,faSnowman,faFootball,faBaseball,faBasketball);
-    
+
+    // アイコンのデザインセットを定義
     const iconsSVGCatalog={
         Ghost:{fontAwesomeValue:"fa-ghost"},
         Otter:{fontAwesomeValue:"fa-otter"},
@@ -25,7 +26,6 @@ export const IconsCatalogProvider= props =>{
         Baseball:{fontAwesomeValue:"fa-baseball"},
         Basketball:{fontAwesomeValue:"fa-basketball"}       
     }
-
     const iconsColorCatalog={
         Black:{tailwindClass:"text-balack"},
         Red:{tailwindClass:"text-red-600"},
