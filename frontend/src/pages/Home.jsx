@@ -1,6 +1,3 @@
-import Header from "../components/Header";
-import Navigation from "../components/nav/Navigation";
-
 const Home=()=>{
     return(
         <div className="main flex-1 flex flex-col min-h-0">

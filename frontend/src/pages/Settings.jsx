@@ -3,8 +3,6 @@ import { IconsCatalogContext } from "../components/providers/IconsCatalogProvide
 import { LanguagesCatalogContext } from "../components/providers/LanguagesCatalogProvider";
 import { UserSettingsContext } from "../components/providers/UserSettingsProvider";
 import UserIcon from "../components/UserIcon";
-import Header from "../components/Header";
-import Navigation from "../components/nav/Navigation";
 
 const Settings=()=>{
     const iconsCatalog=useContext(IconsCatalogContext);
