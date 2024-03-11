@@ -262,7 +262,7 @@ const Chat=()=>{
                             </div>
                         </div>
                     </div>
-                    <div className="flex-2 pt-4 pb-10">
+                    <div className="flex-2 pt-4 pb-6">
                         <div className="write bg-white shadow flex rounded-lg">
                             <div className="flex-3 flex content-center items-center text-center p-4 pr-0">
                                 <span className="block text-center text-gray-400 hover:text-gray-800">
