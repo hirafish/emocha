@@ -2,11 +2,15 @@ import logo from './logo.svg';
 import './App.css';
 import { FetchFromPython } from './components/api/Sample';
 import { ConnectSocketIo } from './components/socketio/Socketio';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import Router from './components/router/Router';
 import Navigation from "./components/nav/Navigation";
+import Header from './components/Header';
+import MainPage from './pages/main';
 
 import Twemoji from 'react-twemoji';
+
+import UserIcon from './components/UserIcon';
 
 function App() {
   // FastAPIとの通信
@@ -29,24 +33,17 @@ function App() {
 
   // --------------
 
-
+  
 
   return (
     <BrowserRouter>
       <div id="App" className="w-full h-screen">
         <Twemoji noWrapper={true} options={{ className: 'twemoji' }}>
           <div className='h-full'>
-        {/* <div className='flex h-full'>
-          <Navigation />
-          <div className="flex-1 bg-gray-100 w-full h-full"> */}
             <Router />
-          {/* </div>
-        </div> */}
           </div>
         </Twemoji>
       </div>
-
-
     </BrowserRouter>
   );
 }

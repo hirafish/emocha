@@ -15,7 +15,7 @@ const Navigation=()=>{
             <div className="p-4 flex justify-end">
                 <span className="xl:hidden inline-block text-gray-700 hover:text-gray-900 align-bottom">
                     <span className="block h-6 w-6 p-1 rounded-full hover:bg-gray-400">
-                        <img src="./navIcon/close.svg" />
+                        <img src="/navIcon/close.svg" />
                     </span>
                 </span>
             </div>
@@ -32,10 +32,10 @@ const Navigation=()=>{
             </div>
 
             <div className="menu mt-16 lg:mt-8">
-                <LinkButton svgIcon={"./navIcon/home.svg"} pageName={"Home"} to={"/home"} />
-                <LinkButton svgIcon={"./navIcon/chat.svg"} pageName={"Chat"} to={"/chat"} />
-                <LinkButton svgIcon={"./navIcon/slangs.svg"} pageName={"My slangs"} to={"/slangs"} />
-                <LinkButton svgIcon={"./navIcon/settings.svg"} pageName={"Settings"} to={"/settings"} />
+                <LinkButton svgIcon={"/navIcon/home.svg"} pageName={"Home"} to={"/main/home"} />
+                <LinkButton svgIcon={"/navIcon/chat.svg"} pageName={"Chat"} to={"/main/chat"} />
+                <LinkButton svgIcon={"/navIcon/slangs.svg"} pageName={"My slangs"} to={"/main/slangs"} />
+                <LinkButton svgIcon={"/navIcon/settings.svg"} pageName={"Settings"} to={"/main/settings"} />
             </div>
         </div>
     )
