@@ -12,6 +12,7 @@ const Settings=()=>{
 
     const [previews,setPreviews]=useState(userSettings);
 
+    // プレビューを更新する
     const handleChangeIconImage=(event)=>{
         const newImage=event.target.value;
         setPreviews(
@@ -24,7 +25,6 @@ const Settings=()=>{
             }
         );
     };
-
     const handleChangeIconColor=(event)=>{
         const newColor=event.target.value;
         setPreviews(
@@ -37,7 +37,6 @@ const Settings=()=>{
             }
         );
     };
-
     const handleChangeLanguage=(event)=>{
         const newLanguage=event.target.value;
         setPreviews(
@@ -46,6 +45,25 @@ const Settings=()=>{
                 language:newLanguage
             }
         );
+    };
+
+    // Sendボタンをクリックした時の処理
+    const handleClickSend=()=>{
+        const sendData=previews;
+        console.log(sendData);
+        // ここでsendDataをバックエンドにpostする
+        try{
+            // 実行結果（true / false）をもらう
+            const response=true; // or false
+            if(response===true){
+                console.log("更新しました！");
+            }else{
+                console.log("更新できませんでした");
+            };
+        }catch(error){
+            console.log("Fetch Error:",error);
+            console.log("更新できませんでした");
+        };
     };
 
     return (
@@ -97,7 +115,7 @@ const Settings=()=>{
             </div>      
         </div>
         <div className="flex-1 container flex justify-center items-start max-w-xs mx-auto">
-            <button type="button" className="inline-flex items-center justify-center w-4/5 px-5 py-3 text-sm font-medium tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 focus:shadow-outline focus:outline-none">
+            <button onClick={handleClickSend} type="button" className="inline-flex items-center justify-center w-4/5 px-5 py-3 text-sm font-medium tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 focus:shadow-outline focus:outline-none">
                 Save
             </button>
 
