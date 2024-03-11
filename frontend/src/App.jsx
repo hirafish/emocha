@@ -7,7 +7,7 @@ import Router from './components/router/Router';
 
 import Twemoji from 'react-twemoji';
 
-import UserIcon from './components/UserIcon';
+import UserIcon from './components/parts/UserIcon';
 
 function App() {
   // FastAPIとの通信

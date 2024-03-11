@@ -1,7 +1,7 @@
 import LinkButton from "./LinkButton";
 import { useContext } from "react";
 import { UserSettingsContext } from "../providers/UserSettingsProvider";
-import UserIcon from "../UserIcon";
+import UserIcon from "../parts/UserIcon";
 
 const Navigation=()=>{
     const {userSettings}=useContext(UserSettingsContext);
