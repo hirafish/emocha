@@ -45,7 +45,6 @@ const Chat=()=>{
                             <div className="flex-2">
                                 <div className="w-12 h-12 relative">
                                     <img className="w-12 h-12 rounded-full mx-auto" src="./resources/profile-image.png" alt="chat-user" />
-                                    <span className="absolute w-4 h-4 bg-green-400 rounded-full right-0 bottom-0 border-2 border-white"></span>
                                 </div>
                             </div>
                             <div className="flex-1 px-2">
@@ -65,7 +64,6 @@ const Chat=()=>{
                             <div className="flex-2">
                                 <div className="w-12 h-12 relative">
                                     <img className="w-12 h-12 rounded-full mx-auto" src="./resources/profile-image.png" alt="chat-user" />
-                                    <span className="absolute w-4 h-4 bg-gray-400 rounded-full right-0 bottom-0 border-2 border-white"></span>
                                 </div>
                             </div>
                             <div className="flex-1 px-2">
@@ -85,7 +83,6 @@ const Chat=()=>{
                             <div className="flex-2">
                                 <div className="w-12 h-12 relative">
                                     <img className="w-12 h-12 rounded-full mx-auto" src="./resources/profile-image.png" alt="chat-user" />
-                                    <span className="absolute w-4 h-4 bg-gray-400 rounded-full right-0 bottom-0 border-2 border-white"></span>
                                 </div>
                             </div>
                             <div className="flex-1 px-2">
@@ -100,7 +97,6 @@ const Chat=()=>{
                             <div className="flex-2">
                                 <div className="w-12 h-12 relative">
                                     <img className="w-12 h-12 rounded-full mx-auto" src="./resources/profile-image.png" alt="chat-user" />
-                                    <span className="absolute w-4 h-4 bg-gray-400 rounded-full right-0 bottom-0 border-2 border-white"></span>
                                 </div>
                             </div>
                             <div className="flex-1 px-2">
@@ -115,7 +111,6 @@ const Chat=()=>{
                             <div className="flex-2">
                                 <div className="w-12 h-12 relative">
                                     <img className="w-12 h-12 rounded-full mx-auto" src="./resources/profile-image.png" alt="chat-user" />
-                                    <span className="absolute w-4 h-4 bg-gray-400 rounded-full right-0 bottom-0 border-2 border-white"></span>
                                 </div>
                             </div>
                             <div className="flex-1 px-2">
@@ -130,7 +125,6 @@ const Chat=()=>{
                             <div className="flex-2">
                                 <div className="w-12 h-12 relative">
                                     <img className="w-12 h-12 rounded-full mx-auto" src="./resources/profile-image.png" alt="chat-user" />
-                                    <span className="absolute w-4 h-4 bg-gray-400 rounded-full right-0 bottom-0 border-2 border-white"></span>
                                 </div>
                             </div>
                             <div className="flex-1 px-2">
@@ -145,7 +139,6 @@ const Chat=()=>{
                             <div className="flex-2">
                                 <div className="w-12 h-12 relative">
                                     <img className="w-12 h-12 rounded-full mx-auto" src="./resources/profile-image.png" alt="chat-user" />
-                                    <span className="absolute w-4 h-4 bg-gray-400 rounded-full right-0 bottom-0 border-2 border-white"></span>
                                 </div>
                             </div>
                             <div className="flex-1 px-2">
@@ -160,7 +153,6 @@ const Chat=()=>{
                             <div className="flex-2">
                                 <div className="w-12 h-12 relative">
                                     <img className="w-12 h-12 rounded-full mx-auto" src="./resources/profile-image.png" alt="chat-user" />
-                                    <span className="absolute w-4 h-4 bg-gray-400 rounded-full right-0 bottom-0 border-2 border-white"></span>
                                 </div>
                             </div>
                             <div className="flex-1 px-2">
@@ -182,7 +174,6 @@ const Chat=()=>{
                             <div className="flex-2">
                                 <div className="w-12 h-12 relative">
                                     <img className="w-12 h-12 rounded-full mx-auto" src="./resources/profile-image.png" alt="chat-user" />
-                                    <span className="absolute w-4 h-4 bg-gray-400 rounded-full right-0 bottom-0 border-2 border-white"></span>
                                 </div>
                             </div>
                             <div className="flex-1 px-2">
@@ -196,7 +187,6 @@ const Chat=()=>{
                             <div className="flex-2">
                                 <div className="w-12 h-12 relative">
                                     <img className="w-12 h-12 rounded-full mx-auto" src="./resources/profile-image.png" alt="chat-user" />
-                                    <span className="absolute w-4 h-4 bg-gray-400 rounded-full right-0 bottom-0 border-2 border-white"></span>
                                 </div>
                             </div>
                             <div className="flex-1 px-2">
@@ -211,7 +201,6 @@ const Chat=()=>{
                             <div className="flex-2">
                                 <div className="w-12 h-12 relative">
                                     <img className="w-12 h-12 rounded-full mx-auto" src="./resources/profile-image.png" alt="chat-user" />
-                                    <span className="absolute w-4 h-4 bg-gray-400 rounded-full right-0 bottom-0 border-2 border-white"></span>
                                 </div>
                             </div>
                             <div className="flex-1 px-2">
@@ -251,7 +240,6 @@ const Chat=()=>{
                             <div className="flex-2">
                                 <div className="w-12 h-12 relative">
                                     <img className="w-12 h-12 rounded-full mx-auto" src="./resources/profile-image.png" alt="chat-user" />
-                                    <span className="absolute w-4 h-4 bg-gray-400 rounded-full right-0 bottom-0 border-2 border-white"></span>
                                 </div>
                             </div>
                             <div className="flex-1 px-2">
