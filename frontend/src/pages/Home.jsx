@@ -1,7 +1,11 @@
 import Header from "../components/Header";
+import Navigation from "../components/nav/Navigation";
 
 const Home=()=>{
     return(
+        <div className='flex h-full'>
+          <Navigation />
+          <div className="flex-1 bg-gray-100 w-full h-full">
         <div className="main-body container m-auto w-11/12 h-full flex flex-col">
             <Header />
             <div className="main flex-1 flex flex-col min-h-0">
@@ -12,6 +16,8 @@ const Home=()=>{
                     <p className="text-5xl text-gray-700 mb-16">coming soon ...</p>
                 </div>
             </div>
+        </div>
+        </div>
         </div>
 
     )

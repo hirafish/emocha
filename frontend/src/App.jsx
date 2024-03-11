@@ -35,12 +35,14 @@ function App() {
     <BrowserRouter>
       <div id="App" className="w-full h-screen">
         <Twemoji noWrapper={true} options={{ className: 'twemoji' }}>
-        <div className='flex h-full'>
+          <div className='h-full'>
+        {/* <div className='flex h-full'>
           <Navigation />
-          <div className="flex-1 bg-gray-100 w-full h-full">
+          <div className="flex-1 bg-gray-100 w-full h-full"> */}
             <Router />
+          {/* </div>
+        </div> */}
           </div>
-        </div>
         </Twemoji>
       </div>
 
