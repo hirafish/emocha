@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import IndexPage from "../../pages";
-import MainLayout from "../../pages/main";
+import IndexPage from "../../pages/Index";
+import MainLayout from "../../pages/Main";
 import Home from '../../pages/Home';
 import Chat from '../../pages/Chat';
 import Slangs from "../../pages/Slangs";
