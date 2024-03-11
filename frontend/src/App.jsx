@@ -6,6 +6,7 @@ import Navigation from "./components/nav/Navigation";
 import Home from './pages/Home';
 import Chat from './pages/Chat';
 import Settings from './pages/Settings';
+import twemoji from "twemoji";
 
 function App() {
   // FastAPIとの通信
