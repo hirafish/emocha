@@ -35,11 +35,7 @@ function App() {
   return (
     <BrowserRouter>
       <div id="App" className="w-full h-screen">
-        <Twemoji noWrapper={true} options={{ className: 'twemoji' }}>
-          <div className='h-full'>
             <Router />
-          </div>
-        </Twemoji>
       </div>
     </BrowserRouter>
   );

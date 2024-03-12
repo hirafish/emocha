@@ -1,15 +1,30 @@
 import Navigation from "../components/main/nav/Navigation";
 import { Outlet } from 'react-router-dom';
+import { useEffect, useState } from "react";
 
 const MainLayout=()=>{
+    // ナビゲーションの開閉
+    const closeNavTailwind="hidden";
+    const openNavTailwind="absolute w-full h-full lg:left-0 lg:w-64 z-20";
+
+    const [navTailwind,setNavTailwind]=useState(closeNavTailwind);
+    
+    const handleOpenCloseNav=()=>{
+        if(navTailwind===closeNavTailwind){
+            setNavTailwind(openNavTailwind);
+        }else{
+            setNavTailwind(closeNavTailwind);
+        };
+    };
+
     return (
         <div className='flex h-full'>
-            <Navigation />
+            <Navigation handleOpenCloseNav={handleOpenCloseNav} navTailwind={navTailwind} />
             <div className="flex-1 bg-gray-100 w-full h-full">
             <div className="main-body container m-auto w-11/12 h-full flex flex-col">
             <header className="py-4 flex-2 flex flex-row">
                 <div className="flex-1">
-                    <span className="xl:hidden inline-block text-gray-700 hover:text-gray-900 align-bottom">
+                    <span onClick={handleOpenCloseNav} className="xl:hidden inline-block text-gray-700 hover:text-gray-900 align-bottom">
                         <span className="block h-6 w-6 p-1 rounded-full hover:bg-gray-400">
                             <svg className="w-4 h-4" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
                         </span>

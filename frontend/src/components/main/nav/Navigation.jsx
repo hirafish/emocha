@@ -3,17 +3,22 @@ import { useContext } from "react";
 import { UserSettingsContext } from "../../providers/UserSettingsProvider";
 import UserIcon from "../parts/UserIcon";
 
-const Navigation=()=>{
+const Navigation=(props)=>{
+    // ユーザ設定情報を取得
     const {userSettings}=useContext(UserSettingsContext);
 
     const currentUserIcon=userSettings.icon.image;
     const currentUserIconColor=userSettings.icon.color;
-    // absolute w-full h-full lg:left-0 lg:w-64 z-20
+    // ------------------------
+
+    // ナビゲーションの開閉
+    const handleOpenCloseNav=()=>{props.handleOpenCloseNav()};
+    const navTailwind=props.navTailwind;
 
     return (
-        <div className="xl:block sm:flex-2 w-64 bg-gray-200 hidden">
+        <div className={"xl:block sm:flex-2 w-64 bg-gray-200 "+navTailwind}>
             <div className="p-4 flex justify-end">
-                <span className="xl:hidden inline-block text-gray-700 hover:text-gray-900 align-bottom">
+                <span onClick={()=>{handleOpenCloseNav()}} className="xl:hidden inline-block text-gray-700 hover:text-gray-900 align-bottom">
                     <span className="block h-6 w-6 p-1 rounded-full hover:bg-gray-400">
                         <img src="/navIcon/close.svg" />
                     </span>
