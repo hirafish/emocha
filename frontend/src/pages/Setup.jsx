@@ -71,15 +71,15 @@ const Setup=()=>{
             const response=true; // 実行結果を格納する変数
             if(response===true){
                 setUserSettings(sendData);
-                alert("設定を更新しました！")
+                alert("設定しました！")
             }else{
-                alert("現在、設定を更新することができません。")
-                console.log("更新できませんでした");
+                alert("現在、設定することができません。")
+                console.log("設定できませんでした");
             };
         }catch(error){
             console.log("Fetch Error:",error);
-            alert("現在、設定を更新することができません。")
-            console.log("更新できませんでした");
+            alert("現在、設定することができません。")
+            console.log("設定できませんでした");
         };
     };
 
