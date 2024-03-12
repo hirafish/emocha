@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import { io } from "socket.io-client";
 
 function App() {
-  const backendServerUrl="http://backend:8000";
+  // FastAPIとの通信
   const fetchFromPython=async ()=>{
-    const response=await fetch("http://localhost:8000/",{
+    const response=await fetch("http://localhost:8000/fastapi",{
       method:"GET",
       headers:{
           "Content-Type":"application/json"
@@ -18,14 +19,34 @@ function App() {
     return data;
   };
 
-  (async()=>{
-    try{
-    const data=await fetchFromPython();
-    console.log(data);
-    }catch(error){
-      console.log("(Fetch Error)",error);
-    };
-  })();
+  // (async()=>{
+  //   try{
+  //   const data=await fetchFromPython();
+  //   console.log(data);
+  //   }catch(error){
+  //     console.log("(Fetch Error)",error);
+  //   };
+  // })();
+
+  
+  // --------------
+  // Socket.io通信
+  const port = process.env.PORT || 8000;
+  const socket = io('http://localhost:' + port, {auth: {token: 'my-token'}});
+
+  socket.on('connect', () => {
+    console.log(`connect ${socket.id}`);
+  });
+
+  socket.on('disconnect', () => {
+    console.log(`disconnect ${socket.id}`);
+  });
+
+  socket.on('hello', (a, b, c) => {
+    console.log(a, b, c);
+  });
+
+
 
   return (
     <div className="App">
