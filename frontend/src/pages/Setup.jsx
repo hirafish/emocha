@@ -57,6 +57,15 @@ const Setup=()=>{
             }
         );
     };
+    const handleChangeSnsUrl=(event)=>{
+        const newSnsUrl=event.target.value;
+        setPreviews(
+            {
+                    ...previews,
+                snsUrl:newSnsUrl
+            }
+        )
+    }
     // ---------------------------------------------
 
     // ユーザの設定をフロントエンド全体に反映させる
@@ -134,6 +143,9 @@ const Setup=()=>{
                             )
                         })}
                     </select>
+                </div>
+                <div>
+                    <input value={previews.snsUrl} onChange={handleChangeSnsUrl} type="text" id="first_name" placeholder="snsUrl" />
                 </div>
             </div>
             {/* NavLinkがaタグの役割をしている */}
