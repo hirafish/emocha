@@ -1,4 +1,4 @@
-import LinkButton from "./LinkButton";
+import LinkButton from "./parts/LinkButton";
 import { useContext } from "react";
 import { UserSettingsContext } from "../../providers/UserSettingsProvider";
 import UserIcon from "../parts/UserIcon";
@@ -26,7 +26,7 @@ const Navigation=(props)=>{
             </div>
             <div className="user-profile text-center">
                 <div className="mt-16">
-                    <UserIcon image={currentUserIcon} color={currentUserIconColor} size={32}/>
+                    <UserIcon image={currentUserIcon} color={currentUserIconColor} size={"32"}/>
                 </div>
                 <div className="text-gray-800 mt-8">
                     {userSettings.name}
