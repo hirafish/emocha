@@ -2,7 +2,7 @@ import { useContext,useState } from "react";
 import { IconsCatalogContext } from "../providers/IconsCatalogProvider";
 import { LanguagesCatalogContext } from "../providers/LanguagesCatalogProvider";
 import { UserSettingsContext } from "../providers/UserSettingsProvider";
-import UserIcon from "./parts/UserIcon";
+import UserIcon from "./globalParts/UserIcon";
 
 const Settings=()=>{
     // アイコンのデザインセットと言語設定セットを取得

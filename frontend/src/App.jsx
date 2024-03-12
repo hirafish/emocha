@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { FetchFromPython } from './components/api/Sample';
 import { ConnectSocketIo } from './components/socketio/Socketio';
@@ -6,8 +5,6 @@ import { BrowserRouter } from 'react-router-dom';
 import Router from './components/router/Router';
 
 import Twemoji from 'react-twemoji';
-
-import UserIcon from './components/main/parts/UserIcon';
 
 function App() {
   // FastAPIとの通信

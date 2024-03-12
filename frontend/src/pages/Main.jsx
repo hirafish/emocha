@@ -1,6 +1,6 @@
 import Navigation from "../components/main/nav/Navigation";
 import { Outlet } from 'react-router-dom';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const MainLayout=()=>{
     // ナビゲーションの開閉

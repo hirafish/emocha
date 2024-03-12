@@ -1,7 +1,7 @@
 import LinkButton from "./parts/LinkButton";
 import { useContext } from "react";
 import { UserSettingsContext } from "../../providers/UserSettingsProvider";
-import UserIcon from "../parts/UserIcon";
+import UserIcon from "../globalParts/UserIcon";
 
 const Navigation=(props)=>{
     // ユーザ設定情報を取得
@@ -25,8 +25,10 @@ const Navigation=(props)=>{
                 </span>
             </div>
             <div className="user-profile text-center">
-                <div className="mt-16">
-                    <UserIcon image={currentUserIcon} color={currentUserIconColor} size={"32"}/>
+                <div className="flex justify-center items-center">
+                    <div className="mt-16 w-32 h-32">
+                        <UserIcon image={currentUserIcon} color={currentUserIconColor} size={"32"}/>
+                    </div>
                 </div>
                 <div className="text-gray-800 mt-8">
                     {userSettings.name}
