@@ -1,0 +1,100 @@
+# Docker Composeのバージョン
+version: "3"
+
+# サービスの定義
+services:
+  # "frontend"というサービスの設定
+  frontend:
+    # イメージのビルド情報
+    container_name: frontend
+    build:
+      # Dockerイメージをビルドするためのコンテキスト
+      context: ./docker/frontend/
+      # Dockerfileの場所
+      dockerfile: ./Dockerfile
+
+    # 作業ディレクトリの設定
+    working_dir: /frontend
+
+    # システム環境最適化
+    environment:
+      - NODE_ENV=production
+
+    # ボリュームのマウント設定
+    volumes:
+      - ./frontend:/frontend 
+
+    # コンテナ内で実行されるコマンド
+    command: node
+
+    # 公開用のポート指定。ホスト側:コンテナ側
+    ports:
+      - '3000:3000'
+
+    # ttyを有効にする（コンテナと対話的なセッションを可能にする）
+    tty: true
+
+    # backendコンテナ起動後にfrontendコンテナを起動する
+    depends_on:
+        - backend
+    
+    networks:
+      - client
+
+
+  backend:
+    container_name: backend
+
+    build:
+        context: ./docker/backend/
+        dockerfile: ./Dockerfile
+
+    volumes:
+        - ./backend:/home/pyuser/backend
+
+    ports:
+      # 仮のポート番号
+      - '8000:8000'
+      
+    tty: true
+
+    depends_on:
+      - database
+    
+    networks:
+      - client
+      - server
+
+
+  database:    
+    container_name: database
+
+    build:
+        context: ./docker/database/
+        dockerfile: ./Dockerfile
+
+    restart: always
+    
+    # メモリ制限
+    shm_size: 128mb
+    
+    volumes:
+      - ./database/store:/var/lib/postgresql/data
+      - ./database/init:/docker-entrypoint-initdb.d
+    
+    environment:
+      - POSTGRES_USER=obake
+      - POSTGRES_PASSWORD=obake
+    
+    ports:
+      - 5432:5432
+    
+    networks:
+      - server
+
+# ネットーワークの定義
+networks:
+  client:
+    driver: bridge
+  server:
+    driver: bridge
