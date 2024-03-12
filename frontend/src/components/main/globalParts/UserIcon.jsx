@@ -10,7 +10,7 @@ const UserIcon=({image,color,size})=>{
     
 
     return (
-        <div className={size?"w-"+size+" h-"+size+" rounded-full m-auto  border-2 border-white bg-white  flex items-center justify-center":""}>
+        <div className={size?"w-"+size+" h-"+size+" rounded-full m-auto  border-2 border-gray-200 bg-white  flex items-center justify-center":""}>
             {fontAwesomeValue?<FontAwesomeIcon icon={fontAwesomeValue+" fa-solid"} className={"rounded-full w-2/3 h-2/3 "+tailwindClass} />:""}            
         </div>
     );
