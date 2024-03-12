@@ -59,18 +59,20 @@ const Settings=()=>{
     const handleClickSend=()=>{
         const sendData=previews;
         console.log(sendData);
-        // ここでsendDataをバックエンドにpostする
         try{
+            // ここでsendDataをバックエンドにpostする
             // 実行結果（true / false）をもらう
-            const response=true; // or false
+            const response=true; // 実行結果を格納する変数
             if(response===true){
                 setUserSettings(sendData);
-                console.log("更新しました！");
+                alert("設定を更新しました！")
             }else{
+                alert("現在、設定を更新することができません。")
                 console.log("更新できませんでした");
             };
         }catch(error){
             console.log("Fetch Error:",error);
+            alert("現在、設定を更新することができません。")
             console.log("更新できませんでした");
         };
     };
