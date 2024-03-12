@@ -2,12 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import { IconsCatalogProvider } from './components/providers/IconsCatalogProvider';
+import { LanguagesCatalogProvider } from './components/providers/LanguagesCatalogProvider';
+import { UserSettingsProvider } from './components/providers/UserSettingsProvider';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <IconsCatalogProvider>
+      <LanguagesCatalogProvider>
+        <UserSettingsProvider>
+          <App />
+        </UserSettingsProvider>
+      </LanguagesCatalogProvider>
+    </IconsCatalogProvider>
   </React.StrictMode>
 );
 

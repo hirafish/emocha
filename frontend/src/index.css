@@ -16,3 +16,8 @@ code {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.navLink.active {
+  @apply border-gray-800 bg-gray-300 text-black;
+}
