@@ -5,11 +5,13 @@ import Home from '../main/Home';
 import Chat from '../main/Chat';
 import Slangs from "../main/Slangs";
 import Settings from '../main/Settings';
+import Setup from "../../pages/Setup";
 
 const Router=()=>{
     return (
         <Routes>
             <Route  path="/" element={<IndexPage />} />
+            <Route path="/setup" element={<Setup />} />
             <Route  path="/main" element={<MainLayout />}>
                 <Route  path="/main/home" element={<Home />} />
                 <Route  path="/main/chat" element={<Chat />} />
