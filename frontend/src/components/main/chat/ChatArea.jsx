@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ReceiveMessage from "./parts/ReceiveMessage";
 import SendMessage from "./parts/SendMassage";
 import data from '@emoji-mart/data/sets/14/twitter.json'
@@ -13,6 +14,21 @@ const ChatArea=()=>{
         iconText:"@Otter;Pink;",
         message:"🍏☕️"
     }
+
+    // 絵文字ピッカーの表示ハンドラー
+    const tailwindNotShowEmojiPicker="hidden";
+    const tailwindShowEmojiPicker="absolute bottom-24 opacity-75";
+
+    const [showEmojiPicker,setShowEmojiPicker]=useState(tailwindNotShowEmojiPicker);
+
+    const handleShowEmojiPicker=()=>{
+        if(showEmojiPicker===tailwindNotShowEmojiPicker){
+            setShowEmojiPicker(tailwindShowEmojiPicker);
+        }else{
+            setShowEmojiPicker(tailwindNotShowEmojiPicker);
+        };
+    }
+
     return (
         <div className="chat-area flex-1 flex flex-col h-full">
             <div className="flex-3">
@@ -53,7 +69,7 @@ const ChatArea=()=>{
                 
             </div>
             <div className="flex-2 pt-4 pb-6 relative">
-                <div id="picker" className=" absolute bottom-24 opacity-75">
+                <div id="picker" className={showEmojiPicker}>
                     <Picker data={data} locale="en" noCountryFlags={true} set="twitter" onEmojiSelect={console.log} emojiButtonRadius='6px' previewPosition={"none"}
                         emojiButtonColors={[
                         'rgba(155,223,88,.7)',
@@ -71,7 +87,7 @@ const ChatArea=()=>{
                         </span>
                     </div>
                     <div className="flex-1">
-                        <textarea readOnly name="message" className="w-full block outline-none py-4 px-4 bg-transparent" rows="1" placeholder="Type emojis ..." autoFocus></textarea>
+                        <textarea onClick={handleShowEmojiPicker} readOnly name="message" className="w-full block outline-none py-4 px-4 bg-transparent" rows="1" placeholder="Type emojis ..." autoFocus></textarea>
                     </div>
                     <div className="flex-2 w-32 p-2 flex content-center items-center">
                         <div className="flex-1 text-center">

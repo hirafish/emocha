@@ -36,7 +36,7 @@ const SendMessage=({message})=>{
                         {message}
                     </span>
                 </div>
-                <div className="pr-4"><small className="text-gray-500">15 April</small></div>
+                {/* <div className="pr-4"><small className="text-gray-500">15 April</small></div> */}
             </div>
         </div>
     );
