@@ -1,5 +1,7 @@
 import ReceiveMessage from "./parts/ReceiveMessage";
 import SendMessage from "./parts/SendMassage";
+import data from '@emoji-mart/data/sets/14/twitter.json'
+import Picker from '@emoji-mart/react'
 
 const ChatArea=()=>{
     const sendData={
@@ -47,6 +49,7 @@ const ChatArea=()=>{
                         </span>
                     </div>
                     <div className="flex-1">
+                        <Picker data={data} locale="en" noCountryFlags={true} set="twitter" onEmojiSelect={console.log} />
                         <textarea name="message" className="w-full block outline-none py-4 px-4 bg-transparent" rows="1" placeholder="Type emojis ..." autoFocus></textarea>
                     </div>
                     <div className="flex-2 w-32 p-2 flex content-center items-center">

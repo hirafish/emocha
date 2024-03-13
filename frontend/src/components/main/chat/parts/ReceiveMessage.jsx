@@ -1,16 +1,6 @@
 import UserIcon from "../../globalParts/UserIcon";
 
 
-const UserIconFormatedFromIconText=({iconText,iconSize})=>{
-    const preUserIconData=iconText.slice(1,iconText.length-1)
-    const userIconDataList=preUserIconData.split(";");
-    return (
-        <>
-            <UserIcon image={userIconDataList[0]} color={userIconDataList[1]} size={iconSize} />
-        </>
-    )
-}
-
 const ReceiveMessage=({receiveData})=>{
     const iconText=receiveData.iconText;
     const preUserIconData=iconText.slice(1,iconText.length-1)
