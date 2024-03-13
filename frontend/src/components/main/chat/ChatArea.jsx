@@ -1,3 +1,6 @@
+import ReceiveMessage from "./parts/ReceiveMessage";
+import SendMessage from "./parts/SendMassage";
+
 const ChatArea=()=>{
     return (
         <div className="chat-area flex-1 flex flex-col h-full">
@@ -5,19 +8,7 @@ const ChatArea=()=>{
                 <h2 className="text-xl py-1 mb-8 border-b-2 border-gray-200">Chatting with <b>Mercedes Yemelyan</b></h2>
             </div>
             <div className="messages flex-1 overflow-auto">
-                <div className="message mb-4 flex">
-                    <div className="flex-2">
-                        <div className="w-12 h-12 relative">
-                            <img className="w-12 h-12 rounded-full mx-auto" src="./resources/profile-image.png" alt="chat-user" />
-                        </div>
-                    </div>
-                    <div className="flex-1 px-2">
-                        <div className="inline-block bg-gray-300 rounded-full p-2 px-6 text-gray-700">
-                            <span className="flex items-center">👋</span>
-                        </div>
-                        <div className="pl-4"><small className="text-gray-500">15 April</small></div>
-                    </div>
-                </div>
+                <ReceiveMessage />
                 <div className="message mb-4 flex">
                     <div className="flex-2">
                         <div className="w-12 h-12 relative">
@@ -32,29 +23,7 @@ const ChatArea=()=>{
                         <div className="pl-4"><small className="text-gray-500">15 April</small></div>
                     </div>
                 </div>
-                <div className="message mb-4 flex">
-                    <div className="flex-2">
-                        <div className="w-12 h-12 relative">
-                            <img className="w-12 h-12 rounded-full mx-auto" src="./resources/profile-image.png" alt="chat-user" />
-                        </div>
-                    </div>
-                    <div className="flex-1 px-2">
-                        <div className="inline-block bg-gray-300 rounded-full p-2 px-6 text-gray-700 cursor-pointer">
-                            <span className="flex items-center">🍽️&🍻🤝?</span>
-                        </div>
-                        <div className="pt-2 relative">
-                            <div className="inline-block bg-gray-800 rounded-full p-2 px-6 text-white">
-                                <span className="flex items-center">🍽️:fork and knife with plate</span>
-                                <span className="flex items-center">🍻:clinking beer mugs</span>
-                                <span className="flex items-center">🤝:handshake</span>
-                            </div>
-                            <div className="inline absolute cursor-pointer bottom-0">
-                                <i className="fa-solid fa-volume-high"></i>
-                            </div>
-                        </div>
-                        <div className="pl-4"><small className="text-gray-500">15 April</small></div>
-                    </div>
-                </div>
+                <SendMessage />
                 <div className="message me mb-4 flex text-right">
                     <div className="flex-1 px-2">
                         <div className="inline-block bg-blue-600 rounded-full p-2 px-6 text-white">
