@@ -21,6 +21,17 @@ const ChatArea=()=>{
             <div className="messages flex-1 overflow-auto">
                 <ReceiveMessage receiveData={receiveData} />
                 <ReceiveMessage receiveData={receiveData} />
+                <ReceiveMessage receiveData={receiveData} />
+                <ReceiveMessage receiveData={receiveData} />
+                <ReceiveMessage receiveData={receiveData} />
+                <ReceiveMessage receiveData={receiveData} />
+                <ReceiveMessage receiveData={receiveData} />
+                <ReceiveMessage receiveData={receiveData} />
+                <ReceiveMessage receiveData={receiveData} />
+                <ReceiveMessage receiveData={receiveData} />
+                <ReceiveMessage receiveData={receiveData} />
+                <ReceiveMessage receiveData={receiveData} />
+                <ReceiveMessage receiveData={receiveData} />
                 <SendMessage message={sendData.message} />
 
                 {/* GIF表示 */}
@@ -41,7 +52,18 @@ const ChatArea=()=>{
                 {/* --------- */}
                 
             </div>
-            <div className="flex-2 pt-4 pb-6">
+            <div className="flex-2 pt-4 pb-6 relative">
+                <div id="picker" className=" absolute bottom-24 opacity-75">
+                    <Picker data={data} locale="en" noCountryFlags={true} set="twitter" onEmojiSelect={console.log} emojiButtonRadius='6px' previewPosition={"none"}
+                        emojiButtonColors={[
+                        'rgba(155,223,88,.7)',
+                        'rgba(149,211,254,.7)',
+                        'rgba(247,233,34,.7)',
+                        'rgba(238,166,252,.7)',
+                        'rgba(255,213,143,.7)',
+                        'rgba(211,209,255,.7)',
+                        ]} />
+                </div>
                 <div className="write bg-white shadow flex rounded-lg">
                     <div className="flex-3 flex content-center items-center text-center p-4 pr-0">
                         <span className="block text-center text-gray-400 hover:text-gray-800">
@@ -49,8 +71,7 @@ const ChatArea=()=>{
                         </span>
                     </div>
                     <div className="flex-1">
-                        <Picker data={data} locale="en" noCountryFlags={true} set="twitter" onEmojiSelect={console.log} />
-                        <textarea name="message" className="w-full block outline-none py-4 px-4 bg-transparent" rows="1" placeholder="Type emojis ..." autoFocus></textarea>
+                        <textarea readOnly name="message" className="w-full block outline-none py-4 px-4 bg-transparent" rows="1" placeholder="Type emojis ..." autoFocus></textarea>
                     </div>
                     <div className="flex-2 w-32 p-2 flex content-center items-center">
                         <div className="flex-1 text-center">
