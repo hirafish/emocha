@@ -5,6 +5,7 @@ import data from '@emoji-mart/data/sets/14/twitter.json'
 import Picker from '@emoji-mart/react'
 
 const ChatArea=()=>{
+    // チャットでやり取りするデータ例
     const sendData={
         id:"1234",
         message:"👻"
@@ -14,20 +15,26 @@ const ChatArea=()=>{
         iconText:"@Otter;Pink;",
         message:"🍏☕️"
     }
+    // ------------------------
 
-    // 絵文字ピッカーの表示ハンドラー
+    // 絵文字ピッカーの表示・非表示
     const tailwindNotShowEmojiPicker="hidden";
     const tailwindShowEmojiPicker="absolute bottom-24 opacity-75";
 
     const [showEmojiPicker,setShowEmojiPicker]=useState(tailwindNotShowEmojiPicker);
 
-    const handleShowEmojiPicker=()=>{
-        if(showEmojiPicker===tailwindNotShowEmojiPicker){
+    const handleShowEmojiPicker=(event)=>{
+        if(event.target.id==="textarea"){
             setShowEmojiPicker(tailwindShowEmojiPicker);
         }else{
             setShowEmojiPicker(tailwindNotShowEmojiPicker);
+        }
         };
-    }
+    // --------------------------
+
+    // 絵文字の入力
+
+    const [inputEmojis,setInputEmojis]=useState();
 
     return (
         <div className="chat-area flex-1 flex flex-col h-full">
@@ -70,7 +77,7 @@ const ChatArea=()=>{
             </div>
             <div className="flex-2 pt-4 pb-6 relative">
                 <div id="picker" className={showEmojiPicker}>
-                    <Picker data={data} locale="en" noCountryFlags={true} set="twitter" onEmojiSelect={console.log} emojiButtonRadius='6px' previewPosition={"none"}
+                    <Picker data={data} locale="en" noCountryFlags={true} set="twitter" onClickOutside={handleShowEmojiPicker} onEmojiSelect={console.log} emojiButtonRadius='6px' previewPosition={"none"}
                         emojiButtonColors={[
                         'rgba(155,223,88,.7)',
                         'rgba(149,211,254,.7)',
@@ -87,7 +94,7 @@ const ChatArea=()=>{
                         </span>
                     </div>
                     <div className="flex-1">
-                        <textarea onClick={handleShowEmojiPicker} readOnly name="message" className="w-full block outline-none py-4 px-4 bg-transparent" rows="1" placeholder="Type emojis ..." autoFocus></textarea>
+                        <textarea id="textarea" onClick={handleShowEmojiPicker} name="message" className="w-full block outline-none py-4 px-4 bg-transparent" rows="1" placeholder="Type emojis ..." autoFocus></textarea>
                     </div>
                     <div className="flex-2 w-32 p-2 flex content-center items-center">
                         <div className="flex-1 text-center">
