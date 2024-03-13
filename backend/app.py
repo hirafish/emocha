@@ -21,7 +21,7 @@ app.add_middleware(
 
 @app.get("/fastapi")
 def read_root():
-    return {"Hello": "From Python"}
+    return {"Hello": "❤️💙💜💛💚"}
 
 print("Hello, world!")
 
