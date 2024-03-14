@@ -57,6 +57,12 @@ const ChatArea=()=>{
     const handleAddEmoji=(emojiObj)=>{
         setInputEmojis([...inputEmojis,emojiObj.shortcodes])
     }
+    const handleDeleteEmoji=()=>{
+        const inputEmojisLength=inputEmojis.length;
+        if(inputEmojisLength){
+            setInputEmojis(inputEmojis.slice(0,inputEmojisLength-1))
+        }
+    };
 
     return (
         <div className="chat-area flex-1 flex flex-col h-full min-w-0">
@@ -115,23 +121,31 @@ const ChatArea=()=>{
                             <svg fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" stroke="currentColor" viewBox="0 0 24 24" className="h-6 w-6"><path d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </span>
                     </div>
-                    <div className="textarea flex-1 min-w-0 max-h-16" onClick={handleShowEmojiPicker}>
+                    <div className="textarea flex-1 min-w-0 max-h-16 cursor-text" onClick={handleShowEmojiPicker}>
+                        {/* contentEditable="plaintext-only" suppressContentEditableWarning="true" */}
                         <div className="textarea w-full h-full outline-none py-4 px-4 bg-transparent flex flex-wrap overflow-auto">
-                            {inputEmojis.map((shortcodes,index)=>{
+                            {inputEmojis[0]?
+                            inputEmojis.map((shortcodes,index)=>{
                                 return(
-                                    <span key={index} className="pr-1">
+                                    <span key={index} className="mr-1">
                                         <em-emoji shortcodes={shortcodes} set="twitter" size="1.3em" ></em-emoji>
                                     </span>
                                 )
-                            })}
+                            })
+                            :<span className=" text-gray-400">Type emojis ...</span>
+                            }
                         </div>
                         {/* <textarea id="textarea" onClick={handleShowEmojiPicker} name="message" className="w-full block outline-none py-4 px-4 bg-transparent" rows="1" placeholder="Type emojis ..." autoFocus></textarea> */}
                     </div>
                     <div className="flex-2 w-32 p-2 flex content-center items-center relative">
                         <div className="flex-1 text-center">
-                            <span className="text-gray-400 hover:text-gray-800">
-                                <span className="inline-block align-text-bottom">
-                                    <svg fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" stroke="currentColor" viewBox="0 0 24 24" className="w-6 h-6"><path d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path></svg>
+                            <span onClick={handleDeleteEmoji} className="text-gray-400 hover:text-gray-500">
+                                <span className="inline-block align-middle">
+                                    <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" className="w-7">
+                                        {/* <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--> */}
+                                        <path d="M576 128c0-35.3-28.7-64-64-64H205.3c-17 0-33.3 6.7-45.3 18.7L9.4 233.4c-6 6-9.4 14.1-9.4 22.6s3.4 16.6 9.4 22.6L160 429.3c12 12 28.3 18.7 45.3 18.7H512c35.3 0 64-28.7 64-64V128zM271 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/>
+                                    </svg>
+                                    {/* <svg fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" stroke="currentColor" viewBox="0 0 24 24" className="w-6 h-6"><path d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path></svg> */}
                                 </span>
                             </span>
                         </div>
