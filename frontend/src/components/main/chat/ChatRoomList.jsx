@@ -15,12 +15,10 @@ const ChatRoomList=()=>{
             {roomDataList.map((roomData,index)=>{
                 return (
                     <span key={index}>
-                        <RoomCard iconImage={roomData.icon.image} iconColor={roomData.icon.color} roomName={roomData.name} />
+                        <RoomCard roomData={roomData} />
                     </span>
                 )
             })}
-            <RoomCard iconImage={"Otter"} iconColor={"Pink"} roomName={"For All"} />
-            <RoomCard iconImage={"Otter"} iconColor={"Pink"} roomName={"Room 1"} />
         </div>
     </div>
     );

@@ -11,7 +11,7 @@ export const RoomDataListProvider=props=>{
             {
                 id:"",
                 name:"For All",
-                icon:{image:"Ghost",color:"Black"}
+                icon:{image:"Ghost",color:"Purple"}
             }
         ]);
     
