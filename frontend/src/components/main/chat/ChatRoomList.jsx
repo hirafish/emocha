@@ -8,7 +8,7 @@ const ChatRoomList=()=>{
             <input type="text" className="outline-none py-2 block w-full bg-transparent border-b-2 border-gray-200" placeholder="Search" />
         </div>
         <div className="flex-1 h-full overflow-auto px-2">
-            <RoomCard iconImage={"Otter"} iconColor={"Pink"} roomName={"Room 1"} />
+            <RoomCard iconImage={"Otter"} iconColor={"Pink"} roomName={"For All"} />
             <RoomCard iconImage={"Otter"} iconColor={"Pink"} roomName={"Room 1"} />
         </div>
     </div>
