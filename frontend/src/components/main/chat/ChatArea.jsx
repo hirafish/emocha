@@ -33,12 +33,14 @@ const ChatArea=()=>{
                 setShowEmojiPicker(tailwindShowEmojiPicker);
             }else{
                 setShowEmojiPicker(tailwindNotShowEmojiPicker);
-            }
+            };
         }else{
             try{
                 const parentClassNameText=event.target.offsetParent.childNodes[1].childNodes[1].className;
                 if(parentClassNameText.includes("textarea")){
                     setShowEmojiPicker(tailwindShowEmojiPicker);
+                }else{
+                    showEmojiPicker(tailwindNotShowEmojiPicker)
                 }
             }catch{
                 setShowEmojiPicker(tailwindNotShowEmojiPicker);
@@ -50,16 +52,14 @@ const ChatArea=()=>{
 
     // 絵文字の入力
 
-    const [inputEmojis,setInputEmojis]=useState("");
+    const [inputEmojis,setInputEmojis]=useState([]);
 
     const handleAddEmoji=(emojiObj)=>{
-        console.log(emojiObj.native)
-        setInputEmojis(inputEmojis+emojiObj.native)
+        setInputEmojis([...inputEmojis,emojiObj.shortcodes])
     }
-    // console.log(inputEmojis)
 
     return (
-        <div className="chat-area flex-1 flex flex-col h-full">
+        <div className="chat-area flex-1 flex flex-col h-full min-w-0">
             <div className="flex-3">
                 <h2 className="text-xl py-1 mb-8 border-b-2 border-gray-200">Chatting with <b>Mercedes Yemelyan</b></h2>
             </div>
@@ -109,19 +109,25 @@ const ChatArea=()=>{
                         'rgba(211,209,255,.7)',
                         ]} />
                 </div>
-                <div className="write bg-white shadow flex rounded-lg">
+                <div className="write bg-white shadow flex rounded-lg max-h-20">
                     <div className="flex-3 flex content-center items-center text-center p-4 pr-0">
                         <span className="block text-center text-gray-400 hover:text-gray-800">
                             <svg fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" stroke="currentColor" viewBox="0 0 24 24" className="h-6 w-6"><path d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </span>
                     </div>
-                    <div className="textarea flex-1" onClick={handleShowEmojiPicker}>
-                        <div className="textarea w-full h-full outline-none py-4 px-4 bg-transparent flex">
-                        <em-emoji shortcodes=":+1::skin-tone-1:"></em-emoji>
+                    <div className="textarea flex-1 min-w-0 max-h-16" onClick={handleShowEmojiPicker}>
+                        <div className="textarea w-full h-full outline-none py-4 px-4 bg-transparent flex flex-wrap overflow-auto">
+                            {inputEmojis.map((shortcodes,index)=>{
+                                return(
+                                    <span key={index} className="pr-1">
+                                        <em-emoji shortcodes={shortcodes} set="twitter" size="1.3em" ></em-emoji>
+                                    </span>
+                                )
+                            })}
                         </div>
                         {/* <textarea id="textarea" onClick={handleShowEmojiPicker} name="message" className="w-full block outline-none py-4 px-4 bg-transparent" rows="1" placeholder="Type emojis ..." autoFocus></textarea> */}
                     </div>
-                    <div className="flex-2 w-32 p-2 flex content-center items-center">
+                    <div className="flex-2 w-32 p-2 flex content-center items-center relative">
                         <div className="flex-1 text-center">
                             <span className="text-gray-400 hover:text-gray-800">
                                 <span className="inline-block align-text-bottom">
