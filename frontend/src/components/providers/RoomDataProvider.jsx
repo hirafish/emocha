@@ -1,17 +1,22 @@
-import { createContext } from "react";
+import { createContext,useState } from "react";
 
 export const RoomDataContext=createContext({});
 
-export const LanguagesCatalogProvider=props=>{
+export const RoomDataProvider=props=>{
     const {children}=props;
 
     // ルームの情報を定義（初期値は全員のルームのみ）
-    const roomData={
-        room0:{id:"",name:"For All",icon:{image:"Ghost",color:"Black"}}
-    };
+    const [roomData,setRoomData]=useState(
+        {
+            room0:{
+                id:"",
+                name:"For All",
+                icon:{image:"Ghost",color:"Black"}
+            }
+        });
     
         return (
-            <RoomDataContext.Provider value={roomData}>
+            <RoomDataContext.Provider value={{roomData,setRoomData}}>
                 {children}
             </RoomDataContext.Provider>
         );
