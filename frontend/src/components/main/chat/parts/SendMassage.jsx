@@ -33,7 +33,7 @@ const SendMessage=({message})=>{
         <div className="message me mb-4 flex text-right">
             <div className="flex-1 px-2">
                 <div className="inline-block bg-blue-600 rounded-full p-2 px-6 text-white">
-                    <span className="flex items-center">
+                    <span className="flex items-center flex-wrap overflow-auto">
                         <DisplayEmojis emojiShortcodesList={message} />
                     </span>
                 </div>

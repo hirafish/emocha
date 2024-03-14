@@ -88,7 +88,7 @@ const ChatArea=()=>{
     return (
         <div className="chat-area flex-1 flex flex-col h-full min-w-0">
             <div className="flex-3">
-                <h2 className="text-xl py-1 mb-8 border-b-2 border-gray-200">Chatting with <b>Mercedes Yemelyan</b></h2>
+                <h2 className="text-xl py-1 mb-8 border-b-2 border-gray-200">Chatting Room</h2>
             </div>
             <div className="messages flex-1 overflow-auto">
                 <ReceiveMessage receiveData={receiveData} />
