@@ -16,9 +16,9 @@ const ReceiveMessage=({receiveData})=>{
                     <p className="text-gray-500 ml-1">obake</p>
                 </div>
             </div>
-            <div className="relative group">
+            <div className="relative group w-fit">
                 <Tooltip />
-                <div className="flex-1 px-2">
+                <div className="flex-1 px-2 w-fit">
                     <div className="inline-block bg-gray-300 rounded-full p-2 px-6 text-gray-700 ml-6">
                         <span className="flex items-center flex-wrap overflow-auto">
                             <DisplayEmojis emojiShortcodesList={receiveData.message} />
