@@ -64,6 +64,25 @@ const ChatArea=()=>{
             setInputEmojis(inputEmojis.slice(0,inputEmojisLength-1))
         }
     };
+    // ---------------------------
+
+    // 送信
+    const handleSendMessage=()=>{
+        try{
+            // バックエンドに送信
+            const sendData=inputEmojis;
+            if(sendData[0]){
+                console.log(sendData);
+                alert("送信しました！");
+                setInputEmojis([]);
+            }else{
+                alert("絵文字が空です！");
+            };
+            
+        }catch(error){
+            alert("現在、メッセージを送信できません。");
+        }
+    }
 
     return (
         <div className="chat-area flex-1 flex flex-col h-full min-w-0">
@@ -151,7 +170,7 @@ const ChatArea=()=>{
                             </span>
                         </div>
                         <div className="flex-1">
-                            <button className="bg-blue-400 w-10 h-10 rounded-full inline-block">
+                            <button onClick={handleSendMessage} className="bg-blue-500 hover:bg-blue-700 w-10 h-10 rounded-full inline-block">
                                 <span className="inline-block align-text-bottom">
                                     <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" className="w-4 h-4 text-white"><path d="M5 13l4 4L19 7"></path></svg>
                                 </span>
