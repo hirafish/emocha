@@ -3,8 +3,11 @@ import ReceiveMessage from "./parts/ReceiveMessage";
 import SendMessage from "./parts/SendMassage";
 import data from '@emoji-mart/data/sets/14/twitter.json'
 import Picker from '@emoji-mart/react'
+import { init } from "emoji-mart";
 
 const ChatArea=()=>{
+    init({ data })
+
     // チャットでやり取りするデータ例
     const sendData={
         id:"1234",
@@ -24,17 +27,36 @@ const ChatArea=()=>{
     const [showEmojiPicker,setShowEmojiPicker]=useState(tailwindNotShowEmojiPicker);
 
     const handleShowEmojiPicker=(event)=>{
-        if(event.target.id==="textarea"){
-            setShowEmojiPicker(tailwindShowEmojiPicker);
+        const currentClassNameText=event.currentTarget.className;
+        if(currentClassNameText){
+            if(currentClassNameText.includes("textarea")){
+                setShowEmojiPicker(tailwindShowEmojiPicker);
+            }else{
+                setShowEmojiPicker(tailwindNotShowEmojiPicker);
+            }
         }else{
-            setShowEmojiPicker(tailwindNotShowEmojiPicker);
-        }
+            try{
+                const parentClassNameText=event.target.offsetParent.childNodes[1].childNodes[1].className;
+                if(parentClassNameText.includes("textarea")){
+                    setShowEmojiPicker(tailwindShowEmojiPicker);
+                }
+            }catch{
+                setShowEmojiPicker(tailwindNotShowEmojiPicker);
+            };
         };
+    };
+    
     // --------------------------
 
     // 絵文字の入力
 
-    const [inputEmojis,setInputEmojis]=useState();
+    const [inputEmojis,setInputEmojis]=useState("");
+
+    const handleAddEmoji=(emojiObj)=>{
+        console.log(emojiObj.native)
+        setInputEmojis(inputEmojis+emojiObj.native)
+    }
+    // console.log(inputEmojis)
 
     return (
         <div className="chat-area flex-1 flex flex-col h-full">
@@ -77,7 +99,7 @@ const ChatArea=()=>{
             </div>
             <div className="flex-2 pt-4 pb-6 relative">
                 <div id="picker" className={showEmojiPicker}>
-                    <Picker data={data} locale="en" noCountryFlags={true} set="twitter" onClickOutside={handleShowEmojiPicker} onEmojiSelect={console.log} emojiButtonRadius='6px' previewPosition={"none"}
+                    <Picker data={data} locale="en" noCountryFlags={true} set="twitter" onClickOutside={handleShowEmojiPicker} onEmojiSelect={handleAddEmoji} emojiButtonRadius='6px' previewPosition={"none"}
                         emojiButtonColors={[
                         'rgba(155,223,88,.7)',
                         'rgba(149,211,254,.7)',
@@ -93,8 +115,11 @@ const ChatArea=()=>{
                             <svg fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" stroke="currentColor" viewBox="0 0 24 24" className="h-6 w-6"><path d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </span>
                     </div>
-                    <div className="flex-1">
-                        <textarea id="textarea" onClick={handleShowEmojiPicker} name="message" className="w-full block outline-none py-4 px-4 bg-transparent" rows="1" placeholder="Type emojis ..." autoFocus></textarea>
+                    <div className="textarea flex-1" onClick={handleShowEmojiPicker}>
+                        <div className="textarea w-full h-full outline-none py-4 px-4 bg-transparent flex">
+                        <em-emoji shortcodes=":+1::skin-tone-1:"></em-emoji>
+                        </div>
+                        {/* <textarea id="textarea" onClick={handleShowEmojiPicker} name="message" className="w-full block outline-none py-4 px-4 bg-transparent" rows="1" placeholder="Type emojis ..." autoFocus></textarea> */}
                     </div>
                     <div className="flex-2 w-32 p-2 flex content-center items-center">
                         <div className="flex-1 text-center">
