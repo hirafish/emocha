@@ -5,7 +5,7 @@ import App from './App';
 import { IconsCatalogProvider } from './components/providers/IconsCatalogProvider';
 import { LanguagesCatalogProvider } from './components/providers/LanguagesCatalogProvider';
 import { UserSettingsProvider } from './components/providers/UserSettingsProvider';
-import { RoomDataProvider } from './components/providers/RoomDataProvider';
+import { RoomDataListProvider } from './components/providers/RoomDataListProvider';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -15,9 +15,9 @@ root.render(
     <IconsCatalogProvider>
       <LanguagesCatalogProvider>
         <UserSettingsProvider>
-          <RoomDataProvider>
+          <RoomDataListProvider>
             <App />
-          </RoomDataProvider>
+          </RoomDataListProvider>
         </UserSettingsProvider>
       </LanguagesCatalogProvider>
     </IconsCatalogProvider>

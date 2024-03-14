@@ -1,23 +1,23 @@
 import { createContext,useState } from "react";
 
-export const RoomDataContext=createContext({});
+export const RoomDataListContext=createContext({});
 
-export const RoomDataProvider=props=>{
+export const RoomDataListProvider=props=>{
     const {children}=props;
 
     // ルームの情報を定義（初期値は全員のルームのみ）
-    const [roomData,setRoomData]=useState(
-        {
-            room0:{
+    const [roomDataList,setRoomDataList]=useState(
+        [
+            {
                 id:"",
                 name:"For All",
                 icon:{image:"Ghost",color:"Black"}
             }
-        });
+        ]);
     
         return (
-            <RoomDataContext.Provider value={{roomData,setRoomData}}>
+            <RoomDataListContext.Provider value={{roomDataList,setRoomDataList}}>
                 {children}
-            </RoomDataContext.Provider>
+            </RoomDataListContext.Provider>
         );
 };

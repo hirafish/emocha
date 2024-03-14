@@ -1,10 +1,10 @@
 import RoomCard from "./parts/RoomCard";
-import { RoomDataContext } from "../../providers/RoomDataProvider";
+import { RoomDataListContext } from "../../providers/RoomDataListProvider";
 import { useContext } from "react";
 
 const ChatRoomList=()=>{
-    const {roomData}=useContext(RoomDataContext);
-    console.log(roomData)
+    const {roomDataList}=useContext(RoomDataListContext);
+    console.log(Object.keys(roomDataList))
     // 今のルーム　border-l-4 border-red-500
     return (
     <div className="sidebar hidden lg:flex w-1/3 flex-2 flex-col pr-6">
