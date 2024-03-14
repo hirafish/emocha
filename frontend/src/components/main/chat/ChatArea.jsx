@@ -47,6 +47,7 @@ const ChatArea=()=>{
             };
         };
     };
+
     
     // --------------------------
 
@@ -121,9 +122,9 @@ const ChatArea=()=>{
                             <svg fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" stroke="currentColor" viewBox="0 0 24 24" className="h-6 w-6"><path d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </span>
                     </div>
-                    <div className="textarea flex-1 min-w-0 max-h-16 cursor-text" onClick={handleShowEmojiPicker}>
+                    <div className="textarea flex-1 min-w-0 max-h-16 cursor-text" onClick={(event)=>{handleShowEmojiPicker(event)}}>
                         {/* contentEditable="plaintext-only" suppressContentEditableWarning="true" */}
-                        <div className="textarea w-full h-full outline-none py-4 px-4 bg-transparent flex flex-wrap overflow-auto">
+                        <div className="textarea w-full h-full outline-none pt-4 pb-5 px-4 bg-transparent flex flex-wrap overflow-auto">
                             {inputEmojis[0]?
                             inputEmojis.map((shortcodes,index)=>{
                                 return(
@@ -132,8 +133,9 @@ const ChatArea=()=>{
                                     </span>
                                 )
                             })
-                            :<span className=" text-gray-400">Type emojis ...</span>
+                            :<span className="text-gray-400">Select emojis ...</span>
                             }
+                            {/* <span className="CursolSpan h-full text-gray-500 flex items-center">|</span> */}
                         </div>
                         {/* <textarea id="textarea" onClick={handleShowEmojiPicker} name="message" className="w-full block outline-none py-4 px-4 bg-transparent" rows="1" placeholder="Type emojis ..." autoFocus></textarea> */}
                     </div>
@@ -145,7 +147,6 @@ const ChatArea=()=>{
                                         {/* <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--> */}
                                         <path d="M576 128c0-35.3-28.7-64-64-64H205.3c-17 0-33.3 6.7-45.3 18.7L9.4 233.4c-6 6-9.4 14.1-9.4 22.6s3.4 16.6 9.4 22.6L160 429.3c12 12 28.3 18.7 45.3 18.7H512c35.3 0 64-28.7 64-64V128zM271 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/>
                                     </svg>
-                                    {/* <svg fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" stroke="currentColor" viewBox="0 0 24 24" className="w-6 h-6"><path d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path></svg> */}
                                 </span>
                             </span>
                         </div>
