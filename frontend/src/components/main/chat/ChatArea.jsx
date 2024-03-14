@@ -4,6 +4,7 @@ import SendMessage from "./parts/SendMassage";
 import data from '@emoji-mart/data/sets/14/twitter.json'
 import Picker from '@emoji-mart/react'
 import { init } from "emoji-mart";
+import DisplayEmojis from "./parts/DisplayEmojis";
 
 const ChatArea=()=>{
     init({ data })
@@ -11,12 +12,12 @@ const ChatArea=()=>{
     // チャットでやり取りするデータ例
     const sendData={
         id:"1234",
-        message:"👻"
+        message:[':innocent:', ':upside_down_face:', ':kissing_heart:']
     }
 
     const receiveData={
         iconText:"@Otter;Pink;",
-        message:"🍏☕️"
+        message:[':hand_with_index_finger_and_thumb_crossed::skin-tone-2:', ':blue_heart:', ':black_heart:', ':brown_heart:', ':green_heart:', ':white_heart:', ':orange_heart:', ':purple_heart:', ':yellow_heart:', ':hand_with_index_finger_and_thumb_crossed::skin-tone-6:']
     }
     // ------------------------
 
@@ -145,14 +146,8 @@ const ChatArea=()=>{
                         {/* contentEditable="plaintext-only" suppressContentEditableWarning="true" */}
                         <div className="textarea w-full h-full outline-none pt-4 pb-5 px-4 bg-transparent flex flex-wrap overflow-auto">
                             {inputEmojis[0]?
-                            inputEmojis.map((shortcodes,index)=>{
-                                return(
-                                    <span key={index} className="mr-1">
-                                        <em-emoji shortcodes={shortcodes} set="twitter" size="1.3em" ></em-emoji>
-                                    </span>
-                                )
-                            })
-                            :<span className="text-gray-400">Select emojis ...</span>
+                                <DisplayEmojis emojiShortcodesList={inputEmojis} />
+                                :<span className="text-gray-400">Select emojis ...</span>
                             }
                             {/* <span className="CursolSpan h-full text-gray-500 flex items-center">|</span> */}
                         </div>

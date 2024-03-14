@@ -1,4 +1,5 @@
 import UserIcon from "../../globalParts/UserIcon";
+import DisplayEmojis from "./DisplayEmojis";
 
 // const TranslateFromIconTextToUserIcon=({iconText,iconSize})=>{
 //     const preUserIconData=iconText.slice(1,iconText.length-1)
@@ -33,7 +34,7 @@ const SendMessage=({message})=>{
             <div className="flex-1 px-2">
                 <div className="inline-block bg-blue-600 rounded-full p-2 px-6 text-white">
                     <span className="flex items-center">
-                        {message}
+                        <DisplayEmojis emojiShortcodesList={message} />
                     </span>
                 </div>
                 {/* <div className="pr-4"><small className="text-gray-500">15 April</small></div> */}
