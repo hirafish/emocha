@@ -2,12 +2,12 @@ import { NavLink } from "react-router-dom";
 
 const IndexPage = () => {
     return (
-        <div className="main-body container m-auto w-11/12 h-full flex flex-col">
-            <header className="py-4 flex-2 flex flex-row">
+        <div className="main-body container m-auto w-11/12 h-full flex flex-col overflow-auto  bg-gray-100">
+            <header className="py-4 flex-2 flex flex-row bg-white">
                 ヘッダー
             </header>
 
-            <div className="flex-1 bg-gray-100 w-full h-full">
+            <div className="flex-1 w-full h-full">
                 <div className="lg:flex m-auto">
 
                     <div class="flex flex-col flex-1 justify-center lg_justify-start px-4 sm_px-6 py-12 lg_pt-36 lg_flex-none lg_px-20 xl_px-24">
