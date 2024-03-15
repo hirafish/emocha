@@ -8,6 +8,7 @@ import DisplayEmojis from "./parts/DisplayEmojis";
 
 const ChatArea=()=>{
     init({ data })
+    
 
     // チャットでやり取りするデータ例
     const sendData={
@@ -17,7 +18,7 @@ const ChatArea=()=>{
 
     const receiveData={
         iconText:"@Otter;Pink;",
-        message:[':hand_with_index_finger_and_thumb_crossed::skin-tone-2:', ':blue_heart:', ':black_heart:', ':brown_heart:', ':green_heart:', ':white_heart:', ':orange_heart:', ':purple_heart:', ':yellow_heart:', ':hand_with_index_finger_and_thumb_crossed::skin-tone-6:']
+        message:[ ':black_heart:', ':brown_heart:', ':green_heart:', ':white_heart:', ':orange_heart:', ':purple_heart:', ':yellow_heart:', ':hand_with_index_finger_and_thumb_crossed::skin-tone-6:']
     }
     // ------------------------
 
@@ -90,7 +91,7 @@ const ChatArea=()=>{
             <div className="flex-3">
                 <h2 className="text-xl py-1 mb-8 border-b-2 border-gray-200">Chatting Room</h2>
             </div>
-            <div className="messages flex-1 overflow-auto">
+            <div className="messages flex-1 overflow-auto pb-10">
                 <ReceiveMessage receiveData={receiveData} />
                 <ReceiveMessage receiveData={receiveData} />
                 <ReceiveMessage receiveData={receiveData} />
