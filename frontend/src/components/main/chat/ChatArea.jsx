@@ -5,6 +5,7 @@ import data from '@emoji-mart/data/sets/14/twitter.json'
 import Picker from '@emoji-mart/react'
 import { init } from "emoji-mart";
 import DisplayEmojis from "./parts/DisplayEmojis";
+import { GetSlangsList } from "../slangs/GetSlangs";
 
 const ChatArea=()=>{
     init({ data })
@@ -74,7 +75,9 @@ const ChatArea=()=>{
             // バックエンドに送信
             const sendData=inputEmojis;
             if(sendData[0]){
+                const slangsList=GetSlangsList(sendData);
                 console.log(sendData);
+                console.log(slangsList)
                 alert("送信しました！");
                 setInputEmojis([]);
             }else{
@@ -139,9 +142,9 @@ const ChatArea=()=>{
                 </div>
                 <div className="write bg-white shadow flex rounded-lg max-h-20">
                     <div className="flex-3 flex content-center items-center text-center p-4 pr-0">
-                        <span className="block text-center text-gray-400 hover:text-gray-800">
+                        {/* <span className="block text-center text-gray-400 hover:text-gray-800">
                             <svg fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" stroke="currentColor" viewBox="0 0 24 24" className="h-6 w-6"><path d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        </span>
+                        </span> */}
                     </div>
                     <div className="textarea flex-1 min-w-0 max-h-16 cursor-text" onClick={(event)=>{handleShowEmojiPicker(event)}}>
                         {/* contentEditable="plaintext-only" suppressContentEditableWarning="true" */}
