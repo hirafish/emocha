@@ -19,7 +19,7 @@ const ReceiveMessage=({receiveData})=>{
             <div className="relative group w-fit">
                 <Tooltip />
                 <div className="flex-1 px-2 w-fit">
-                    <div className="inline-block bg-gray-300 rounded-full p-2 px-6 text-gray-700 ml-6">
+                    <div className="inline-block bg-gray-300 rounded-full p-2 px-6 text-gray-700 ml-6 border-2 border-gray-300 hover:border-white">
                         <span className="flex items-center flex-wrap overflow-auto">
                             <DisplayEmojis emojiShortcodesList={receiveData.message} />
                         </span>
