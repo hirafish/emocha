@@ -3,6 +3,7 @@ import { IconsCatalogContext } from "../providers/IconsCatalogProvider";
 import { LanguagesCatalogContext } from "../providers/LanguagesCatalogProvider";
 import { UserSettingsContext } from "../providers/UserSettingsProvider";
 import UserIcon from "./globalParts/UserIcon";
+import { faL } from "@fortawesome/free-solid-svg-icons";
 
 const Settings=()=>{
     // アイコンのデザインセットと言語設定セットを取得
@@ -40,6 +41,24 @@ const Settings=()=>{
                     ...previews.icon,
                     color:newColor
                 }
+            }
+        );
+    };
+    const handleChangeName=(event)=>{
+        const newName=event.target.value;
+        setPreviews(
+            {
+                ...previews,
+                name:newName
+            }
+        );
+    };
+    const handleChangeSnsUrl=(event)=>{
+        const newSnsUrl=event.target.value;
+        setPreviews(
+            {
+                ...previews,
+                snsUrl:newSnsUrl
             }
         );
     };
@@ -124,11 +143,11 @@ const Settings=()=>{
 
                         <div className="md:w-3/5 my-8">
                             <label htmlFor="userName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User name</label>
-                            <input type="text" id="userName" className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                            <input type="text" id="userName" spellCheck={false} value={previews.name} onChange={handleChangeName} className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                         </div>
                         <div className="md:w-3/5 my-8">
                             <label htmlFor="snsUrl" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">SNS URL</label>
-                            <input type="text" id="snsUrl" className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                            <input type="url" id="snsUrl" value={previews.snsUrl} onChange={handleChangeSnsUrl} className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                         </div>
                         
                         <div className="container my-8">
