@@ -54,6 +54,13 @@ const MainLayout=()=>{
         navigate("/");
     };
 
+    // アカウント削除ボタンの処理
+    const handleClickDeleteAccount=()=>{
+        // ここでアカウント削除の処理をする
+        alert("アカウントを削除しました！");
+        navigate("/");
+    };
+
 
 
     return (
@@ -86,7 +93,7 @@ const MainLayout=()=>{
                             <div onClick={handleClickLogOut} className="px-2 rounded-md hover:bg-gray-200 w-full flex cursor-pointer">
                                 <p>Log out</p>
                             </div>
-                            <div onClick={""} className="px-2 rounded-md hover:bg-gray-200 w-full flex cursor-pointer">
+                            <div onClick={handleClickDeleteAccount} className="px-2 rounded-md hover:bg-gray-200 w-full flex cursor-pointer">
                                 <p>Delete account</p>
                             </div>
                         </div>
