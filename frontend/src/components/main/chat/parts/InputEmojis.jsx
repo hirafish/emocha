@@ -25,7 +25,7 @@ const InputEmojis=()=>{
          }else{
              try{
                  const parentClassNameText=event.target.offsetParent.childNodes[1].className;
-                 console.log(event.target.offsetParent.childNodes[1])
+                //  console.log(event.target.offsetParent.childNodes[1])
                  if(parentClassNameText.includes("attention")){
                      setShowEmojiPicker(tailwindShowEmojiPicker);
                  }else{
@@ -60,22 +60,19 @@ const InputEmojis=()=>{
     // 注意で表示するスラングのリスト
     const [slangsList,setSlangsList]=useState([]);
 
-
     // ---------------------------
     // 送信ボタン
     const handleClickCheckButton=()=>{
         try{
-            // バックエンドに送信
             const sendData=inputEmojis;
             if(sendData[0]){
                 const slangsList=GetSlangsList(sendData);
                 if(slangsList[0]){
                     setSlangsList(slangsList);
-                    // console.log(slangsList)
                     setShowAttention(tailwindShowAttention);
                 }else{
                     console.log(sendData);
-                    console.log(slangsList)
+                    // バックエンドに送信
                     alert("送信しました！");
                     setInputEmojis([]);
                 }
@@ -84,8 +81,34 @@ const InputEmojis=()=>{
             };
             
         }catch(error){
+            console.log("Send Error:",error);
             alert("現在、メッセージを送信できません。");
-        }
+        };
+    };
+
+    // ----------------------------
+    // スラングの注意が表示されたとき
+
+    // Sendボタンを押した時
+    const handleClickSend=()=>{
+        try{
+            const sendData=inputEmojis;
+            // バックエンドに送信
+            console.log(sendData);
+            alert("送信しました！");
+            setInputEmojis([]);
+        }catch(error){
+            console.log("Send Error:",error);
+            alert("現在、メッセージを送信できません");
+        };
+        setShowAttention(tailwindNotShowAttention);
+        setSlangsList([]);
+    }
+
+    // Fixボタンを押した時
+    const handleClickFix=()=>{
+        setShowAttention(tailwindNotShowAttention);
+        setSlangsList([]);
     }
 
 
@@ -113,10 +136,10 @@ const InputEmojis=()=>{
                     }):""}
                 </div>
                 <div className="w-full flex justify-center p-4 pt-0">
-                    <button type="button" className="mx-5 w-20 inline-flex items-center justify-center px-4 py-2 text-sm font-medium tracking-wide text-white transition-colors duration-200 bg-blue-600 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 focus:shadow-outline focus:outline-none">
+                    <button onClick={handleClickSend} type="button" className="mx-5 w-20 inline-flex items-center justify-center px-4 py-2 text-sm font-medium tracking-wide text-white transition-colors duration-200 bg-blue-600 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 focus:shadow-outline focus:outline-none">
                         Send
                     </button>
-                    <button type="button" className="mx-5 w-20 inline-flex items-center justify-center px-4 py-2 text-sm font-medium tracking-wide transition-colors duration-200 bg-white border rounded-md text-neutral-500 hover:text-neutral-700 border-neutral-200/70 hover:bg-neutral-100 active:bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-200/60 focus:shadow-outline">
+                    <button onClick={handleClickFix} type="button" className="mx-5 w-20 inline-flex items-center justify-center px-4 py-2 text-sm font-medium tracking-wide transition-colors duration-200 bg-white border rounded-md text-neutral-500 hover:text-neutral-700 border-neutral-200/70 hover:bg-neutral-100 active:bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-200/60 focus:shadow-outline">
                         Fix
                     </button>
                 </div>
