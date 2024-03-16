@@ -16,6 +16,7 @@ const InputEmojis=()=>{
  
      const handleShowEmojiPicker=(event)=>{
          const currentClassNameText=event.currentTarget.className;
+         try{
          if(currentClassNameText){
              if(currentClassNameText.includes("textarea")){
                  setShowEmojiPicker(tailwindShowEmojiPicker);
@@ -35,6 +36,7 @@ const InputEmojis=()=>{
                  setShowEmojiPicker(tailwindNotShowEmojiPicker);
              };
          };
+        }catch{};
      };
  
      // --------------------------
