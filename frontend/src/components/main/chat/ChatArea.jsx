@@ -1,19 +1,32 @@
 import ReceiveMessage from "./parts/ReceiveMessage";
 import SendMessage from "./parts/SendMassage";
 import InputEmojis from "./parts/InputEmojis";
+import { UserSettingsContext } from "../../providers/UserSettingsProvider";
+import { useContext } from "react";
 
 const ChatArea=()=>{    
+    // ユーザ設定を格納するグローバル変数と設定を変更する関数を取得
+    const {userSettings,setUserSettings}=useContext(UserSettingsContext);
+    // 自分のユーザID
+    const userId=userSettings.id;
 
-    // チャットでやり取りするデータ例
-    const sendData={
-        id:"1234",
-        message:[':innocent:', ':upside_down_face:', ':kissing_heart:']
-    }
+    // チャットのデータリスト例
+    const chatDataList=
+    [
+        {
+            user:{id:"1111",name:"obake",iconText:"@Ghost;Pink;"},
+            message:[':innocent:', ':upside_down_face:', ':kissing_heart:']
+        },
+        {
+            user:{id:"1234",name:"obake",iconText:"@Ghost;Pink;"},
+            message:[':black_heart:', ':brown_heart:', ':green_heart:', ':white_heart:', ':orange_heart:', ':purple_heart:', ':yellow_heart:', ':hand_with_index_finger_and_thumb_crossed::skin-tone-6:']
+        },
+        {
+            user:{id:"1111",name:"obake",iconText:"@Ghost;Pink;"},
+            message:[':black_heart:', ':brown_heart:', ':green_heart:']
+        }
+    ];
 
-    const receiveData={
-        iconText:"@Otter;Pink;",
-        message:[ ':black_heart:', ':brown_heart:', ':green_heart:', ':white_heart:', ':orange_heart:', ':purple_heart:', ':yellow_heart:', ':hand_with_index_finger_and_thumb_crossed::skin-tone-6:']
-    }
     // ------------------------
 
     return (
@@ -22,20 +35,15 @@ const ChatArea=()=>{
                 <h2 className="text-xl py-1 mb-8 border-b-2 border-gray-200">Chatting Room</h2>
             </div>
             <div className="messages flex-1 overflow-auto pb-10">
-                <ReceiveMessage receiveData={receiveData} />
-                <ReceiveMessage receiveData={receiveData} />
-                <ReceiveMessage receiveData={receiveData} />
-                <ReceiveMessage receiveData={receiveData} />
-                <ReceiveMessage receiveData={receiveData} />
-                <ReceiveMessage receiveData={receiveData} />
-                <ReceiveMessage receiveData={receiveData} />
-                <ReceiveMessage receiveData={receiveData} />
-                <ReceiveMessage receiveData={receiveData} />
-                <ReceiveMessage receiveData={receiveData} />
-                <ReceiveMessage receiveData={receiveData} />
-                <ReceiveMessage receiveData={receiveData} />
-                <ReceiveMessage receiveData={receiveData} />
-                <SendMessage message={sendData.message} />
+                {chatDataList[0]?
+                    chatDataList.map((chatData,index)=>{
+                        if(chatData.user.id===userId){
+                        return(<span key={index}><SendMessage message={chatData.message} /></span>);
+                        }else{
+                            return(<span key={index}><ReceiveMessage receiveData={{iconText:chatData.user.iconText,message:chatData.message}} /></span>)
+                        }
+                    })
+                :""}
 
                 {/* GIF表示 */}
                 {/* <div className="message mb-4 flex">

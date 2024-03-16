@@ -1,6 +1,9 @@
 import DisplayEmojis from "./DisplayEmojis";
 
 const SendMessage=({message})=>{
+    // propsのデータ例
+    // message:[':innocent:', ':upside_down_face:', ':kissing_heart:']
+    
     return (
         <div className="message me mb-4 flex text-right">
             <div className="flex-1 px-2">

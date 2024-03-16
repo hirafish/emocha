@@ -4,6 +4,12 @@ import { GetSlangsList } from "../../slangs/GetSlangs";
 import Tooltip from "./Tooltip";
 
 const ReceiveMessage=({receiveData})=>{
+    // propsのデータ例
+    // receiveData={
+    //     iconText:"@Otter;Pink;",
+    //     message:[ ':black_heart:', ':brown_heart:', ':green_heart:', ':white_heart:', ':orange_heart:', ':purple_heart:', ':yellow_heart:', ':hand_with_index_finger_and_thumb_crossed::skin-tone-6:']
+    // }
+
     // iconTextをUseIconコンポーネントのprops型に変換
     const iconText=receiveData.iconText;
     const preUserIconData=iconText.slice(1,iconText.length-1)
