@@ -7,7 +7,7 @@ import DisplayEmojis from "./DisplayEmojis";
 
 const InputEmojis=()=>{
     init({ data })
-    
+
      // 絵文字ピッカーの表示・非表示
      const tailwindNotShowEmojiPicker="hidden";
      const tailwindShowEmojiPicker="absolute bottom-24 opacity-75";
@@ -52,21 +52,33 @@ const InputEmojis=()=>{
         }
     };
     // ---------------------------
+    // スラングの注意を表示 / 非表示
+    const tailwindNotShowAttention="hidden";
+    const tailwindShowAttention="absolute bottom-24 bg-opacity-75 bg-white w-full shadow rounded-lg";
+    const [showAttention,setShowAttention]=useState(tailwindNotShowAttention); 
 
+    // 注意で表示するスラングのリスト
+    const [slangsList,setSlangsList]=useState([]);
 
 
     // ---------------------------
-    // 送信
-    const handleSendMessage=()=>{
+    // 送信ボタン
+    const handleClickCheckButton=()=>{
         try{
             // バックエンドに送信
             const sendData=inputEmojis;
             if(sendData[0]){
                 const slangsList=GetSlangsList(sendData);
-                console.log(sendData);
-                console.log(slangsList)
-                alert("送信しました！");
-                setInputEmojis([]);
+                if(slangsList[0]){
+                    setSlangsList(slangsList);
+                    // console.log(slangsList)
+                    setShowAttention(tailwindShowAttention);
+                }else{
+                    console.log(sendData);
+                    console.log(slangsList)
+                    alert("送信しました！");
+                    setInputEmojis([]);
+                }
             }else{
                 alert("絵文字が空です！");
             };
@@ -90,11 +102,15 @@ const InputEmojis=()=>{
                     'rgba(211,209,255,.7)',
                     ]} />
             </div>
-            <div className="attention absolute bottom-24 bg-opacity-75 bg-white w-full shadow rounded-lg">
+            <div className={showAttention?"attention "+showAttention:"hidden"}>
                 <div className="w-full p-4 flex flex-col items-center">
-                    <span>
-                        <DisplayEmojis emojiShortcodesList={[":-1:"]} /> means " bad " in Japanese.
-                    </span>
+                    {slangsList[0]?slangsList.map((slangObj,index)=>{
+                        return(
+                            <span key={index}>
+                                <DisplayEmojis emojiShortcodesList={[slangObj.shortcodes]} /> means " {slangObj.meaning} " in Japanese.
+                            </span>
+                        )
+                    }):""}
                 </div>
                 <div className="w-full flex justify-center p-4 pt-0">
                     <button type="button" className="mx-5 w-20 inline-flex items-center justify-center px-4 py-2 text-sm font-medium tracking-wide text-white transition-colors duration-200 bg-blue-600 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 focus:shadow-outline focus:outline-none">
@@ -131,7 +147,7 @@ const InputEmojis=()=>{
                         </span>
                     </div>
                     <div className="flex-1">
-                        <button onClick={handleSendMessage} className="bg-blue-600 hover:bg-blue-700 w-10 h-10 rounded-full inline-block">
+                        <button onClick={handleClickCheckButton} className="bg-blue-600 hover:bg-blue-700 w-10 h-10 rounded-full inline-block">
                             <span className="inline-block align-text-bottom">
                                 <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" className="w-4 h-4 text-white"><path d="M5 13l4 4L19 7"></path></svg>
                             </span>
