@@ -95,7 +95,7 @@ const Settings=()=>{
                                 </div>
                                 <div className="w-full grid gap-6 mb-6 md:grid-cols-2 items-center">
                                     <div className=" md:w-3/4">
-                                        <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image</label>
+                                        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image</label>
                                         <form>
                                             <select value={previews.icon.image} onChange={handleChangeIconImage} id="iconImages" className="text-center bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                                 {Object.keys(iconsCatalog.image).map((image,index)=>{
@@ -107,7 +107,7 @@ const Settings=()=>{
                                         </form>
                                     </div>
                                     <div className="md:w-3/4">
-                                        <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Color</label>
+                                        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Color</label>
                                         <form className="w-full">
                                             <select value={previews.icon.color} onChange={handleChangeIconColor} id="iconColors" className="text-center bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                                 {Object.keys(iconsCatalog.color).map((color,index)=>{
@@ -123,17 +123,17 @@ const Settings=()=>{
                         </div>
 
                         <div className="md:w-3/5 my-8">
-                            <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User name</label>
-                            <input type="text" id="first_name" className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                            <label htmlFor="userName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User name</label>
+                            <input type="text" id="userName" className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                         </div>
                         <div className="md:w-3/5 my-8">
-                            <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">SNS URL</label>
-                            <input type="text" id="first_name" className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                            <label htmlFor="snsUrl" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">SNS URL</label>
+                            <input type="text" id="snsUrl" className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                         </div>
                         
                         <div className="container my-8">
                             <div className="md:w-1/5 min-w-40">
-                            <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Language</label>
+                            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Language</label>
                                 <form className="w-full">
                                     <select value={previews.language} onChange={handleChangeLanguage} id="languages" className="text-center bg-white border border-neutral-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                         {languagesCatalog.map((language,index)=>{
