@@ -64,14 +64,14 @@ const InputEmojis=()=>{
     // 送信ボタン
     const handleClickCheckButton=()=>{
         try{
-            const sendData=inputEmojis;
-            if(sendData[0]){
-                const slangsList=GetSlangsList(sendData);
+            const postdData=inputEmojis;
+            if(postdData[0]){
+                const slangsList=GetSlangsList(postdData);
                 if(slangsList[0]){
                     setSlangsList(slangsList);
                     setShowAttention(tailwindShowAttention);
                 }else{
-                    console.log(sendData);
+                    console.log(postdData);
                     // バックエンドに送信
                     alert("送信しました！");
                     setInputEmojis([]);
@@ -92,9 +92,9 @@ const InputEmojis=()=>{
     // Sendボタンを押した時
     const handleClickSend=()=>{
         try{
-            const sendData=inputEmojis;
+            const postdData=inputEmojis;
             // バックエンドに送信
-            console.log(sendData);
+            console.log(postdData);
             alert("送信しました！");
             setInputEmojis([]);
         }catch(error){
