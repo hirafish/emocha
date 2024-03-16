@@ -1,6 +1,7 @@
 import Navigation from "../components/main/nav/Navigation";
 import { Outlet } from 'react-router-dom';
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const MainLayout=()=>{
     // ナビゲーションの開閉
@@ -43,6 +44,17 @@ const MainLayout=()=>{
             };
         }catch{};
     };
+    // ------------------------------
+    const navigate=useNavigate();
+
+    // ログアウトボタンの処理
+    const handleClickLogOut=()=>{
+        // ここでログアウト処理をする
+        alert("ログアウトしました！");
+        navigate("/");
+    };
+
+
 
     return (
         <div className='flex h-full' onClick={handleClickOutsideLeaveButton}>
@@ -71,10 +83,10 @@ const MainLayout=()=>{
                             </svg>
                         </span>
                         <div className={showLeavePop}>
-                            <div className="px-2 rounded-md hover:bg-gray-200 w-full flex cursor-pointer">
+                            <div onClick={handleClickLogOut} className="px-2 rounded-md hover:bg-gray-200 w-full flex cursor-pointer">
                                 <p>Log out</p>
                             </div>
-                            <div className="px-2 rounded-md hover:bg-gray-200 w-full flex cursor-pointer">
+                            <div onClick={""} className="px-2 rounded-md hover:bg-gray-200 w-full flex cursor-pointer">
                                 <p>Delete account</p>
                             </div>
                         </div>

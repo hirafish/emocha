@@ -70,7 +70,6 @@ const Setup=()=>{
 
     // ユーザの設定をフロントエンド全体に反映させる
 
-    // NavLinkボタンをクリックした時の処理
     const handleClickSend=()=>{
         const sendData=previews;
         console.log(sendData);
