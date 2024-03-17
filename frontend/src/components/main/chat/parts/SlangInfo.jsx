@@ -1,6 +1,6 @@
 import DisplayEmojis from "./DisplayEmojis";
 
-const Tooltip=({slangsList})=>{
+const SlangInfo=({slangsList})=>{
     return(
         <>
             {slangsList[0]?
@@ -21,4 +21,4 @@ const Tooltip=({slangsList})=>{
     );
 };
 
-export default Tooltip;
+export default SlangInfo;
