@@ -14,15 +14,15 @@ const ChatArea=()=>{
     const chatDataList=
     [
         {
-            user:{id:"1111",name:"obake",iconText:"@Ghost;Pink;"},
+            user:{id:"1111",name:"obake",iconText:"@Ghost;Pink;",snsUrl:"http:/aaa.com"},
             message:[':innocent:', ':upside_down_face:', ':kissing_heart:']
         },
         {
-            user:{id:"1234",name:"obake",iconText:"@Ghost;Pink;"},
+            user:{id:"1234",name:"obake",iconText:"@Ghost;Pink;",snsUrl:"http:/aaa.com"},
             message:[':black_heart:', ':brown_heart:', ':green_heart:', ':white_heart:', ':orange_heart:', ':purple_heart:', ':yellow_heart:', ':hand_with_index_finger_and_thumb_crossed::skin-tone-6:']
         },
         {
-            user:{id:"1111",name:"obake",iconText:"@Ghost;Pink;"},
+            user:{id:"1111",name:"obake",iconText:"@Ghost;Pink;",snsUrl:"http:/aaa.com"},
             message:[':black_heart:', ':brown_heart:', ':green_heart:']
         }
     ];
