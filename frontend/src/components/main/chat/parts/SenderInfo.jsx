@@ -1,3 +1,5 @@
+import UserIcon from "../../globalParts/UserIcon";
+
 const SenderInfo=()=>{
     return (
         <div className="absolute z-30 top-0 bottom-8 left-0 right-0 m-auto w-72 h-40 bg-white rounded-lg bg-opacity-85">
@@ -9,7 +11,11 @@ const SenderInfo=()=>{
                     </svg>
                 </span>
             </div>
-            <p>aaaa</p>
+            <div>
+                <span className="w-10 h-10">
+                    <UserIcon image={"Ghost"} color={"Purple"} size={10} />
+                </span>
+            </div>
         </div>
     );
 };

@@ -1,8 +1,9 @@
-import ReceiveMessage from "./parts/ReceiveMessage";
-import SendMessage from "./parts/SendMassage";
+import OthersMessage from "./parts/OthersMessage";
+import MyMessage from "./parts/MyMessage";
 import InputEmojis from "./parts/InputEmojis";
 import { UserSettingsContext } from "../../providers/UserSettingsProvider";
 import { useContext } from "react";
+import SenderInfo from "./parts/SenderInfo";
 
 const ChatArea=()=>{    
     // ユーザ設定を格納するグローバル変数と設定を変更する関数を取得
@@ -24,6 +25,14 @@ const ChatArea=()=>{
         {
             user:{id:"1111",name:"obake",iconText:"@Ghost;Pink;",snsUrl:"http:/aaa.com"},
             message:[':black_heart:', ':brown_heart:', ':green_heart:']
+        },
+        {
+            user:{id:"1234",name:"obake",iconText:"@Ghost;Pink;",snsUrl:"http:/aaa.com"},
+            message:[':black_heart:', ':brown_heart:', ':green_heart:', ':white_heart:', ':orange_heart:', ':purple_heart:', ':yellow_heart:', ':hand_with_index_finger_and_thumb_crossed::skin-tone-6:']
+        },
+        {
+            user:{id:"1111",name:"obake",iconText:"@Ghost;Pink;",snsUrl:"http:/aaa.com"},
+            message:[':black_heart:', ':brown_heart:', ':green_heart:']
         }
     ];
 
@@ -34,13 +43,14 @@ const ChatArea=()=>{
             <div className="flex-3">
                 <h2 className="text-xl py-1 mb-8 border-b-2 border-gray-200">Chatting Room</h2>
             </div>
-            <div className="messages flex-1 overflow-auto pb-10">
+            <div className="messages flex-1 overflow-auto pb-10 relative">
+                <SenderInfo />
                 {chatDataList[0]?
                     chatDataList.map((chatData,index)=>{
                         if(chatData.user.id===userId){
-                        return(<span key={index}><SendMessage message={chatData.message} /></span>);
+                        return(<span key={index}><MyMessage message={chatData.message} /></span>);
                         }else{
-                            return(<span key={index}><ReceiveMessage receiveData={{iconText:chatData.user.iconText,message:chatData.message}} /></span>)
+                            return(<span key={index}><OthersMessage receiveData={{iconText:chatData.user.iconText,message:chatData.message}} /></span>)
                         }
                     })
                 :""}
