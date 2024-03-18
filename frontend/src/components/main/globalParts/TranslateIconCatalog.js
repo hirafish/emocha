@@ -4,7 +4,7 @@ const TranslateIconCatalog=(originIconValue)=>{
         Otter:{ja:"カワウソ"},
         Hippo:{ja:"カバ"},
         Dog:{ja:"いぬ"},
-        Paw:{ja:"肉球"},
+        Paw:{ja:"にくきゅう"},
         Cat:{ja:"ねこ"},
         Cow:{ja:"うし"},
         Fish:{ja:"フィッシュ"},
