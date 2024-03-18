@@ -1,12 +1,18 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { GetSlangsList } from "../../slangs/GetSlangs";
 import Picker from '@emoji-mart/react';
 import data from '@emoji-mart/data/sets/14/twitter.json';
+import i18n_ja from '@emoji-mart/data/i18n/ja.json';
 import { init } from "emoji-mart";
 import DisplayEmojis from "./DisplayEmojis";
+import { UserSettingsContext } from "../../../providers/UserSettingsProvider";
 
 const InputEmojis=()=>{
-    init({ data })
+    useEffect(()=>{
+        init({ data,i18n_ja})
+    },[]);
+
+    const {userSettings}=useContext(UserSettingsContext);
 
      // 絵文字ピッカーの表示・非表示
      const tailwindNotShowEmojiPicker="hidden";
@@ -113,11 +119,10 @@ const InputEmojis=()=>{
         setSlangsList([]);
     }
 
-
     return(
         <div className="flex-2 pt-4 pb-6 relative">
             <div id="picker" className={showEmojiPicker}>
-                <Picker data={data} locale="en" noCountryFlags={true} set="twitter" onClickOutside={handleShowEmojiPicker} onEmojiSelect={handleAddEmoji} emojiButtonRadius='6px' previewPosition={"none"}
+                <Picker data={data} locale={userSettings.language==="English"?"en":"ja"}  noCountryFlags={true} set="twitter" onClickOutside={handleShowEmojiPicker} onEmojiSelect={handleAddEmoji} emojiButtonRadius='6px' previewPosition={"none"}
                     emojiButtonColors={[
                     'rgba(155,223,88,.7)',
                     'rgba(149,211,254,.7)',
@@ -125,7 +130,8 @@ const InputEmojis=()=>{
                     'rgba(238,166,252,.7)',
                     'rgba(255,213,143,.7)',
                     'rgba(211,209,255,.7)',
-                    ]} />
+                    ]} 
+                    />
             </div>
             <div className={showAttention?"attention "+showAttention:"hidden"}>
                 <div className="w-full p-4 flex flex-col items-center">
@@ -156,7 +162,7 @@ const InputEmojis=()=>{
                     <div className="textarea w-full h-full outline-none pt-4 pb-5 px-4 bg-transparent flex flex-wrap overflow-auto">
                         {inputEmojis[0]?
                             <DisplayEmojis emojiShortcodesList={inputEmojis} />
-                            :<span className="text-gray-400">Select emojis ...</span>
+                            :<span className="text-gray-400">{userSettings.language==="English"?"Select emojis ...":"絵文字を選ぶ ..."}</span>
                         }
                     </div>
                 </div>
