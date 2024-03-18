@@ -20,19 +20,19 @@ const ChatArea=()=>{
             message:[':innocent:', ':upside_down_face:', ':kissing_heart:']
         },
         {
-            user:{id:"2222",name:"obake",iconText:"@Ghost;Blue;",snsUrl:"http:/aaa.com",language:"日本語"},
+            user:{id:"2222",name:"obake",iconText:"@Ghost;Blue;",snsUrl:"https://twitter.com/elonmusk",language:"日本語"},
             message:[':black_heart:', ':brown_heart:', ':green_heart:', ':white_heart:', ':orange_heart:', ':purple_heart:', ':yellow_heart:', ':hand_with_index_finger_and_thumb_crossed::skin-tone-6:']
         },
         {
-            user:{id:"1111",name:"obake",iconText:"@Ghost;Pink;",snsUrl:"http:/aaa.com",language:"English"},
+            user:{id:"1111",name:"obake",iconText:"@Ghost;Pink;",snsUrl:"https://twitter.com/elonmusk",language:"English"},
             message:[':black_heart:', ':brown_heart:', ':green_heart:']
         },
         {
-            user:{id:"1234",name:"obake",iconText:"@Ghost;Pink;",snsUrl:"http:/aaa.com",language:"日本語"},
+            user:{id:"1234",name:"obake",iconText:"@Ghost;Pink;",snsUrl:"https://twitter.com/elonmusk",language:"日本語"},
             message:[':black_heart:', ':brown_heart:', ':green_heart:', ':white_heart:', ':orange_heart:', ':purple_heart:', ':yellow_heart:', ':hand_with_index_finger_and_thumb_crossed::skin-tone-6:']
         },
         {
-            user:{id:"1111",name:"obake",iconText:"@Ghost;Pink;",snsUrl:"http:/aaa.com",language:"English"},
+            user:{id:"1111",name:"obake",iconText:"@Ghost;Pink;",snsUrl:"https://twitter.com/elonmusk",language:"English"},
             message:[':black_heart:', ':brown_heart:', ':green_heart:']
         }
     ];
