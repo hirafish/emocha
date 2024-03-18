@@ -7,12 +7,6 @@ import { SenderInfoContext } from "../../../providers/SenderInfoProvider";
 import TranslateUserIconProps from "./TranslateUserIconProps";
 
 const OthersMessage=({chatData})=>{
-    // propsのデータ例
-    // chatData={
-    //     iconText:"@Otter;Pink;",
-    //     message:[ ':black_heart:', ':brown_heart:', ':green_heart:', ':white_heart:', ':orange_heart:', ':purple_heart:', ':yellow_heart:', ':hand_with_index_finger_and_thumb_crossed::skin-tone-6:']
-    // }
-
     // iconTextをUseIconコンポーネントのprops型に変換
     const iconText=chatData.user.iconText;
     const userIconProps=TranslateUserIconProps(iconText);
