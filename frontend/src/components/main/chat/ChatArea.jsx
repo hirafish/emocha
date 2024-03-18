@@ -2,7 +2,7 @@ import OthersMessage from "./parts/OthersMessage";
 import MyMessage from "./parts/MyMessage";
 import InputEmojis from "./parts/InputEmojis";
 import { UserSettingsContext } from "../../providers/UserSettingsProvider";
-import { useContext } from "react";
+import { useContext,useRef,useLayoutEffect } from "react";
 import SenderInfo from "./parts/SenderInfo";
 import { SenderInfoProvider } from "../../providers/SenderInfoProvider";
 
@@ -38,6 +38,14 @@ const ChatArea=()=>{
     ];
 
     // ------------------------
+    // スクロールバーの初期位置を下に設定
+    const scrollBottomRef = useRef(null);
+  
+    useLayoutEffect(() => {
+        if(scrollBottomRef && scrollBottomRef.current) {
+            scrollBottomRef.current.scrollIntoView()
+        };
+    }, []);
 
     return (
         <div className="chat-area flex-1 flex flex-col h-full min-w-0 relative">
@@ -73,7 +81,7 @@ const ChatArea=()=>{
                         </div>
                     </div> */}
                     {/* --------- */}
-                    
+                    <div ref={scrollBottomRef}/>    
                 </div>
             </SenderInfoProvider>
             <InputEmojis />

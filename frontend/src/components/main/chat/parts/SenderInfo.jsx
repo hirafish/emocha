@@ -20,7 +20,6 @@ const SenderInfo=()=>{
     };
     return (
         <div className={senderInfo.isShow?tailwindShowSenderInfo:tailwindNotShowSenderInfo}>
-            {console.log(senderInfo)}
             <div className="flex items-center justify-end">
                 <span className="p-2">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" onClick={handleClickClose} className="w-4 h-4 cursor-pointer">
