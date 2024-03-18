@@ -9,7 +9,7 @@ export const SenderInfoProvider=props=>{
         {
             isShow:false,
             data:{
-                user:{id:"",name:"",iconText:"",snsUrl:"",language:""}
+                id:"",name:"",iconText:"",snsUrl:"",language:""
             }
         }
     );

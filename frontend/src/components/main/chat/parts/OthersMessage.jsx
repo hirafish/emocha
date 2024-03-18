@@ -4,6 +4,7 @@ import { GetSlangsList } from "../../slangs/GetSlangs";
 import SlangInfo from "./SlangInfo";
 import { useContext } from "react";
 import { SenderInfoContext } from "../../../providers/SenderInfoProvider";
+import TranslateUserIconProps from "./TranslateUserIconProps";
 
 const OthersMessage=({chatData})=>{
     // propsのデータ例
@@ -14,8 +15,7 @@ const OthersMessage=({chatData})=>{
 
     // iconTextをUseIconコンポーネントのprops型に変換
     const iconText=chatData.user.iconText;
-    const preUserIconData=iconText.slice(1,iconText.length-1)
-    const userIconDataList=preUserIconData.split(";");
+    const userIconProps=TranslateUserIconProps(iconText);
     // ------------------------------
 
     // スラングの情報
@@ -38,7 +38,7 @@ const OthersMessage=({chatData})=>{
         <div className="message mb-4">
             <div className="flex">
                 <div onClick={handleClickUser} className="w-10 h-10 cursor-pointer">
-                    <UserIcon image={userIconDataList[0]} color={userIconDataList[1]} size={10} />
+                    <UserIcon image={userIconProps.image} color={userIconProps.color} size={10} />
                 </div>
                 <div onClick={handleClickUser} className="flex items-center">
                     <p className="text-gray-500 ml-1 cursor-pointer">obake</p>
