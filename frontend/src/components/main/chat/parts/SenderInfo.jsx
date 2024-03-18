@@ -5,7 +5,7 @@ import { useContext, useState } from "react";
 const SenderInfo=()=>{
     const {senderInfo,setSenderInfo}=useContext(SenderInfoContext);
     const tailwindNotShowSenderInfo="hidden";
-    const tailwindShowSenderInfo="absolute z-30 top-0 bottom-8 left-0 right-0 m-auto w-80 h-44 bg-white rounded-lg bg-opacity-85 shadow";
+    const tailwindShowSenderInfo="absolute z-10 top-0 bottom-8 left-0 right-0 m-auto w-[90vw] h-[60vh] md:h-[40vh] xl:h-[60vh] md:w-96 min-h-[240px] bg-white rounded-lg bg-opacity-85 shadow flex flex-col";
 
     const handleClickClose=()=>{
         setSenderInfo(
@@ -28,14 +28,14 @@ const SenderInfo=()=>{
                     </svg>
                 </span>
             </div>
-            <div className="px-4 pb-2">
-                <div className="flex items-center">
-                    <span className="w-10 h-10">
-                        <UserIcon image={"Ghost"} color={"Purple"} size={10} />
+            <div className="flex-1 px-4 py-2 flex flex-col justify-evenly items-center">
+                <div className="flex flex-col justify-center items-center">
+                    <span className="w-20 h-20">
+                        <UserIcon image={"Ghost"} color={"Purple"} size={20} />
                     </span>
-                    <span className="pl-3">Obake</span>
+                    <span className="pt-2 font-medium text-xl">Obake</span>
                 </div>
-                <div className="h-full pl-5 pr-4 pt-2">
+                <div className="pl-5 pr-4 w-full">
                     <div className="flex items-center">
                         <span>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-4 h-4">
@@ -52,7 +52,7 @@ const SenderInfo=()=>{
                                 <path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/>
                             </svg>
                         </span>
-                        <span className="mx-3 overflow-auto cursor-pointer">https://aaaaaaaaaaaaaaa.com</span>
+                        <span className="w-full mx-3 overflow-auto cursor-pointer">https://aaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com</span>
                     </div>
                 </div>
             </div>

@@ -40,12 +40,12 @@ const ChatArea=()=>{
     // ------------------------
 
     return (
-        <div className="chat-area flex-1 flex flex-col h-full min-w-0">
+        <div className="chat-area flex-1 flex flex-col h-full min-w-0 relative">
             <div className="flex-3">
                 <h2 className="text-xl py-1 mb-8 border-b-2 border-gray-200">Chatting Room</h2>
             </div>
             <SenderInfoProvider>
-                <div className="messages flex-1 overflow-auto pb-10 relative">
+                <div className="messages flex-1 overflow-auto pb-10">
                     <SenderInfo />
                     {chatDataList[0]?
                         chatDataList.map((chatData,index)=>{
