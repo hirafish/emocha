@@ -16,7 +16,7 @@ const ChatArea=()=>{
     const chatDataList=
     [
         {
-            user:{id:"1111",name:"obake",iconText:"@Ghost;Pink;",snsUrl:"http:/aaa.com",language:"English"},
+            user:{id:"1111",name:"obake",iconText:"@Ghost;Pink;",snsUrl:"",language:"English"},
             message:[':innocent:', ':upside_down_face:', ':kissing_heart:']
         },
         {
