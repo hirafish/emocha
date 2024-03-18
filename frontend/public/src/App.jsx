@@ -6,6 +6,25 @@ import Router from "./components/router/Router";
 import Twemoji from "react-twemoji";
 
 function App() {
+  // FastAPIとの通信
+
+  // (async()=>{
+  //   try{
+  //   const data=await FetchFromPython();
+  //   console.log(data);
+  //   }catch(error){
+  //     console.log("(Fetch Error)",error);
+  //   };
+  // })();
+
+  // --------------
+
+  // Socket.io通信
+
+  // ConnectSocketIo();
+
+  // --------------
+
   return (
     <BrowserRouter>
       <div id="App" className="w-full h-screen">
