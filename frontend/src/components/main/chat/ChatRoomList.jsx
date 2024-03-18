@@ -10,7 +10,7 @@ const ChatRoomList=()=>{
     return (
     <div className="sidebar hidden lg:flex w-1/3 flex-2 flex-col pr-6">
         <div className="flex-2 pb-6 px-2">
-        <h2 className="text-xl py-1 mb-8 border-b-2 border-gray-200">{userSettings.language==="English"?"Room List":"ルームリスト"}</h2>
+        <h2 className="text-xl py-1 mb-8 border-b-2 border-gray-200">{userSettings.language==="English"?"Channels":"チャンネル"}</h2>
         </div>
         <div className="flex-1 h-full overflow-auto px-2">
             {roomDataList.map((roomData,index)=>{
