@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const MainLayout=()=>{
     // ナビゲーションの開閉
     const closeNavTailwind="hidden";
-    const openNavTailwind="absolute w-full h-full lg:left-0 lg:w-64 z-20";
+    const openNavTailwind="absolute z-30 w-full h-full lg:left-0 lg:w-64 z-20";
 
     const [navTailwind,setNavTailwind]=useState(closeNavTailwind);
     
