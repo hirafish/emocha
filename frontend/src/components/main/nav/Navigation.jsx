@@ -39,10 +39,10 @@ const Navigation=(props)=>{
             </div>
 
             <div className="menu mt-16 lg:mt-8">
-                <LinkButton svgIcon={"/navIcon/home.svg"} pageName={"Home"} to={"/main/home"} />
-                <LinkButton svgIcon={"/navIcon/chat.svg"} pageName={"Chat"} to={"/main/chat"} />
-                <LinkButton svgIcon={"/navIcon/slangs.svg"} pageName={"My slangs"} to={"/main/slangs"} />
-                <LinkButton svgIcon={"/navIcon/settings.svg"} pageName={"Settings"} to={"/main/settings"} />
+                <LinkButton svgIcon={"/navIcon/home.svg"} pageName={userSettings.language==="English"?"Home":"ホーム"} to={"/main/home"} />
+                <LinkButton svgIcon={"/navIcon/chat.svg"} pageName={userSettings.language==="English"?"Chat":"チャット"} to={"/main/chat"} />
+                <LinkButton svgIcon={"/navIcon/slangs.svg"} pageName={userSettings.language==="English"?"My slangs":"スラング一覧"} to={"/main/slangs"} />
+                <LinkButton svgIcon={"/navIcon/settings.svg"} pageName={userSettings.language==="English"?"Settings":"設定"} to={"/main/settings"} />
             </div>
         </div>
     )
