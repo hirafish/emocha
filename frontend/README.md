@@ -1,5 +1,19 @@
 # emocha - frontend
 
+## Quick start
+1. Enter a Frontend container
+```
+docker compose exec frontend sh
+```
+2. Install npm pacages
+```
+npm ci
+```
+3. Run server
+```
+npm start
+```
+
 ## File Structure Overview
 
 ```
