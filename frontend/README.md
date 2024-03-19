@@ -1,6 +1,6 @@
-# emocha - frontend
+# emocha - frontend 🍏☕️👻
 
-## Quick start
+## 🍏 Quick start
 1. Enter a Frontend container
 ```
 docker compose exec frontend sh
@@ -14,7 +14,7 @@ npm ci
 npm start
 ```
 
-## File Structure Overview
+## ☕️ File Structure Overview
 
 ```
 frontend/
@@ -58,7 +58,7 @@ frontend/
     └ tailwind.config.js    # Tailwind CSSの設定
 ```
 
-## Sequence Diagram
+## 👻 Sequence Diagram
 ### Auth ~ Home
 
 ```mermaid
