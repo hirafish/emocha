@@ -1,6 +1,9 @@
 import UserIcon from "../../globalParts/UserIcon";
 
-const RoomCard=({iconImage,iconColor,roomName})=>{
+const RoomCard=({roomData})=>{
+    const iconImage=roomData.icon.image;
+    const iconColor=roomData.icon.color;
+    const roomName=roomData.name;
     return (
         <div className="entry cursor-pointer transform hover:scale-105 duration-300 transition-transform bg-white mb-4 rounded p-4 flex shadow-md">
             <div className="flex-2">

@@ -5,6 +5,8 @@ import App from './App';
 import { IconsCatalogProvider } from './components/providers/IconsCatalogProvider';
 import { LanguagesCatalogProvider } from './components/providers/LanguagesCatalogProvider';
 import { UserSettingsProvider } from './components/providers/UserSettingsProvider';
+import { RoomDataListProvider } from './components/providers/RoomDataListProvider';
+
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,7 +15,9 @@ root.render(
     <IconsCatalogProvider>
       <LanguagesCatalogProvider>
         <UserSettingsProvider>
-          <App />
+          <RoomDataListProvider>
+            <App />
+          </RoomDataListProvider>
         </UserSettingsProvider>
       </LanguagesCatalogProvider>
     </IconsCatalogProvider>

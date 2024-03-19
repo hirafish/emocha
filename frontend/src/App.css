@@ -38,7 +38,35 @@
 } */
 
 img.twemoji {
-  height: 1em;
-  width: 1em;
+  height: 1.25em;
+  width: 1.25em;
   margin: 0 .05em 0 .1em;
+}
+
+
+em-emoji-picker {
+  height: 38vh;
+  min-height: 200px;
+  max-height: 400px;
+  /* --background-rgb: 85, 170, 255;
+  --border-radius: 24px;
+  --color-border-over: rgba(0, 0, 0, 0.1);
+  --color-border: rgba(0, 0, 0, 0.05);
+  --font-family: 'Comic Sans MS', 'Chalkboard SE', cursive;
+  --font-size: 20px;
+  --rgb-accent: 255, 105, 180;
+  --rgb-background: 262, 240, 283;
+  --rgb-color: 102, 51, 153;
+  --rgb-input: 255, 235, 235;
+  --shadow: 5px 5px 15px -8px rebeccapurple;
+  --background-opacity: 0.5; */
+}
+
+.CursolSpan {
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
 }

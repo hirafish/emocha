@@ -4,8 +4,6 @@ import { ConnectSocketIo } from './components/socketio/Socketio';
 import { BrowserRouter } from 'react-router-dom';
 import Router from './components/router/Router';
 
-import Twemoji from 'react-twemoji';
-
 function App() {
   // FastAPIとの通信
 
