@@ -96,12 +96,12 @@ const Settings=()=>{
         };
     };
     return (
-        <div className="main flex-1 flex flex-col min-h-0">
+        <div className="main flex-1 flex flex-col h-full overflow-auto dark:bg-gray-900">
             <div className="lg:block heading flex-2">
-                <h1 className="text-xl py-1 xl:text-3xl xl:text-gray-700 xl:mb-4 border-b-2 border-gray-200">{userSettings.language==="English"?"Settings":"設定"}</h1>
+                <h1 className="text-xl py-3 xl:text-3xl xl:text-gray-700 xl:mb-4  dark:text-white">{userSettings.language==="English"?"Settings":"設定"}</h1>
             </div>
-            <div className="flex-1  h-full overflow-auto">
-                <div className="mx-10">
+            <div className="flex-1  h-full">
+                <div className="mx-10 pb-6">
                     <div className="container mb-10">
                         <div className="containe my-8 w-full">
                             <div className="md:flex justify-center">
@@ -168,8 +168,8 @@ const Settings=()=>{
                         </div>
                         
                     </div>
-                    <div className=" container md:pl-12 flex justify-center md:justify-start items-center mx-auto my-6">
-                        <button onClick={handleClickSend} type="button" className="inline-flex items-center justify-center w-36 px-5 py-3 text-sm font-medium tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 focus:shadow-outline focus:outline-none">
+                    <div className=" container md:pl-12 flex justify-center md:justify-start items-center mx-auto">
+                        <button onClick={handleClickSend} type="button" className="inline-flex items-center justify-center w-36 px-4 py-2.5 text-md font-medium tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 focus:shadow-outline focus:outline-none">
                             {userSettings.language==="English"?"Save":"保存"}
                         </button>
                     </div>

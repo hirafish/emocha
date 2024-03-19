@@ -67,9 +67,9 @@ const MainLayout=()=>{
 
 
     return (
-        <div className='flex h-full' onClick={handleClickOutsideLeaveButton}>
+        <div className='flex h-full dark:bg-gray-900' onClick={handleClickOutsideLeaveButton} >
             <Navigation handleOpenCloseNav={handleOpenCloseNav} navTailwind={navTailwind} />
-            <div className="flex-1 bg-gray-100 w-full h-full">
+            <div className="flex-1 bg-gray-100 w-full h-full dark:bg-gray-900">
             <div className="main-body container m-auto w-11/12 h-full flex flex-col">
             <header className="py-4 flex-2 flex flex-row">
                 <div className="flex-1">
