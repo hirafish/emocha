@@ -152,7 +152,7 @@ const InputEmojis=()=>{
                     </button>
                 </div>
             </div>
-            <div className="write bg-white shadow flex rounded-lg max-h-20">
+            <div className="write bg-white shadow flex rounded-lg max-h-20 dark:bg-gray-700">
                 <div className="flex-3 flex content-center items-center text-center p-4 pr-0">
                     {/* <span className="block text-center text-gray-400 hover:text-gray-800">
                         <svg fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" stroke="currentColor" viewBox="0 0 24 24" className="h-6 w-6"><path d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -162,13 +162,13 @@ const InputEmojis=()=>{
                     <div className="textarea w-full h-full outline-none pt-4 pb-5 px-4 bg-transparent flex flex-wrap overflow-auto">
                         {inputEmojis[0]?
                             <DisplayEmojis emojiShortcodesList={inputEmojis} />
-                            :<span className="text-gray-400">{userSettings.language==="English"?"Select emojis ...":"絵文字を選ぶ ..."}</span>
+                            :<span className="text-gray-400 dark:text-white">{userSettings.language==="English"?"Select emojis ...":"絵文字を選ぶ ..."}</span>
                         }
                     </div>
                 </div>
                 <div className="flex-2 w-32 p-2 flex content-center items-center relative">
                     <div className="flex-1 text-center">
-                        <span onClick={handleDeleteEmoji} className="text-gray-400 hover:text-gray-500">
+                        <span onClick={handleDeleteEmoji} className="text-gray-400 hover:text-gray-500 dark:text-gray-200 dark:hover:text-white">
                             <span className="inline-block align-middle">
                                 <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" className="w-7">
                                     {/* <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--> */}
