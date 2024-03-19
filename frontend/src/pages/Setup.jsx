@@ -105,12 +105,12 @@ const Setup=()=>{
         };
     };
     return (
-        <div className="main flex-1 flex flex-col min-h-0">
-            <header className="sticky top-0 w-full bg-white shadow flex justify-between">
-                <h1 className="text-xl xl:text-3xl font-bold mx-8 my-4 xl:my-5">Emocha</h1>
+        <div className="main flex-1 flex flex-col min-h-0 dark:bg-gray-900">
+            <header className="sticky top-0 w-full bg-white shadow flex justify-between border-b dark:bg-gray-900 dark:border-white">
+                <h1 className="text-xl xl:text-3xl font-bold mx-8 my-4 xl:my-5 dark:text-white">Emocha</h1>
                 <div className="my-4 mr-6 xl:mr-10 flex justify-center items-center">
                     <form className="max-w-sm mx-auto">
-                        <select value={language} onChange={handleChangeSetupPageLanguage} id="underline_select" className="block py-1 px-1 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200  dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                        <select value={language} onChange={handleChangeSetupPageLanguage} id="underline_select" className="block py-1 px-1 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200  dark:text-white dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
                             {languagesCatalog.map((language,index)=>{
                                 return (
                                     <option key={index} value={language}>{language}</option>
@@ -121,7 +121,7 @@ const Setup=()=>{
                 </div>
             </header>
             <div className="lg:block heading flex-2">
-                <h1 className="text-xl py-1 xl:text-3xl xl:text-gray-700 xl:mb-4 border-b-2 border-gray-200 mx-8 mt-8">{language==="English"?"Setup":"ユーザー設定"}</h1>
+                <h1 className="text-xl py-1 xl:text-3xl xl:text-gray-700 xl:mb-4  mx-8 mt-8 dark:text-white">{language==="English"?"Setup":"ユーザー設定"}</h1>
             </div>
             <div className="flex-1  h-full overflow-auto">
                 <div className="mx-10">
