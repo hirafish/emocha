@@ -13,8 +13,8 @@ const firebaseConfig = {
 };
 
 // Firebase アプリの初期化
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
 const db = getDatabase();
 
-export { db };
+export { app, db };
