@@ -1,4 +1,5 @@
 import { useContext,useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { IconsCatalogContext } from "../components/providers/IconsCatalogProvider";
 import { LanguagesCatalogContext } from "../components/providers/LanguagesCatalogProvider";
 import { UserSettingsContext } from "../components/providers/UserSettingsProvider";
@@ -79,6 +80,7 @@ const Setup=()=>{
     };
 // ---------------------------------------------
 
+    const navigate=useNavigate();
 
     // Sendボタンをクリックした時の処理
     const handleClickSend=()=>{
@@ -91,6 +93,7 @@ const Setup=()=>{
             if(response===true){
                 setUserSettings(postData);
                 alert("設定を更新しました！")
+                navigate("/main/home");
             }else{
                 alert("現在、設定を更新することができません。")
                 console.log("更新できませんでした");
@@ -118,7 +121,7 @@ const Setup=()=>{
                 </div>
             </header>
             <div className="lg:block heading flex-2">
-                <h1 className="text-xl py-1 xl:text-3xl xl:text-gray-700 xl:mb-4 border-b-2 border-gray-200 mx-8 mt-8">{language==="English"?"Setup":"セットアップ"}</h1>
+                <h1 className="text-xl py-1 xl:text-3xl xl:text-gray-700 xl:mb-4 border-b-2 border-gray-200 mx-8 mt-8">{language==="English"?"Setup":"ユーザー設定"}</h1>
             </div>
             <div className="flex-1  h-full overflow-auto">
                 <div className="mx-10">
@@ -167,6 +170,12 @@ const Setup=()=>{
                             <label htmlFor="userName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{language==="English"?"User name":"ユーザー名"}</label>
                             <input type="text" id="userName" spellCheck={false} value={previews.name} onChange={handleChangeName} className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                         </div>
+
+                        <div className="md:w-3/5 md:pl-12 my-8">
+                            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{language==="English"?"Password":"パスワード"}</label>
+                            <input type="password" id="password" spellCheck={false} className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                        </div>
+
                         <div className="md:w-3/5 md:pl-12 my-8">
                             <label htmlFor="snsUrl" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{language==="English"?"Social account":"SNSアカウント"}</label>
                             <input type="url" id="snsUrl" value={previews.snsUrl} onChange={handleChangeSnsUrl} placeholder={language==="English"?"Link to social profile":"SNSアカウントへのリンクを入力してください"} className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
