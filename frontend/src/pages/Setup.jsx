@@ -10,8 +10,14 @@ const Setup=()=>{
     const iconsCatalog=useContext(IconsCatalogContext);
     const languagesCatalog=useContext(LanguagesCatalogContext);
     // --------------------------------------
+    // 表示言語設定
+    const [language,setLanguage]=useState(languagesCatalog[0]);
 
+    const handleChangeSetupPageLanguage=(event)=>{
+        setLanguage(event.target.value);
+    };
 
+    // --------------------------------------
     // ユーザ設定を格納するグローバル変数と設定を変更する関数を取得
     const {userSettings,setUserSettings}=useContext(UserSettingsContext);
 
@@ -97,8 +103,22 @@ const Setup=()=>{
     };
     return (
         <div className="main flex-1 flex flex-col min-h-0">
+            <header className="sticky top-0 w-full bg-white shadow flex justify-between">
+                <h1 className="text-xl xl:text-3xl font-bold mx-8 my-4 xl:my-5">Emocha</h1>
+                <div className="my-4 mr-6 xl:mr-10 flex justify-center items-center">
+                    <form className="max-w-sm mx-auto">
+                        <select value={language} onChange={handleChangeSetupPageLanguage} id="underline_select" className="block py-1 px-1 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200  dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                            {languagesCatalog.map((language,index)=>{
+                                return (
+                                    <option key={index} value={language}>{language}</option>
+                                )
+                            })}
+                        </select>
+                    </form>
+                </div>
+            </header>
             <div className="lg:block heading flex-2">
-                <h1 className="text-xl py-1 xl:text-3xl xl:text-gray-700 xl:mb-4 border-b-2 border-gray-200">{userSettings.language==="English"?"Settings":"設定"}</h1>
+                <h1 className="text-xl py-1 xl:text-3xl xl:text-gray-700 xl:mb-4 border-b-2 border-gray-200 mx-8 mt-8">{language==="English"?"Setup":"セットアップ"}</h1>
             </div>
             <div className="flex-1  h-full overflow-auto">
                 <div className="mx-10">
@@ -113,12 +133,12 @@ const Setup=()=>{
                                 <div className="w-full grid gap-6 mb-6 md:grid-cols-2 items-center">
                                     <div className="flex flex-col items-center">
                                         <div className="w-full md:w-3/4">
-                                            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{userSettings.language==="English"?"Icon image":"アイコンイメージ"}</label>
+                                            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{language==="English"?"Icon image":"アイコンイメージ"}</label>
                                             <form>
                                                 <select value={previews.icon.image} onChange={handleChangeIconImage} id="iconImages" className="text-center bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                                     {Object.keys(iconsCatalog.image).map((image,index)=>{
                                                         return (
-                                                            <option key={index} value={image}>{userSettings.language==="English"?image:TranslateIconCatalog(image)}</option>
+                                                            <option key={index} value={image}>{language==="English"?image:TranslateIconCatalog(image)}</option>
                                                         )
                                                     })}
                                                 </select>
@@ -127,12 +147,12 @@ const Setup=()=>{
                                     </div>
                                     <div className="flex flex-col items-center">
                                         <div className="w-full md:w-3/4">
-                                            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{userSettings.language==="English"?"Icon color":"アイコンカラー"}</label>
+                                            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{language==="English"?"Icon color":"アイコンカラー"}</label>
                                             <form className="w-full">
                                                 <select value={previews.icon.color} onChange={handleChangeIconColor} id="iconColors" className="text-center bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                                     {Object.keys(iconsCatalog.color).map((color,index)=>{
                                                         return (
-                                                            <option key={index} value={color}>{userSettings.language==="English"?color:TranslateIconCatalog(color)}</option>
+                                                            <option key={index} value={color}>{language==="English"?color:TranslateIconCatalog(color)}</option>
                                                         )
                                                     })}
                                                 </select>
@@ -144,17 +164,17 @@ const Setup=()=>{
                         </div>
 
                         <div className="md:w-3/5 md:pl-12 my-8">
-                            <label htmlFor="userName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{userSettings.language==="English"?"User name":"ユーザー名"}</label>
+                            <label htmlFor="userName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{language==="English"?"User name":"ユーザー名"}</label>
                             <input type="text" id="userName" spellCheck={false} value={previews.name} onChange={handleChangeName} className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                         </div>
                         <div className="md:w-3/5 md:pl-12 my-8">
-                            <label htmlFor="snsUrl" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{userSettings.language==="English"?"Social account":"SNSアカウント"}</label>
-                            <input type="url" id="snsUrl" value={previews.snsUrl} onChange={handleChangeSnsUrl} placeholder={userSettings.language==="English"?"Link to social profile":"SNSアカウントへのリンクを入力してください"} className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                            <label htmlFor="snsUrl" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{language==="English"?"Social account":"SNSアカウント"}</label>
+                            <input type="url" id="snsUrl" value={previews.snsUrl} onChange={handleChangeSnsUrl} placeholder={language==="English"?"Link to social profile":"SNSアカウントへのリンクを入力してください"} className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                         </div>
                         
                         <div className="container md:pl-12 my-8">
                             <div className="md:w-1/5 min-w-40">
-                            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{userSettings.language==="English"?"Language":"言語"}</label>
+                            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{language==="English"?"Language":"言語"}</label>
                                 <form className="w-full">
                                     <select value={previews.language} onChange={handleChangeLanguage} id="languages" className="text-center bg-white border border-neutral-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                         {languagesCatalog.map((language,index)=>{
@@ -170,7 +190,7 @@ const Setup=()=>{
                     </div>
                     <div className="md:pl-12 container flex justify-center md:justify-start items-center mx-auto my-6">
                         <button onClick={handleClickSend} type="button" className="inline-flex items-center justify-center w-36 px-5 py-3 text-sm font-medium tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 focus:shadow-outline focus:outline-none">
-                            {userSettings.language==="English"?"Save":"保存"}
+                            {language==="English"?"Save":"保存"}
                         </button>
                     </div>
                 </div>
