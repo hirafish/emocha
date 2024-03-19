@@ -73,8 +73,8 @@ participant Firebase Message
 participant Firebase Slangs
 
 Note left of User: URL: ./
-User ->> Frontend: メールアドレス
-Frontend -->> Firebase Auth: メールアドレス
+User ->> Frontend: メールアドレス＋パスワード
+Frontend -->> Firebase Auth: メールアドレス＋パスワード
 Note over Firebase Auth: 認証処理
 Firebase Auth -->> Frontend: 認証情報(ユーザID？)
 
