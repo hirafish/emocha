@@ -4,9 +4,11 @@ import { GetSlangsList } from "../../slangs/GetSlangs";
 import Tooltip from "./Tooltip";
 
 const ReceiveMessage = ({ receiveData }) => {
-  console.log(receiveData);
+  console.log("ReceiveData");
+  console.log(receiveData.user);
   // propsのデータ例
   // receiveData={
+  //     name:"obake",
   //     iconText:"@Otter;Pink;",
   //     message:[ ':black_heart:', ':brown_heart:', ':green_heart:', ':white_heart:', ':orange_heart:', ':purple_heart:', ':yellow_heart:', ':hand_with_index_finger_and_thumb_crossed::skin-tone-6:']
   // }
@@ -31,7 +33,7 @@ const ReceiveMessage = ({ receiveData }) => {
           />
         </div>
         <div className="flex items-center">
-          <p className="text-gray-500 ml-1">{receiveData.username}</p>
+          <p className="text-gray-500 ml-1">{receiveData.name}</p>
         </div>
       </div>
       <div className="relative group w-fit">

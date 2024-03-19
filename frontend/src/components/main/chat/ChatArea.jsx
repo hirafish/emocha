@@ -68,7 +68,7 @@ const ChatArea = () => {
       <div className="messages flex-1 overflow-auto pb-10">
         {messages[0]
           ? messages.map((message, index) => {
-              if (message.userID === userId) {
+              if (message.user.id === userId) {
                 return (
                   <span key={index}>
                     <SendMessage message={message.message} />
@@ -77,7 +77,13 @@ const ChatArea = () => {
               } else {
                 return (
                   <span key={index}>
-                    <ReceiveMessage receiveData={message} />
+                    <ReceiveMessage
+                      receiveData={{
+                        name: message.user.name,
+                        iconText: message.user.iconText,
+                        message: message.message,
+                      }}
+                    />
                   </span>
                 );
               }
