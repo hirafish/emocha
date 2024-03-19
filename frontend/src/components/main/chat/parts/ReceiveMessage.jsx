@@ -31,7 +31,7 @@ const ReceiveMessage = ({ receiveData }) => {
           />
         </div>
         <div className="flex items-center">
-          <p className="text-gray-500 ml-1">obake</p>
+          <p className="text-gray-500 ml-1">{receiveData.username}</p>
         </div>
       </div>
       <div className="relative group w-fit">
