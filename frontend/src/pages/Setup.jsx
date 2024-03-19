@@ -170,12 +170,6 @@ const Setup=()=>{
                             <label htmlFor="userName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{language==="English"?"User name":"ユーザー名"}</label>
                             <input type="text" id="userName" spellCheck={false} value={previews.name} onChange={handleChangeName} className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                         </div>
-
-                        <div className="md:w-3/5 md:pl-12 my-8">
-                            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{language==="English"?"Password":"パスワード"}</label>
-                            <input type="password" id="password" spellCheck={false} className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-                        </div>
-
                         <div className="md:w-3/5 md:pl-12 my-8">
                             <label htmlFor="snsUrl" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{language==="English"?"Social account":"SNSアカウント"}</label>
                             <input type="url" id="snsUrl" value={previews.snsUrl} onChange={handleChangeSnsUrl} placeholder={language==="English"?"Link to social profile":"SNSアカウントへのリンクを入力してください"} className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
