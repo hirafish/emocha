@@ -1,9 +1,12 @@
 import Navigation from "../components/main/nav/Navigation";
 import { Outlet } from 'react-router-dom';
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { UserSettingsContext } from "../components/providers/UserSettingsProvider";
 
 const MainLayout=()=>{
+    const{userSettings}=useContext(UserSettingsContext);
+
     // ナビゲーションの開閉
     const closeNavTailwind="hidden";
     const openNavTailwind="absolute z-30 w-full h-full lg:left-0 lg:w-64 z-20";
@@ -91,10 +94,10 @@ const MainLayout=()=>{
                         </span>
                         <div className={showLeavePop}>
                             <div onClick={handleClickLogOut} className="px-2 rounded-md hover:bg-gray-200 w-full flex cursor-pointer">
-                                <p>Log out</p>
+                                <p>{userSettings.language==="English"?"Log out":"ログアウト"}</p>
                             </div>
-                            <div onClick={handleClickDeleteAccount} className="px-2 rounded-md hover:bg-gray-200 w-full flex cursor-pointer">
-                                <p>Delete account</p>
+                            <div onClick={handleClickDeleteAccount} className="px-2 mt-1 rounded-md hover:bg-red-600 hover:text-white w-full flex cursor-pointer">
+                                <p>{userSettings.language==="English"?"Delete account":"アカウント削除"}</p>
                             </div>
                         </div>
                     </span>

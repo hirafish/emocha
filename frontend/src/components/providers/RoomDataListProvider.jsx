@@ -9,8 +9,8 @@ export const RoomDataListProvider=props=>{
     const [roomDataList,setRoomDataList]=useState(
         [
             {
-                id:"",
-                name:"For All",
+                id:"0",
+                name:"Everyone",
                 icon:{image:"Ghost",color:"Purple"}
             }
         ]);

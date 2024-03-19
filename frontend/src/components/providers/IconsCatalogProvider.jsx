@@ -8,6 +8,7 @@ export const IconsCatalogProvider= props =>{
     library.add(faGhost,faOtter,faHippo,faDog,faPaw,faCat,faCow,faFish,faDragon,faKiwiBird,faHorse,faFrog,faRocket,faSnowman,faFootball,faBaseball,faBasketball);
 
     // アイコンのデザインセットを定義
+    // 翻訳も定義すること！！（../glabalParts/TranslateIconCatalog.ls）
     const iconsSVGCatalog={
         Ghost:{fontAwesomeValue:"fa-ghost"},
         Otter:{fontAwesomeValue:"fa-otter"},
