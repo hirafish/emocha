@@ -1,10 +1,15 @@
-import { useContext,useState } from "react";
+import { useContext,useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { IconsCatalogContext } from "../components/providers/IconsCatalogProvider";
 import { LanguagesCatalogContext } from "../components/providers/LanguagesCatalogProvider";
 import { UserSettingsContext } from "../components/providers/UserSettingsProvider";
 import UserIcon from "../components/main/globalParts/UserIcon";
 import TranslateIconCatalog from "../components/main/globalParts/TranslateIconCatalog";
+import { DarkModeContext } from "../components/providers/DarkModeProviders";
+import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import LogoSet from "../components/main/globalParts/LogoSet";
+
+
 
 const Setup=()=>{
     // アイコンのデザインセットと言語設定セットを取得
@@ -104,13 +109,39 @@ const Setup=()=>{
             console.log("更新できませんでした");
         };
     };
+
+    // -----------------------------------------------
+    // ダークモードの切り替え
+    const {isDarkMode, setIsDarkMode} = useContext(DarkModeContext);
+
+    const toggleDarkMode = (checked) => {
+        setIsDarkMode(checked);
+    };
+    
+    useEffect(()=>{
+        if (isDarkMode===true) {
+            document.documentElement.classList.add('dark')
+          } else {
+            document.documentElement.classList.remove('dark')
+          }
+    },[isDarkMode]);
+
     return (
-        <div className="main flex-1 flex flex-col min-h-0">
-            <header className="sticky top-0 w-full bg-white shadow flex justify-between">
-                <h1 className="text-xl xl:text-3xl font-bold mx-8 my-4 xl:my-5">Emocha</h1>
+        <div className="main flex-1 flex flex-col min-h-0 dark:bg-gray-900">
+            <header className="sticky top-0 w-full bg-white shadow flex justify-between dark:bg-gray-900 dark:shadow-gray-100">
+                <span className="text-xl xl:text-3xl font-medium mx-8 dark:text-white flex items-center">
+                    <LogoSet />
+                </span>
                 <div className="my-4 mr-6 xl:mr-10 flex justify-center items-center">
+                    <span className="flex items-center justify-center p-1 mr-2 rounded-md hover:bg-gray-300  cursor-pointer dark:hover:bg-gray-700">
+                        <DarkModeSwitch
+                            checked={isDarkMode}
+                            onChange={toggleDarkMode}
+                            size={20}
+                            />
+                    </span>
                     <form className="max-w-sm mx-auto">
-                        <select value={language} onChange={handleChangeSetupPageLanguage} id="underline_select" className="block py-1 px-1 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200  dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                        <select value={language} onChange={handleChangeSetupPageLanguage} id="underline_select" className="block py-1 px-1 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-200  dark:text-white dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
                             {languagesCatalog.map((language,index)=>{
                                 return (
                                     <option key={index} value={language}>{language}</option>
@@ -121,7 +152,7 @@ const Setup=()=>{
                 </div>
             </header>
             <div className="lg:block heading flex-2">
-                <h1 className="text-xl py-1 xl:text-3xl xl:text-gray-700 xl:mb-4 border-b-2 border-gray-200 mx-8 mt-8">{language==="English"?"Setup":"ユーザー設定"}</h1>
+                <h1 className="text-xl py-1 xl:text-3xl xl:text-gray-700 xl:mb-4  mx-8 mt-8 dark:text-white">{language==="English"?"Setup":"ユーザー設定"}</h1>
             </div>
             <div className="flex-1  h-full overflow-auto">
                 <div className="mx-10">
@@ -138,7 +169,7 @@ const Setup=()=>{
                                         <div className="w-full md:w-3/4">
                                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{language==="English"?"Icon image":"アイコンイメージ"}</label>
                                             <form>
-                                                <select value={previews.icon.image} onChange={handleChangeIconImage} id="iconImages" className="text-center bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                <select value={previews.icon.image} onChange={handleChangeIconImage} id="iconImages" className="text-center bg-gray-50  cursor-pointer border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                                     {Object.keys(iconsCatalog.image).map((image,index)=>{
                                                         return (
                                                             <option key={index} value={image}>{language==="English"?image:TranslateIconCatalog(image)}</option>
@@ -152,7 +183,7 @@ const Setup=()=>{
                                         <div className="w-full md:w-3/4">
                                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{language==="English"?"Icon color":"アイコンカラー"}</label>
                                             <form className="w-full">
-                                                <select value={previews.icon.color} onChange={handleChangeIconColor} id="iconColors" className="text-center bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                <select value={previews.icon.color} onChange={handleChangeIconColor} id="iconColors" className="text-center bg-gray-50 cursor-pointer border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                                     {Object.keys(iconsCatalog.color).map((color,index)=>{
                                                         return (
                                                             <option key={index} value={color}>{language==="English"?color:TranslateIconCatalog(color)}</option>
@@ -168,18 +199,18 @@ const Setup=()=>{
 
                         <div className="md:w-3/5 md:pl-12 my-8">
                             <label htmlFor="userName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{language==="English"?"User name":"ユーザー名"}</label>
-                            <input type="text" id="userName" spellCheck={false} value={previews.name} onChange={handleChangeName} className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                            <input type="text" id="userName" spellCheck={false} value={previews.name} onChange={handleChangeName} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                         </div>
                         <div className="md:w-3/5 md:pl-12 my-8">
                             <label htmlFor="snsUrl" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{language==="English"?"Social account":"SNSアカウント"}</label>
-                            <input type="url" id="snsUrl" value={previews.snsUrl} onChange={handleChangeSnsUrl} placeholder={language==="English"?"Link to social profile":"SNSアカウントへのリンクを入力してください"} className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                            <input type="url" id="snsUrl" value={previews.snsUrl} onChange={handleChangeSnsUrl} placeholder={language==="English"?"Link to social profile":"SNSアカウントへのリンクを入力してください"} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                         </div>
                         
                         <div className="container md:pl-12 my-8">
                             <div className="md:w-1/5 min-w-40">
                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{language==="English"?"Language":"言語"}</label>
                                 <form className="w-full">
-                                    <select value={previews.language} onChange={handleChangeLanguage} id="languages" className="text-center bg-white border border-neutral-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <select value={previews.language} onChange={handleChangeLanguage} id="languages" className="text-center bg-gray-50 cursor-pointer border border-neutral-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                         {languagesCatalog.map((language,index)=>{
                                             return (
                                                 <option key={index} value={language}>{language}</option>

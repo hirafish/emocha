@@ -29,7 +29,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div id="App" className="w-full h-screen">
+      <div id="App" className="w-full h-svh dark:bg-gray-900">
             <Router />
       </div>
     </BrowserRouter>

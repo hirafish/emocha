@@ -35,13 +35,13 @@ const OthersMessage=({chatData})=>{
                     <UserIcon image={userIconProps.image} color={userIconProps.color} size={10} />
                 </div>
                 <div onClick={handleClickUser} className="flex items-center">
-                    <p className="text-gray-500 ml-1 cursor-pointer">obake</p>
+                    <p className="text-gray-500 ml-1 cursor-pointer dark:text-gray-300">{chatData.user.name}</p>
                 </div>
             </div>
             <div className="relative group w-fit">
                 {slangsList[0]?<SlangInfo slangsList={slangsList} />:undefined}
                 <div className="flex-1 px-2 w-fit">
-                    <div className={slangsList[0]?"inline-block bg-gray-300 rounded-full p-2 px-6 text-gray-700 ml-6 border-2 border-gray-300 hover:border-white":"inline-block bg-gray-300 rounded-full p-2 px-6 text-gray-700 ml-6 border-2 border-gray-300"}>
+                    <div className={slangsList[0]?"inline-block bg-gray-100 dark:bg-gray-800 dark:border-gray-800 rounded-full p-2 px-6 text-gray-700 ml-6 border-2 border-gray-100 hover:border-gray-200 dark:hover:border-gray-700":"inline-block bg-gray-300 rounded-full p-2 px-6 text-gray-700 ml-6 border-2 border-gray-300"}>
                         <span className="flex items-center flex-wrap overflow-auto">
                             <DisplayEmojis emojiShortcodesList={chatData.message} />
                         </span>
