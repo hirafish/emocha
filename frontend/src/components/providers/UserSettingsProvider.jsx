@@ -17,7 +17,7 @@ export const UserSettingsProvider=props=>{
         {
             icon:{image:Object.keys(iconsCatalog.image)[0],color:Object.keys(iconsCatalog.color)[0]},
             id:"1234",
-            name:"obake",
+            name:"anonymous user",
             snsUrl:"",
             language:languagesCatalog[0]
         });
