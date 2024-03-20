@@ -4,6 +4,7 @@ import { LanguagesCatalogContext } from "../providers/LanguagesCatalogProvider";
 import { UserSettingsContext } from "../providers/UserSettingsProvider";
 import UserIcon from "./globalParts/UserIcon";
 import TranslateIconCatalog from "./globalParts/TranslateIconCatalog";
+import { useNavigate } from "react-router-dom";
 
 const Settings=()=>{
     // アイコンのデザインセットと言語設定セットを取得
@@ -95,6 +96,17 @@ const Settings=()=>{
             console.log("更新できませんでした");
         };
     };
+
+// ----------------------------------------------------
+    // アカウント削除の処理
+    const navigate=useNavigate();
+
+    const handleClickDeleteAccount=()=>{
+        // ここでアカウント削除の処理をする
+        alert("アカウントを削除しました！");
+        navigate("/");
+    };
+
     return (
         <div className="h-full overflow-auto">
         <div className="main flex-1 flex flex-col h-full w-11/12 m-auto">
@@ -173,6 +185,17 @@ const Settings=()=>{
                         <button onClick={handleClickSend} type="button" className="inline-flex items-center justify-center w-36 px-4 py-2.5 text-md font-medium tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 focus:shadow-outline focus:outline-none">
                             {userSettings.language==="English"?"Save":"保存"}
                         </button>
+                    </div>
+                    <div className="border-t border-gray-300 mt-10 py-6">
+                        <div className="md:pl-12">
+                            <h2 className="text-xl py-1 mb-8 border-gray-200 dark:text-white">{userSettings.language==="English"?"Delete Account":"アカウント削除"}</h2>
+                            <p className="my-6 text-lg">{userSettings.language==="English"?"Deleting your account is permanent and cannot be undone.":"一度アカウントを削除すると、二度と元に戻せません。十分ご注意ください。"}</p>
+                            <div className="flex justify-center md:justify-start items-center mx-auto">
+                            <button onClick={handleClickDeleteAccount} type="button" className="inline-flex items-center justify-center px-4 py-2.5 text-md font-medium tracking-wide text-white transition-colors duration-200 bg-red-500 rounded-md hover:bg-red-700 focus:ring-2 focus:ring-offset-2 focus:ring-red-700 focus:shadow-outline focus:outline-none">
+                                {userSettings.language==="English"?"Delete account":"アカウント削除"}
+                            </button>
+                    </div>
+                        </div>
                     </div>
                 </div>
             </div>
