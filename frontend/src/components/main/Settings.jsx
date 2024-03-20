@@ -188,7 +188,7 @@ const Settings=()=>{
                     </div>
                     <div className="border-t border-gray-300 mt-10 py-6">
                         <div className="md:pl-12">
-                            <h2 className="text-xl py-1 mb-8 border-gray-200 dark:text-white">{userSettings.language==="English"?"Delete Account":"アカウント削除"}</h2>
+                            <h2 id="deleteAccount" className="text-xl py-1 mb-8 border-gray-200 dark:text-white">{userSettings.language==="English"?"Delete Account":"アカウント削除"}</h2>
                             <ul>
                                 <li className="my-6 text-lg">{userSettings.language==="English"?"Deleting your account is permanent and cannot be undone.":"一度アカウントを削除すると、二度と元に戻せません。十分ご注意ください。"}</li>
                             </ul>

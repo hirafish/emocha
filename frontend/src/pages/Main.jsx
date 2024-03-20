@@ -6,6 +6,7 @@ import { UserSettingsContext } from "../components/providers/UserSettingsProvide
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import { DarkModeContext } from "../components/providers/DarkModeProviders";
 import LogoSet from "../components/main/globalParts/LogoSet";
+import { HashLink } from 'react-router-hash-link';
 
 const MainLayout=()=>{
     const{userSettings}=useContext(UserSettingsContext);
@@ -57,13 +58,6 @@ const MainLayout=()=>{
     const handleClickLogOut=()=>{
         // ここでログアウト処理をする
         alert("ログアウトしました！");
-        navigate("/");
-    };
-
-    // アカウント削除ボタンの処理
-    const handleClickDeleteAccount=()=>{
-        // ここでアカウント削除の処理をする
-        alert("アカウントを削除しました！");
         navigate("/");
     };
 
@@ -129,9 +123,9 @@ const MainLayout=()=>{
                             <div onClick={handleClickLogOut} className="px-2 rounded-md hover:bg-gray-200 w-full flex cursor-pointer dark:hover:bg-gray-800 dark:hover:text-white">
                                 <p>{userSettings.language==="English"?"Log out":"ログアウト"}</p>
                             </div>
-                            <div onClick={handleClickDeleteAccount} className="px-2 mt-1 rounded-md hover:bg-red-600 hover:text-white w-full flex cursor-pointer">
+                            <HashLink to="/main/settings/#deleteAccount" className="px-2 mt-1 rounded-md hover:bg-red-600 hover:text-white w-full flex cursor-pointer">
                                 <p>{userSettings.language==="English"?"Delete account":"アカウント削除"}</p>
-                            </div>
+                            </HashLink>
                         </div>
                     </span>
                 </div>
