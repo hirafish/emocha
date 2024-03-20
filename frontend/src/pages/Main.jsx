@@ -92,8 +92,8 @@ const MainLayout=()=>{
             <header className="py-4 flex-2 flex flex-row border-b dark:border-white">
                 <div className="flex-1">
                     <span onClick={handleOpenCloseNav} className="xl:hidden inline-block text-gray-700 hover:text-gray-900 align-bottom ">
-                        <span className="block h-6 w-6 p-1 rounded-full hover:bg-gray-400 dark:hover:bg-black">
-                            <svg className="w-4 h-4 dark:text-gray-200 dark:hover:text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        <span className="block h-6 w-6 p-1 rounded-md hover:bg-gray-400 dark:hover:bg-gray-700">
+                            <svg className="w-5 h-5 dark:text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
                         </span>
                     </span>
                     {/* <span className="lg:hidden inline-block ml-8 text-gray-700 hover:text-gray-900 align-bottom">

@@ -168,7 +168,7 @@ const InputEmojis=()=>{
                 </div>
                 <div className="flex-2 w-32 p-2 flex content-center items-center relative">
                     <div className="flex-1 text-center">
-                        <span onClick={handleDeleteEmoji} className="text-gray-400 hover:text-gray-500 dark:text-gray-200 dark:hover:text-white">
+                        <span onClick={handleDeleteEmoji} className="text-gray-400 hover:text-gray-500 cursor-pointer dark:text-gray-100 dark:hover:text-gray-300">
                             <span className="inline-block align-middle">
                                 <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" className="w-7">
                                     {/* <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--> */}
