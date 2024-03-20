@@ -128,8 +128,8 @@ const Setup=()=>{
 
     return (
         <div className="main flex-1 flex flex-col min-h-0 dark:bg-gray-900">
-            <header className="sticky top-0 w-full bg-white shadow flex justify-between border-b dark:bg-gray-900 dark:border-white">
-                <span className="text-xl xl:text-3xl font-medium mx-8  dark:text-white flex items-center">
+            <header className="sticky top-0 w-full bg-white shadow flex justify-between dark:bg-gray-900 dark:shadow-gray-100">
+                <span className="text-xl xl:text-3xl font-medium mx-8 dark:text-white flex items-center">
                     <LogoSet />
                 </span>
                 <div className="my-4 mr-6 xl:mr-10 flex justify-center items-center">

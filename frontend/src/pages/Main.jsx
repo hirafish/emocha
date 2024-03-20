@@ -90,7 +90,7 @@ const MainLayout=()=>{
             <Navigation handleOpenCloseNav={handleOpenCloseNav} navTailwind={navTailwind} />
             <div className="flex-1 bg-white w-full h-full dark:bg-gray-900">
             <div className="main-body w-full h-full flex flex-col">
-            <header className="py-2 md:py-4 flex-2 flex flex-row border-b shadow-sm px-4 dark:border-white">
+            <header className="py-2 md:py-4 flex-2 flex flex-row border-b shadow-sm px-4 dark:border-gray-200">
                 <div className="flex-1 flex">
                     <span onClick={handleOpenCloseNav} className="xl:hidden inline-block text-gray-700 hover:text-gray-900 align-bottom ">
                         <span className="block h-6 w-6 p-1 rounded-md hover:bg-gray-400 dark:hover:bg-gray-700">
