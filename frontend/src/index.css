@@ -20,5 +20,5 @@ code {
 
 
 .navLink.active {
-  @apply border-gray-800 bg-gray-300 text-black dark:border-white dark:bg-gray-900 dark:hover:border-white dark:text-white;
+  @apply border-gray-700 bg-gray-200 text-black dark:border-white dark:bg-gray-900 dark:hover:border-white dark:text-white;
 }

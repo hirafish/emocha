@@ -7,6 +7,7 @@ import UserIcon from "../components/main/globalParts/UserIcon";
 import TranslateIconCatalog from "../components/main/globalParts/TranslateIconCatalog";
 import { DarkModeContext } from "../components/providers/DarkModeProviders";
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import LogoSet from "../components/main/globalParts/LogoSet";
 
 
 
@@ -128,7 +129,9 @@ const Setup=()=>{
     return (
         <div className="main flex-1 flex flex-col min-h-0 dark:bg-gray-900">
             <header className="sticky top-0 w-full bg-white shadow flex justify-between border-b dark:bg-gray-900 dark:border-white">
-                <h1 className="text-xl xl:text-3xl font-bold mx-8 my-4 xl:my-5 dark:text-white">Emocha</h1>
+                <span className="text-xl xl:text-3xl font-medium mx-8  dark:text-white flex items-center">
+                    <LogoSet />
+                </span>
                 <div className="my-4 mr-6 xl:mr-10 flex justify-center items-center">
                     <span className="flex items-center justify-center p-1 mr-2 rounded-md hover:bg-gray-300  cursor-pointer dark:hover:bg-gray-700">
                         <DarkModeSwitch

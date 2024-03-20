@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { UserSettingsContext } from "../components/providers/UserSettingsProvider";
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import { DarkModeContext } from "../components/providers/DarkModeProviders";
+import LogoSet from "../components/main/globalParts/LogoSet";
 
 const MainLayout=()=>{
     const{userSettings}=useContext(UserSettingsContext);
@@ -87,20 +88,28 @@ const MainLayout=()=>{
     return (
         <div className='flex h-full dark:bg-gray-900' onClick={handleClickOutsideLeaveButton} >
             <Navigation handleOpenCloseNav={handleOpenCloseNav} navTailwind={navTailwind} />
-            <div className="flex-1 bg-gray-100 w-full h-full dark:bg-gray-900">
-            <div className="main-body container m-auto w-11/12 h-full flex flex-col">
-            <header className="py-4 flex-2 flex flex-row border-b dark:border-white">
-                <div className="flex-1">
+            <div className="flex-1 bg-white w-full h-full dark:bg-gray-900">
+            <div className="main-body w-full h-full flex flex-col">
+            <header className="py-2 md:py-4 flex-2 flex flex-row border-b shadow-sm px-4 dark:border-white">
+                <div className="flex-1 flex">
                     <span onClick={handleOpenCloseNav} className="xl:hidden inline-block text-gray-700 hover:text-gray-900 align-bottom ">
                         <span className="block h-6 w-6 p-1 rounded-md hover:bg-gray-400 dark:hover:bg-gray-700">
                             <svg className="w-5 h-5 dark:text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
                         </span>
+                    </span>
+                    <span className="hidden xl:flex text-3xl font-medium mx-4 dark:text-white items-center">
+                        <LogoSet />
                     </span>
                     {/* <span className="lg:hidden inline-block ml-8 text-gray-700 hover:text-gray-900 align-bottom">
                         <span className="block h-6 w-6 p-1 rounded-full hover:bg-gray-400">
                             <svg className="h-4 w-4" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                         </span>
                     </span> */}
+                </div>
+                <div className="flex-1 flex items-center justify-center">
+                    <span className="xl:hidden visible text-xl font-medium dark:text-white flex items-center">
+                        <LogoSet />
+                    </span>
                 </div>
                 <div className="flex-1 text-right">
                     <span className="inline-block text-gray-700">
