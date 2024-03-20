@@ -96,7 +96,8 @@ const Settings=()=>{
         };
     };
     return (
-        <div className="main flex-1 flex flex-col h-full overflow-auto w-11/12 m-auto">
+        <div className="h-full overflow-auto">
+        <div className="main flex-1 flex flex-col h-full w-11/12 m-auto">
             <div className="lg:block heading flex-2">
                 <h1 className="text-xl py-3 xl:text-3xl xl:text-gray-700 xl:mb-4  dark:text-white">{userSettings.language==="English"?"Settings":"設定"}</h1>
             </div>
@@ -175,6 +176,7 @@ const Settings=()=>{
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     )
 };

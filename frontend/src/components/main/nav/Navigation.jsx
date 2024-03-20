@@ -16,7 +16,7 @@ const Navigation=(props)=>{
     const navTailwind=props.navTailwind;
 
     return (
-        <div className={"xl:block sm:flex-2 w-64 bg-gray-100 shadow dark:bg-gray-800 "+navTailwind}>
+        <div className={"xl:block sm:flex-2 w-64 h-full bg-gray-100 shadow dark:bg-gray-800 "+navTailwind}>
             <div className="p-4 flex justify-end">
                 <span onClick={()=>{handleOpenCloseNav()}} className="xl:hidden inline-block text-gray-700 hover:text-gray-900 align-bottom">
                     <span className="h-6 w-6 p-1 rounded-md hover:bg-gray-400 dark:hover:bg-gray-700 flex justify-center items-center">
@@ -42,7 +42,7 @@ const Navigation=(props)=>{
                 </div>
             </div>
 
-            <div className="menu mt-16 lg:mt-8 ">
+            <div className="menu">
                 <LinkButton svgIcon={"/navIcon/home.svg"} pageName={userSettings.language==="English"?"Home":"ホーム"} to={"/main/home"} />
                 <LinkButton svgIcon={"/navIcon/chat.svg"} pageName={userSettings.language==="English"?"Chat":"チャット"} to={"/main/chat"} />
                 <LinkButton svgIcon={"/navIcon/slangs.svg"} pageName={userSettings.language==="English"?"My slangs":"スラング一覧"} to={"/main/slangs"} />
