@@ -189,7 +189,9 @@ const Settings=()=>{
                     <div className="border-t border-gray-300 mt-10 py-6">
                         <div className="md:pl-12">
                             <h2 className="text-xl py-1 mb-8 border-gray-200 dark:text-white">{userSettings.language==="English"?"Delete Account":"アカウント削除"}</h2>
-                            <p className="my-6 text-lg">{userSettings.language==="English"?"Deleting your account is permanent and cannot be undone.":"一度アカウントを削除すると、二度と元に戻せません。十分ご注意ください。"}</p>
+                            <ul>
+                                <li className="my-6 text-lg">{userSettings.language==="English"?"Deleting your account is permanent and cannot be undone.":"一度アカウントを削除すると、二度と元に戻せません。十分ご注意ください。"}</li>
+                            </ul>
                             <div className="flex justify-center md:justify-start items-center mx-auto">
                             <button onClick={handleClickDeleteAccount} type="button" className="inline-flex items-center justify-center px-4 py-2.5 text-md font-medium tracking-wide text-white transition-colors duration-200 bg-red-500 rounded-md hover:bg-red-700 focus:ring-2 focus:ring-offset-2 focus:ring-red-700 focus:shadow-outline focus:outline-none">
                                 {userSettings.language==="English"?"Delete account":"アカウント削除"}
