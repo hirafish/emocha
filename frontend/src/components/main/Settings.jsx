@@ -4,6 +4,7 @@ import { LanguagesCatalogContext } from "../providers/LanguagesCatalogProvider";
 import { UserSettingsContext } from "../providers/UserSettingsProvider";
 import UserIcon from "./globalParts/UserIcon";
 import TranslateIconCatalog from "./globalParts/TranslateIconCatalog";
+import { useNavigate } from "react-router-dom";
 
 const Settings=()=>{
     // アイコンのデザインセットと言語設定セットを取得
@@ -95,8 +96,31 @@ const Settings=()=>{
             console.log("更新できませんでした");
         };
     };
+
+// ----------------------------------------------------
+    // アカウント削除の処理
+    const navigate=useNavigate();
+
+    const handleClickDeleteAccount=()=>{
+        // ここでアカウント削除の処理をする
+        alert("アカウントを削除しました！");
+        navigate("/");
+    };
+    const tailwindNotShowDeleteAccount="hidden"
+    const tailwindShowDeleteAccount="absolute z-20 top-0 p-1 bottom-0 left-0 right-0 m-auto w-80 md:w-96 h-fit bg-white border border-gray-200 dark:border-gray-700 dark:shadow-gray-800 rounded-lg shadow flex flex-col dark:bg-gray-800"
+    const [showDeleteAccount,setShowDeleteAccount]=useState(tailwindNotShowDeleteAccount);
+    const handleClickOpenDeleteAccount=()=>{
+        setShowDeleteAccount(tailwindShowDeleteAccount)
+    }
+    const handleClickCloseDeleteAccount=()=>{
+        setShowDeleteAccount(tailwindNotShowDeleteAccount);
+    };
+
+    // ------------------------------------------------
+
     return (
-        <div className="main flex-1 flex flex-col h-full overflow-auto w-11/12 m-auto">
+        <div className="h-full overflow-auto">
+        <div className="main flex-1 flex flex-col w-11/12 m-auto">
             <div className="lg:block heading flex-2">
                 <h1 className="text-xl py-3 xl:text-3xl xl:text-gray-700 xl:mb-4  dark:text-white">{userSettings.language==="English"?"Settings":"設定"}</h1>
             </div>
@@ -173,8 +197,49 @@ const Settings=()=>{
                             {userSettings.language==="English"?"Save":"保存"}
                         </button>
                     </div>
+                    <div className="border-t border-gray-300 mt-10 py-6">
+                        <div className="md:pl-12">
+                            <h2 id="deleteAccount" className="text-xl py-1 mb-8 border-gray-200 dark:text-white">{userSettings.language==="English"?"Delete Account":"アカウント削除"}</h2>
+                            <ul>
+                                <li className="my-6 text-lg dark:text-white">{userSettings.language==="English"?"Deleting your account is permanent and cannot be undone.":"一度アカウントを削除すると、二度と元に戻せません。十分ご注意ください。"}</li>
+                            </ul>
+                            <div className="flex justify-center md:justify-start items-center mx-auto">
+                            <button onClick={handleClickOpenDeleteAccount} type="button" className="inline-flex items-center justify-center px-4 py-2.5 text-md font-medium tracking-wide text-white transition-colors duration-200 bg-red-500 rounded-md hover:bg-red-700 focus:ring-2 focus:ring-offset-2 focus:ring-red-700 focus:shadow-outline focus:outline-none">
+                                {userSettings.language==="English"?"Delete account":"アカウント削除"}
+                            </button>
+                    </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+        <div className={showDeleteAccount}>
+            <div className="flex justify-end items-center">
+                <span onClick={handleClickCloseDeleteAccount} className="inline-block text-gray-700 hover:text-gray-900 align-bottom">
+                    <span className="h-6 w-6 p-1 rounded-md hover:bg-gray-400 dark:hover:bg-gray-700 flex justify-center items-center">
+                        {/* <img src="/navIcon/close.svg" className="dark:text-white" /> */}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" className="h-5 w-5 dark:text-white">
+                            {/* <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--> */}
+                            <path fill="currentColor" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                            </svg>
+                    </span>
+                </span>
+            </div>
+            <div className="px-2">
+                <h3 className="text-xl dark:text-white text-center py-2">{userSettings.language==="English"?"Delete account - Are you sure?":"本当にアカウント削除をしますか？"}</h3>
+                <ul className="px-2">
+                    <li className="my-6 text-lg dark:text-white">{userSettings.language==="English"?"Deleting your account is permanent and cannot be undone.":"一度アカウントを削除すると、二度と元に戻せません。十分ご注意ください。"}</li>
+                </ul>
+            </div>
+            <div className="w-full flex justify-evenly p-4 pt-0">
+                    <button onClick={handleClickDeleteAccount} type="button" className=" inline-flex items-center justify-center px-4 py-2 text-sm font-medium tracking-wide text-white transition-colors duration-200 bg-red-600 rounded-md hover:bg-red-700 focus:ring-2 focus:ring-offset-2 focus:ring-red-700 focus:shadow-outline focus:outline-none">
+                    {userSettings.language==="English"?"Delete account":"アカウント削除"}
+                    </button>
+                    <button onClick={handleClickCloseDeleteAccount} type="button" className=" inline-flex items-center justify-center px-4 py-2 text-sm font-medium tracking-wide transition-colors duration-200 bg-white border rounded-md text-gray-700 hover:text-gray-900 border-gray-300 hover:bg-gray-100 active:bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-200/60 focus:shadow-outline">
+                    {userSettings.language==="English"?"Cancel":"キャンセル"}
+                    </button>
+                </div>
+        </div>
         </div>
     )
 };
