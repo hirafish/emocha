@@ -107,7 +107,7 @@ const Settings=()=>{
         navigate("/");
     };
     const tailwindNotShowDeleteAccount="hidden"
-    const tailwindShowDeleteAccount="absolute z-20 top-0 p-1 bottom-0 left-0 right-0 m-auto w-80 md:w-96 h-40 min-h-[240px] bg-white border border-gray-200 dark:border-gray-700 dark:shadow-gray-800 rounded-lg shadow flex flex-col dark:bg-gray-800"
+    const tailwindShowDeleteAccount="absolute z-20 top-0 p-1 bottom-0 left-0 right-0 m-auto w-80 md:w-96 h-fit bg-white border border-gray-200 dark:border-gray-700 dark:shadow-gray-800 rounded-lg shadow flex flex-col dark:bg-gray-800"
     const [showDeleteAccount,setShowDeleteAccount]=useState(tailwindNotShowDeleteAccount);
     const handleClickOpenDeleteAccount=()=>{
         setShowDeleteAccount(tailwindShowDeleteAccount)
@@ -231,11 +231,11 @@ const Settings=()=>{
                     <li className="my-6 text-lg dark:text-white">{userSettings.language==="English"?"Deleting your account is permanent and cannot be undone.":"一度アカウントを削除すると、二度と元に戻せません。十分ご注意ください。"}</li>
                 </ul>
             </div>
-            <div className="w-full flex justify-center p-4 pt-0">
-                    <button onClick={handleClickDeleteAccount} type="button" className="mx-5 inline-flex items-center justify-center px-4 py-2 text-sm font-medium tracking-wide text-white transition-colors duration-200 bg-red-600 rounded-md hover:bg-red-700 focus:ring-2 focus:ring-offset-2 focus:ring-red-700 focus:shadow-outline focus:outline-none">
+            <div className="w-full flex justify-evenly p-4 pt-0">
+                    <button onClick={handleClickDeleteAccount} type="button" className=" inline-flex items-center justify-center px-4 py-2 text-sm font-medium tracking-wide text-white transition-colors duration-200 bg-red-600 rounded-md hover:bg-red-700 focus:ring-2 focus:ring-offset-2 focus:ring-red-700 focus:shadow-outline focus:outline-none">
                     {userSettings.language==="English"?"Delete account":"アカウント削除"}
                     </button>
-                    <button onClick={handleClickCloseDeleteAccount} type="button" className="mx-5 w-20 inline-flex items-center justify-center px-4 py-2 text-sm font-medium tracking-wide transition-colors duration-200 bg-white border rounded-md text-gray-700 hover:text-gray-900 border-gray-300 hover:bg-gray-100 active:bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-200/60 focus:shadow-outline">
+                    <button onClick={handleClickCloseDeleteAccount} type="button" className=" inline-flex items-center justify-center px-4 py-2 text-sm font-medium tracking-wide transition-colors duration-200 bg-white border rounded-md text-gray-700 hover:text-gray-900 border-gray-300 hover:bg-gray-100 active:bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-200/60 focus:shadow-outline">
                     {userSettings.language==="English"?"Cancel":"キャンセル"}
                     </button>
                 </div>
