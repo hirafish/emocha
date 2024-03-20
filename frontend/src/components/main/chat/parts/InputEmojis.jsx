@@ -152,7 +152,7 @@ const InputEmojis=()=>{
                     </button>
                 </div>
             </div>
-            <div className="write bg-white shadow flex rounded-lg max-h-20 dark:bg-gray-700">
+            <div className="write bg-gray-50 border border-gray-200 shadow flex rounded-lg max-h-20 dark:bg-gray-700 dark:border-gray-800">
                 <div className="flex-3 flex content-center items-center text-center p-4 pr-0">
                     {/* <span className="block text-center text-gray-400 hover:text-gray-800">
                         <svg fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" stroke="currentColor" viewBox="0 0 24 24" className="h-6 w-6"><path d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>

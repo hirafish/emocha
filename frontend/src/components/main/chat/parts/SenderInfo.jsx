@@ -6,7 +6,7 @@ import TranslateUserIconProps from "./TranslateUserIconProps";
 const SenderInfo=()=>{
     const {senderInfo,setSenderInfo}=useContext(SenderInfoContext);
     const tailwindNotShowSenderInfo="hidden";
-    const tailwindShowSenderInfo="absolute z-20 top-0 bottom-8 left-0 right-0 m-auto w-[90vw] h-[60vh] md:h-[40vh] xl:h-[60vh] md:w-96 min-h-[240px] bg-white rounded-lg bg-opacity-85 shadow flex flex-col dark:bg-gray-800";
+    const tailwindShowSenderInfo="absolute z-20 top-0 bottom-8 left-0 right-0 m-auto w-[90vw] h-[60vh] md:h-[40vh] xl:h-[60vh] md:w-96 min-h-[240px] bg-gray-50 border border-gray-200 dark:border-gray-700 dark:shadow-gray-800 rounded-lg bg-opacity-85 shadow flex flex-col dark:bg-gray-800";
 
     const handleClickClose=()=>{
         setSenderInfo(

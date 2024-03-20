@@ -5,7 +5,7 @@ const RoomCard=({roomData})=>{
     const iconColor=roomData.icon.color;
     const roomName=roomData.name;
     return (
-        <div className="entry cursor-pointer transform hover:scale-105 duration-300 transition-transform bg-white mb-4 rounded p-4 flex shadow-md dark:bg-gray-800">
+        <div className="entry cursor-pointer transform hover:scale-105 duration-300 transition-transform bg-gray-50 mb-4 rounded p-4 flex shadow-md dark:bg-gray-800">
             <div className="flex-2">
                 <div className="w-12 h-12">
                     {roomData.id!=="0"?
