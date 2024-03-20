@@ -1,8 +1,9 @@
 import Navigation from "../components/main/nav/Navigation";
 import { Outlet } from 'react-router-dom';
-import { useContext, useState } from "react";
+import { useContext, useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserSettingsContext } from "../components/providers/UserSettingsProvider";
+import { DarkModeSwitch } from 'react-toggle-dark-mode';
 
 const MainLayout=()=>{
     const{userSettings}=useContext(UserSettingsContext);
@@ -64,7 +65,24 @@ const MainLayout=()=>{
         navigate("/");
     };
 
+    // --------------------------------
+    // ダークモードの切り替え
+    const [isDarkMode, setDarkMode] = useState(false);
 
+    const toggleDarkMode = (checked) => {
+        console.log(checked)
+        setDarkMode(checked);
+    };
+    
+    useEffect(()=>{
+        if (isDarkMode===true) {
+            document.documentElement.classList.add('dark')
+          } else {
+            document.documentElement.classList.remove('dark')
+          }
+    },[isDarkMode]);
+
+      
 
     return (
         <div className='flex h-full dark:bg-gray-900' onClick={handleClickOutsideLeaveButton} >
@@ -85,9 +103,18 @@ const MainLayout=()=>{
                     </span> */}
                 </div>
                 <div className="flex-1 text-right">
+                    <span className="inline-block text-gray-700">
+                        <span className="flex items-center justify-center p-1 mr-1 rounded-md hover:bg-gray-300  cursor-pointer dark:hover:bg-gray-700">
+                        <DarkModeSwitch
+                            checked={isDarkMode}
+                            onChange={toggleDarkMode}
+                            size={20}
+                            />
+                            </span>
+                        </span>
                     <span className="relative inline-block text-gray-700">
-                        <span onClick={handleClickLeaveButton} className="leaveButton flex items-center justify-center p-1 rounded-full hover:bg-gray-300 cursor-pointer dark:hover:bg-black">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="leaveButton w4 h-4 dark:text-gray-200 dark:hover:text-white">
+                        <span onClick={handleClickLeaveButton} className="leaveButton flex items-center justify-center p-1 rounded-md hover:bg-gray-300 text-black cursor-pointer dark:hover:bg-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="leaveButton w-5 h-5 dark:text-white">
                                 {/* <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--> */}
                                 <path className="leaveButton" fill="currentColor" d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"/>
                             </svg>
