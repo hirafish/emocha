@@ -13,6 +13,11 @@ code {
     monospace;
 }
 
+select{
+  -webkit-appearance:none;
+
+}
+
 /* Tailwind CSSの設定 */
 @tailwind base;
 @tailwind components;
