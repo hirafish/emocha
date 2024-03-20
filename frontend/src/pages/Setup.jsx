@@ -1,10 +1,14 @@
-import { useContext,useState } from "react";
+import { useContext,useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { IconsCatalogContext } from "../components/providers/IconsCatalogProvider";
 import { LanguagesCatalogContext } from "../components/providers/LanguagesCatalogProvider";
 import { UserSettingsContext } from "../components/providers/UserSettingsProvider";
 import UserIcon from "../components/main/globalParts/UserIcon";
 import TranslateIconCatalog from "../components/main/globalParts/TranslateIconCatalog";
+import { DarkModeContext } from "../components/providers/DarkModeProviders";
+import { DarkModeSwitch } from 'react-toggle-dark-mode';
+
+
 
 const Setup=()=>{
     // アイコンのデザインセットと言語設定セットを取得
@@ -104,13 +108,37 @@ const Setup=()=>{
             console.log("更新できませんでした");
         };
     };
+
+    // -----------------------------------------------
+    // ダークモードの切り替え
+    const {isDarkMode, setIsDarkMode} = useContext(DarkModeContext);
+
+    const toggleDarkMode = (checked) => {
+        setIsDarkMode(checked);
+    };
+    
+    useEffect(()=>{
+        if (isDarkMode===true) {
+            document.documentElement.classList.add('dark')
+          } else {
+            document.documentElement.classList.remove('dark')
+          }
+    },[isDarkMode]);
+
     return (
         <div className="main flex-1 flex flex-col min-h-0 dark:bg-gray-900">
             <header className="sticky top-0 w-full bg-white shadow flex justify-between border-b dark:bg-gray-900 dark:border-white">
                 <h1 className="text-xl xl:text-3xl font-bold mx-8 my-4 xl:my-5 dark:text-white">Emocha</h1>
                 <div className="my-4 mr-6 xl:mr-10 flex justify-center items-center">
+                    <span className="flex items-center justify-center p-1 mr-2 rounded-md hover:bg-gray-300  cursor-pointer dark:hover:bg-gray-700">
+                        <DarkModeSwitch
+                            checked={isDarkMode}
+                            onChange={toggleDarkMode}
+                            size={20}
+                            />
+                    </span>
                     <form className="max-w-sm mx-auto">
-                        <select value={language} onChange={handleChangeSetupPageLanguage} id="underline_select" className="block py-1 px-1 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200  dark:text-white dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                        <select value={language} onChange={handleChangeSetupPageLanguage} id="underline_select" className="block py-1 px-1 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-200  dark:text-white dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
                             {languagesCatalog.map((language,index)=>{
                                 return (
                                     <option key={index} value={language}>{language}</option>

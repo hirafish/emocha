@@ -4,6 +4,7 @@ import { useContext, useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserSettingsContext } from "../components/providers/UserSettingsProvider";
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import { DarkModeContext } from "../components/providers/DarkModeProviders";
 
 const MainLayout=()=>{
     const{userSettings}=useContext(UserSettingsContext);
@@ -67,11 +68,10 @@ const MainLayout=()=>{
 
     // --------------------------------
     // ダークモードの切り替え
-    const [isDarkMode, setDarkMode] = useState(false);
+    const {isDarkMode, setIsDarkMode} = useContext(DarkModeContext);
 
     const toggleDarkMode = (checked) => {
-        console.log(checked)
-        setDarkMode(checked);
+        setIsDarkMode(checked);
     };
     
     useEffect(()=>{

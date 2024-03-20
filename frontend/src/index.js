@@ -8,19 +8,22 @@ import { UserSettingsProvider } from './components/providers/UserSettingsProvide
 import { RoomDataListProvider } from './components/providers/RoomDataListProvider';
 
 import reportWebVitals from './reportWebVitals';
+import { DarkModeProvider } from './components/providers/DarkModeProviders';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <IconsCatalogProvider>
-      <LanguagesCatalogProvider>
-        <UserSettingsProvider>
-          <RoomDataListProvider>
-            <App />
-          </RoomDataListProvider>
-        </UserSettingsProvider>
-      </LanguagesCatalogProvider>
-    </IconsCatalogProvider>
+    <DarkModeProvider>
+      <IconsCatalogProvider>
+        <LanguagesCatalogProvider>
+          <UserSettingsProvider>
+            <RoomDataListProvider>
+              <App />
+            </RoomDataListProvider>
+          </UserSettingsProvider>
+        </LanguagesCatalogProvider>
+      </IconsCatalogProvider>
+    </DarkModeProvider>
   </React.StrictMode>
 );
 
