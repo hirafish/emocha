@@ -296,7 +296,7 @@ const IndexPage = () => {
                       disabled=""
                       class="standard primary fullwidth hoverable svelte-dqutwx bg-purple-600  text-white w-full h-10"
                     >
-                      Sign In
+                      Sign Up
                     </button>
                   </div>
                 </form>
