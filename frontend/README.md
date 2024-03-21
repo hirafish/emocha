@@ -58,6 +58,54 @@ frontend/
     └ tailwind.config.js    # Tailwind CSSの設定
 ```
 
+## Data Structure
+```mermaid
+erDiagram
+Frontend-Providers-users {
+string id PK
+string name "ユーザー名"
+string icon "image+color"
+string snsUrl "SNS URL / null"
+string language "English / 日本語"
+}
+```
+
+```mermaid
+erDiagram
+Firebase-Auth{
+    string email
+    string password
+    string id
+}
+
+Firebase-User {
+string id PK
+string icon "image+color"
+string snsUrl "SNS URL / null"
+string language "English / 日本語"
+}
+
+Firebase-Message{
+    string userId
+    list message
+    int updateat "timestamp"
+}
+```
+
+```mermaid
+erDiagram
+Firebase-Slangs-ja{
+    string emojiShortCodes
+    string meaning "英語表記"
+}
+
+Firebase-Slangs-en{
+    string emojiShortCodes
+    string meaning "日本語表記"
+}
+
+```
+
 ## 👻 Sequence Diagram
 ### Auth ~ Home
 
