@@ -1,5 +1,6 @@
 import OthersMessage from "./parts/OthersMessage";
 import MyMessage from "./parts/MyMessage";
+
 import React, { useState, useEffect, useContext,useRef,useLayoutEffect } from "react";
 import { db } from "../../../firebase/config";
 import { ref, onValue, get } from "firebase/database";
@@ -8,10 +9,12 @@ import { UserSettingsContext } from "../../providers/UserSettingsProvider";
 import SenderInfo from "./parts/SenderInfo";
 import { SenderInfoProvider } from "../../providers/SenderInfoProvider";
 
+
 const ChatArea = () => {
     const [messages, setMessages] = useState([]);
 
     //   ユーザidを取得
+
     const {userSettings}=useContext(UserSettingsContext);
     const userId=userSettings.id;
 
@@ -25,6 +28,7 @@ const ChatArea = () => {
             setMessages([]);
             return;
         }
+
 
         const messagesArray = Object.values(data).sort(
             (a, b) => a.uploadTimeUnix - b.uploadTimeUnix
@@ -48,6 +52,7 @@ const ChatArea = () => {
     }, []);
 
      // ------------------------
+
     // スクロールバーの初期位置を下に設定
     const scrollBottomRef = useRef(null);
 
