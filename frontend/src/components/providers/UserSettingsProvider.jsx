@@ -1,6 +1,7 @@
-import { createContext,useState,useContext } from "react";
+import { createContext,useState,useContext,useEffect } from "react";
 import { IconsCatalogContext } from "./IconsCatalogProvider";
 import { LanguagesCatalogContext } from "./LanguagesCatalogProvider";
+import { auth } from "../../firebase/config";
 
 export const UserSettingsContext=createContext({});
 
@@ -16,11 +17,26 @@ export const UserSettingsProvider=props=>{
     const [userSettings,setUserSettings]=useState(
         {
             icon:{image:Object.keys(iconsCatalog.image)[0],color:Object.keys(iconsCatalog.color)[0]},
-            id:"1234",
+            id:null,
             name:"anonymous user",
             snsUrl:"",
             language:languagesCatalog[0]
         });
+
+
+        useEffect(() => {
+            const unsubscribed = auth.onAuthStateChanged((user) => {
+                setUserSettings(
+                    {
+                        ...userSettings,
+                        id:user.uid
+                    }
+                );
+            });
+            return () => {
+              unsubscribed();
+            };
+          }, []);
     
         return (
             <UserSettingsContext.Provider value={{userSettings,setUserSettings}}>

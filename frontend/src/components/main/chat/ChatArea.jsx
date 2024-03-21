@@ -1,3 +1,6 @@
+import OthersMessage from "./parts/OthersMessage";
+import MyMessage from "./parts/MyMessage";
+
 import React, { useState, useEffect, useContext } from "react";
 import { db } from "../../../firebase/config";
 import { ref, onValue, get } from "firebase/database";
@@ -6,22 +9,16 @@ import ReceiveMessage from "./parts/ReceiveMessage";
 import SendMessage from "./parts/SendMessage";
 import InputEmojis from "./parts/InputEmojis";
 
+import { UserSettingsContext } from "../../providers/UserSettingsProvider";
+import { useRef,useLayoutEffect } from "react";
+import SenderInfo from "./parts/SenderInfo";
+import { SenderInfoProvider } from "../../providers/SenderInfoProvider";
+
 const ChatArea = () => {
   const [messages, setMessages] = useState([]);
-  const [userId, setUserId] = useState("");
 
-  useEffect(() => {
-    const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        console.log(user.uid);
-        setUserId(user.uid);
-      } else {
-        console.log("no user");
-        setUserId("");
-      }
-    });
-  }, []);
+  const {userSettings}=useContext(UserSettingsContext);
+  const userId=userSettings.id;
 
   useEffect(() => {
     const messagesRef = ref(db, "messages");
