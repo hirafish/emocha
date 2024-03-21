@@ -76,14 +76,14 @@ Note left of User: URL: ./
 User ->> Frontend: メールアドレス＋パスワード
 Frontend -->> Firebase Auth: メールアドレス＋パスワード
 Note over Firebase Auth: 認証処理
-Firebase Auth -->> Frontend: 認証情報(ユーザID？)
+Firebase Auth -->> Frontend: ユーザID
 
 opt Sign up
 Frontend ->> User: Setupページ
 Note left of User: URL: ./setup
 User ->> Frontend: ユーザ設定（icon/id/name/snsUrl/language）
 Note over Frontend: POST
-Frontend -->> Firebase User: ユーザ設定（icon/id/name/snsUrl/language）
+Frontend -->> Firebase User: ユーザID＋ユーザ設定（icon/name/snsUrl/language）
 Firebase User-->> Frontend: 登録完了
 Note over Frontend: setUserSettings(ユーザ設定)
 Frontend ->> Frontend Providers: ユーザ設定
@@ -93,7 +93,8 @@ Frontend ->> User: Homeページ
 end
 
 opt Login
-Frontend -->> Firebase User:ユーザID？
+Note over Frontend: POST
+Frontend -->> Firebase User:ユーザID
 Note over Firebase User: ユーザIDからユーザ設定を取得
 Firebase User -->> Frontend: ユーザ設定（icon/id/name/snsUrl/language）
 Frontend ->> Frontend Providers: ユーザ設定（icon/id/name/snsUrl/language）
@@ -119,7 +120,7 @@ Note over Frontend: GET
 Firebase Message -->> Frontend: ユーザID＋メッセージの履歴
 Note over Frontend: POST
 Frontend -->> Firebase User: ユーザID
-Firebase User -->> Frontend: ユーザ設定（icon/id/name/snsUrl/language）
+Firebase User -->> Frontend: ユーザ設定（icon/name/snsUrl/language）
 Note over Frontend: メッセージ履歴のデータを構築
 Note over Frontend: メッセージ履歴を表示
 Frontend ->> User: メッセージ履歴を表示
@@ -141,12 +142,16 @@ alt メッセージにスラングが含まれる
         Note over User: Sendボタンをクリック
 
         Frontend ->> Frontend Providers: ユーザ設定を参照
-        Frontend Providers ->> Frontend: ユーザ設定（icon/id/name/snsUrl/language）
+        Frontend Providers ->> Frontend: ユーザID
 
         Note over Frontend: POST
-        Frontend -->> Firebase Message: ユーザ設定（icon/id/name/snsUrl/language）＋メッセージ
+        Frontend -->> Firebase Message: ユーザID＋メッセージ
         Note over Firebase Message: メッセージを全員に反映
-        Firebase Message -->> Frontend: メッセージを反映？？
+        Firebase Message -->> Frontend: ユーザID＋メッセージ
+        Frontend -->> Firebase User: ユーザID
+        Firebase User -->> Frontend: ユーザ設定（icon/name/snsUrl/language）
+        Note over Frontend: メッセージのデータを構築
+        Note over Frontend: メッセージを表示
 
     else Fixボタンをクリック
         Note over User: Fixボタンをクリック
@@ -162,7 +167,11 @@ else メッセージにスラングが含まれない
     Note over Frontend: POST
     Frontend -->> Firebase Message: ユーザ設定（icon/id/name/snsUrl/language）＋メッセージ
     Note over Firebase Message: メッセージを全員に反映
-    Firebase Message -->> Frontend: メッセージを反映？？
+    Firebase Message -->> Frontend: ユーザID＋メッセージ
+    Frontend -->> Firebase User: ユーザID
+    Firebase User -->> Frontend: ユーザ設定（icon/name/snsUrl/language）
+    Note over Frontend: メッセージのデータを構築
+    Note over Frontend: メッセージを表示
 
 end
 ```
@@ -194,7 +203,7 @@ end
 
 Note over User: Sendボタンをクリック
 Note over Frontend: POST
-Frontend -->> Firebase User: ユーザID＋新しいユーザ設定（icon/id/name/snsUrl/language）
+Frontend -->> Firebase User: ユーザID＋新しいユーザ設定（icon/name/snsUrl/language）
 Note over Firebase User: ユーザ設定を更新
 Firebase User -->> Frontend: 更新を知らせる
 Frontend ->> Frontend Providers: 新しいユーザ設定
