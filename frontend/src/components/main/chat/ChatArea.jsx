@@ -33,12 +33,12 @@ const ChatArea = () => {
         return;
       }
 
-      const sortedMessages = data
-        .filter((item, index) => index !== 0)
-        .sort((a, b) => a.uploadTimeUnix - b.uploadTimeUnix);
+      const messagesArray = Object.values(data).sort(
+        (a, b) => a.uploadTimeUnix - b.uploadTimeUnix
+      );
 
       const messagesWithUser = await Promise.all(
-        sortedMessages.map(async (message) => {
+        messagesArray.map(async (message) => {
           const userRef = ref(db, `Users/${message.userId}`);
           const userSnapshot = await get(userRef);
           const userData = userSnapshot.val();
