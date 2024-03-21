@@ -1,15 +1,21 @@
 import OthersMessage from "./parts/OthersMessage";
 import MyMessage from "./parts/MyMessage";
+
+import React, { useState, useEffect, useContext, useRef,useLayoutEffect } from "react";
+import { db } from "../../../firebase/config";
+import { ref, onValue, get } from "firebase/database";
+
 import InputEmojis from "./parts/InputEmojis";
 import { UserSettingsContext } from "../../providers/UserSettingsProvider";
 import { useContext,useRef,useLayoutEffect } from "react";
 import SenderInfo from "./parts/SenderInfo";
 import { SenderInfoProvider } from "../../providers/SenderInfoProvider";
 
+
 const ChatArea=()=>{    
-    // ユーザ設定を格納するグローバル変数と設定を変更する関数を取得
-    const {userSettings,setUserSettings}=useContext(UserSettingsContext);
-    // 自分のユーザID
+    const [messages, setMessages] = useState([]);
+
+    const {userSettings}=useContext(UserSettingsContext);
     const userId=userSettings.id;
 
     // チャットのデータリスト例
@@ -36,6 +42,7 @@ const ChatArea=()=>{
             message:[':black_heart:', ':brown_heart:', ':green_heart:']
         }
     ];
+
 
     // ------------------------
     // スクロールバーの初期位置を下に設定
