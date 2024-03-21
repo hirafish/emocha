@@ -6,6 +6,7 @@ import i18n_ja from '@emoji-mart/data/i18n/ja.json';
 import { init } from "emoji-mart";
 import DisplayEmojis from "./DisplayEmojis";
 import { UserSettingsContext } from "../../../providers/UserSettingsProvider";
+import { DarkModeContext } from "../../../providers/DarkModeProviders";
 
 const InputEmojis=()=>{
     useEffect(()=>{
@@ -119,10 +120,14 @@ const InputEmojis=()=>{
         setSlangsList([]);
     }
 
+    // ----------------------------------------------
+    // Pickerのダークモード対応
+    const {isDarkMode}=useContext(DarkModeContext);
+
     return(
         <div className="flex-2 pt-4 pb-6 relative">
             <div id="picker" className={showEmojiPicker}>
-                <Picker data={data} locale={userSettings.language==="English"?"en":"ja"}  noCountryFlags={true} set="twitter" onClickOutside={handleShowEmojiPicker} onEmojiSelect={handleAddEmoji} emojiButtonRadius='6px' previewPosition={"none"}
+                <Picker data={data} theme={isDarkMode?"dark":"light"} locale={userSettings.language==="English"?"en":"ja"}  noCountryFlags={true} set="twitter" onClickOutside={handleShowEmojiPicker} onEmojiSelect={handleAddEmoji} emojiButtonRadius='6px' previewPosition={"none"}
                     emojiButtonColors={[
                     'rgba(155,223,88,.7)',
                     'rgba(149,211,254,.7)',

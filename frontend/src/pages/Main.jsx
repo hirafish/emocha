@@ -6,13 +6,14 @@ import { UserSettingsContext } from "../components/providers/UserSettingsProvide
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import { DarkModeContext } from "../components/providers/DarkModeProviders";
 import LogoSet from "../components/main/globalParts/LogoSet";
+import { HashLink } from 'react-router-hash-link';
 
 const MainLayout=()=>{
     const{userSettings}=useContext(UserSettingsContext);
 
     // ナビゲーションの開閉
     const closeNavTailwind="hidden";
-    const openNavTailwind="absolute z-30 w-full h-full lg:left-0 lg:w-64 z-20";
+    const openNavTailwind="absolute top-0 z-30 w-full h-full lg:left-0 lg:w-64 z-20";
 
     const [navTailwind,setNavTailwind]=useState(closeNavTailwind);
     
@@ -60,13 +61,6 @@ const MainLayout=()=>{
         navigate("/");
     };
 
-    // アカウント削除ボタンの処理
-    const handleClickDeleteAccount=()=>{
-        // ここでアカウント削除の処理をする
-        alert("アカウントを削除しました！");
-        navigate("/");
-    };
-
     // --------------------------------
     // ダークモードの切り替え
     const {isDarkMode, setIsDarkMode} = useContext(DarkModeContext);
@@ -86,11 +80,8 @@ const MainLayout=()=>{
       
 
     return (
-        <div className='flex h-full dark:bg-gray-900' onClick={handleClickOutsideLeaveButton} >
-            <Navigation handleOpenCloseNav={handleOpenCloseNav} navTailwind={navTailwind} />
-            <div className="flex-1 bg-white w-full h-full dark:bg-gray-900">
-            <div className="main-body w-full h-full flex flex-col">
-            <header className="py-2 md:py-4 flex-2 flex flex-row border-b shadow-sm px-4 dark:border-gray-200">
+        <div className='h-full flex flex-col dark:bg-gray-900' onClick={handleClickOutsideLeaveButton} >
+            <header className="py-2 z-20 md:py-4 flex-2 flex flex-row border-b shadow-sm px-4 bg-white dark:bg-gray-900 dark:border-gray-200 sticky top-0">
                 <div className="flex-1 flex">
                     <span onClick={handleOpenCloseNav} className="xl:hidden inline-block text-gray-700 hover:text-gray-900 align-bottom ">
                         <span className="block h-6 w-6 p-1 rounded-md hover:bg-gray-400 dark:hover:bg-gray-700">
@@ -132,14 +123,19 @@ const MainLayout=()=>{
                             <div onClick={handleClickLogOut} className="px-2 rounded-md hover:bg-gray-200 w-full flex cursor-pointer dark:hover:bg-gray-800 dark:hover:text-white">
                                 <p>{userSettings.language==="English"?"Log out":"ログアウト"}</p>
                             </div>
-                            <div onClick={handleClickDeleteAccount} className="px-2 mt-1 rounded-md hover:bg-red-600 hover:text-white w-full flex cursor-pointer">
+                            <HashLink to="/main/settings/#deleteAccount" className="px-2 mt-1 rounded-md hover:bg-red-600 hover:text-white w-full flex cursor-pointer">
                                 <p>{userSettings.language==="English"?"Delete account":"アカウント削除"}</p>
-                            </div>
+                            </HashLink>
                         </div>
                     </span>
                 </div>
             </header>
+            <div className="flex flex-1 min-h-0 relative">
+            <Navigation handleOpenCloseNav={handleOpenCloseNav} navTailwind={navTailwind} />
+            <div className="flex-1 bg-white w-full h-full dark:bg-gray-900">
+            <div className="main-body w-full h-full flex flex-col">
             <Outlet />
+            </div>
             </div>
             </div>
         </div>
