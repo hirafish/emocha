@@ -1,15 +1,18 @@
 import Navigation from "../components/main/nav/Navigation";
-import { Outlet } from 'react-router-dom';
+import { Outlet, Navigate } from 'react-router-dom';
 import { useContext, useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserSettingsContext } from "../components/providers/UserSettingsProvider";
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import { DarkModeContext } from "../components/providers/DarkModeProviders";
 import LogoSet from "../components/main/globalParts/LogoSet";
+import { auth } from "../firebase/config";
 import { HashLink } from 'react-router-hash-link';
+
 
 const MainLayout=()=>{
     const{userSettings}=useContext(UserSettingsContext);
+    // console.log(userSettings.id);
 
     // ナビゲーションの開閉
     const closeNavTailwind="hidden";
@@ -57,6 +60,7 @@ const MainLayout=()=>{
     // ログアウトボタンの処理
     const handleClickLogOut=()=>{
         // ここでログアウト処理をする
+        auth.signOut();
         alert("ログアウトしました！");
         navigate("/");
     };
@@ -78,9 +82,13 @@ const MainLayout=()=>{
     },[isDarkMode]);
 
       
+    if (userSettings.id===null){
+        return (<Navigate replace to="/"/>)
+        console.log("ログインしていません");
+    }else{
 
-    return (
-        <div className='h-full flex flex-col dark:bg-gray-900' onClick={handleClickOutsideLeaveButton} >
+        return (
+            <div className='h-full flex flex-col dark:bg-gray-900' onClick={handleClickOutsideLeaveButton} >
             <header className="py-2 z-20 md:py-4 flex-2 flex flex-row border-b shadow-sm px-4 bg-white dark:bg-gray-900 dark:border-gray-200 sticky top-0">
                 <div className="flex-1 flex">
                     <span onClick={handleOpenCloseNav} className="xl:hidden inline-block text-gray-700 hover:text-gray-900 align-bottom ">
@@ -139,7 +147,9 @@ const MainLayout=()=>{
             </div>
             </div>
         </div>
-    );
+        );
+        
+    }
 }
 
 export default MainLayout;
