@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import LogoSet from "../components/main/globalParts/LogoSet";
 import {
   getAuth,
@@ -10,6 +10,11 @@ import { db } from "../firebase/config";
 import { ref, set, get } from "firebase/database";
 import { useContext } from "react";
 import { UserSettingsContext } from "../components/providers/UserSettingsProvider";
+import { DarkModeContext } from "../components/providers/DarkModeProviders";
+import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import { LanguagesCatalogContext } from "../components/providers/LanguagesCatalogProvider";
+
+
 
 const IndexPage = () => {
   const { userSettings } = useContext(UserSettingsContext);
@@ -154,14 +159,56 @@ const IndexPage = () => {
       });
   };
   //--------------------------------
+    // ダークモードの切り替え
+    const {isDarkMode, setIsDarkMode} = useContext(DarkModeContext);
+
+    const toggleDarkMode = (checked) => {
+        setIsDarkMode(checked);
+    };
+
+    useEffect(()=>{
+        if (isDarkMode===true) {
+            document.documentElement.classList.add('dark')
+          } else {
+            document.documentElement.classList.remove('dark')
+          }
+    },[isDarkMode]);
+
+    // --------------------------------------
+    // 表示言語設定
+    const languagesCatalog=useContext(LanguagesCatalogContext);
+    const [language,setLanguage]=useState(languagesCatalog[0]);
+
+    const handleChangeSetupPageLanguage=(event)=>{
+        setLanguage(event.target.value);
+    };
 
   return (
     <div className="main-body container m-auto w-11/12 h-full flex flex-col overflow-auto  bg-gray-100">
-      <header className="py-4 flex-2 flex flex-row bg-white">
-        <span className="text-xl xl:text-3xl font-medium mx-8 dark:text-white flex items-center">
-          <LogoSet />
-        </span>
-      </header>
+        <header className="sticky top-0 w-full bg-white shadow flex justify-between dark:bg-gray-900 dark:shadow-gray-100">
+            <span className="text-xl xl:text-3xl font-medium mx-8 dark:text-white flex items-center">
+                <LogoSet />
+            </span>
+            <div className="my-4 mr-6 xl:mr-10 flex justify-center items-center">
+                <span className="flex items-center justify-center p-1 mr-2 rounded-md hover:bg-gray-300  cursor-pointer dark:hover:bg-gray-700">
+                    <DarkModeSwitch
+                        checked={isDarkMode}
+                        onChange={toggleDarkMode}
+                        size={20}
+                        />
+                </span>
+                <form className="max-w-sm mx-auto">
+                    <select value={language} onChange={handleChangeSetupPageLanguage} id="underline_select" className="block py-1 px-1 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-200  dark:text-white dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                        {languagesCatalog.map((language,index)=>{
+                            return (
+                                <option key={index} value={language}>{language}</option>
+                            )
+                        })}
+                    </select>
+                </form>
+            </div>
+        </header>
+
 
       <div className="flex-1 w-full h-full">
         <div className="lg:flex m-auto">
