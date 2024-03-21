@@ -3,10 +3,16 @@ import { useState } from 'react';
 import LogoSet from "../components/main/globalParts/LogoSet";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 
+import { useContext } from "react";
+import { UserSettingsContext } from "../components/providers/UserSettingsProvider";
 
-//import SignUp from "../firebase/signup";
+
+
 
 const IndexPage = () => {
+    const{userSettings}=useContext(UserSettingsContext);
+
+
     //ユーザー登録---------------------
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -21,7 +27,7 @@ const IndexPage = () => {
             // Signed in 
             const user = userCredential.user;
             console.log("ユーザー登録完了", user)
-            navigation("/setup")
+            navigation("/main/home")
           })
           .catch((error) => {
             const errorCode = error.code;

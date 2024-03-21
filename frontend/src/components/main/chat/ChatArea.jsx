@@ -7,7 +7,6 @@ import { ref, onValue, get } from "firebase/database";
 
 import InputEmojis from "./parts/InputEmojis";
 import { UserSettingsContext } from "../../providers/UserSettingsProvider";
-import { useContext,useRef,useLayoutEffect } from "react";
 import SenderInfo from "./parts/SenderInfo";
 import { SenderInfoProvider } from "../../providers/SenderInfoProvider";
 
