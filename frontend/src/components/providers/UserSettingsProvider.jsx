@@ -40,6 +40,7 @@ export const UserSettingsProvider = (props) => {
         setUserSettings({
           ...userSettings,
           id: user.uid,
+          
         });
       } else {
         setUserSettings({
