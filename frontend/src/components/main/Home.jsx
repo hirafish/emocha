@@ -24,14 +24,35 @@ const Home=()=>{
                 <div className="pt-6">
                     <p className="text-xl font-bold text-center dark:text-white">{userSettings.language==="English"?<span>Hi, {userSettings.name} !</span>:<span>ようこそ {userSettings.name} !</span>}</p>
                 </div>
-                <div className=" py-20">
-                    <NavLink to={"/main/chat"} type="button" className="text-white font-bold shadow-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        {userSettings.language==="English"?"Start chatting":"チャットを始める"}
-                        <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                        </svg>
-                    </NavLink>
+                {userSettings.name=="anonymous user"?
+                <div className="py-20 w-full flex md:flex-row items-center justify-between md:justify-evenly">
+                    <span className="my-4">
+                        <NavLink to={"/main/settings"} type="button" className="text-white font-bold shadow-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            {userSettings.language==="English"?"Change settings":"設定を変更する"}
+                            <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            </svg>
+                        </NavLink>
+                    </span>
+                    <span className="my-4">
+                        <NavLink to={"/main/chat"} type="button" className="text-white font-bold shadow-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            {userSettings.language==="English"?"Start chatting":"チャットを始める"}
+                            <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            </svg>
+                        </NavLink>
+                    </span>
                 </div>
+                :<div className="py-20">
+                    <span className="my-4">
+                        <NavLink to={"/main/chat"} type="button" className="text-white font-bold shadow-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            {userSettings.language==="English"?"Start chatting":"チャットを始める"}
+                            <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            </svg>
+                        </NavLink>
+                    </span>
+                </div>}
             </div>
         </div>
 
