@@ -69,23 +69,20 @@ const IndexPage = () => {
 
       switch (errorCode) {
         case "auth/invalid-email":
-          setSignupError("⚠️Email address format is incorrect");
+          setSignupError(["⚠️Email address format is incorrect.","⚠️メールアドレスの形式が正しくありません。"]);
           break;
         case "auth/weak-password":
-          setSignupError("⚠️Password should be at least 6 characters");
+          setSignupError(["⚠️Password should be at least 6 characters.","⚠️6文字以のパスワードを使用してください。"]);
           break;
         case "auth/missing-password":
-            setSignupError("⚠️Please enter your password");
+            setSignupError(["⚠️Please enter your password.","⚠️パスワードを入力してください。"]);
             break;
         case "auth/email-already-exists":
-            setSignupError("⚠️Email address is already in use by an existing user");
-            break;
-        case "auth/id-token-expired":
-            setSignupError("⚠️This account has expired");
+            setSignupError(["⚠️This email address is already in use by an existing user.","⚠️このメールアドレスはすでに使用されています。"]);
             break;
         default:
           setSignupError(
-            "⚠️An error has occurred. Please contact the management."
+            ["⚠️An error has occurred. Please contact the management.","⚠️エラーが発生しました。管理者にご連絡ください。"]
           );
           break;
       }
@@ -147,23 +144,26 @@ const IndexPage = () => {
 
         switch (errorCode) {
           case "auth/invalid-email":
-            setLoginError("⚠️Email address format is incorrect");
+            setLoginError(["⚠️Email address format is incorrect.","⚠️メールアドレスの形式が正しくありません。"]);
             break;
           case "auth/invalid-credential":
-            setLoginError("⚠️User is invalid");
+            setLoginError(["⚠️This credential is invalid.","⚠️認証情報が無効です。"]);
             break;
           case "auth/user-not-found":
-            setLoginError("⚠️User does not exist");
+            setLoginError(["⚠️User does not exist.","⚠️ユーザーが存在しません。"]);
             break;
           case "auth/wrong-password":
-            setLoginError("⚠️Password is incorrect");
+            setLoginError(["⚠️Password is incorrect.","⚠️パスワードが間違っています。"]);
             break;
           case "auth/too-many-requests":
-            setLoginError("⚠️Too many password attempts");
+            setLoginError(["⚠️Too many password attempts.","⚠️ログインの試行回数が上限に達しました。"]);
+            break;
+        case "auth/id-token-expired":
+            setLoginError(["⚠️This account has expired.","⚠️このアカウントは有効期限が切れています。"]);
             break;
           default:
             setLoginError(
-              "⚠️An error has occurred. Please contact the management."
+                ["⚠️An error has occurred. Please contact the management.","⚠️エラーが発生しました。管理者にご連絡ください。"]
             );
             break;
         }
@@ -283,7 +283,7 @@ const IndexPage = () => {
                                 aria-labelledby="password-5211139-label"
                             />
                         </div>
-                            {loginError && <p className="text-red-500 mt-2 text-center mb-2">{loginError}</p>}
+                            {loginError && <p className="text-red-500 mt-2 text-center mb-2">{language==="English"?loginError[0]:loginError[1]}</p>}
                         <button
                         type="button"
                         onClick={handleSubmitLogin}
@@ -338,7 +338,7 @@ const IndexPage = () => {
                             />
                         </div>
                     {signupError && (
-                        <p className="text-red-500 mt-2 text-center mb-2">{signupError}</p>
+                        <p className="text-red-500 mt-2 text-center mb-2">{language==="English"?signupError[0]:signupError[1]}</p>
                     )}
                         <button
                         type="button"
