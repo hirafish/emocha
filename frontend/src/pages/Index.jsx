@@ -211,7 +211,7 @@ const IndexPage = () => {
             </div>
         </header>
         <div className="flex-1 w-full h-full">
-            <section style={{background:"url(/bgImage.svg)"}} className="bg-white w-full h-[94svh] dark:bg-gray-900 grid">
+            <section style={{background:"url(/bgImage.svg)"}} className="bg-white w-full dark:bg-gray-900  h-[94svh] grid">
                 <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 col-start-1 row-start-1 my-auto rounded bg-white dark:bg-gray-900 dark:bg-opacity-50 bg-opacity-80">
                     <div className="flex justify-center items-center">
                         <span className="flex justify-center bg-white dark:bg-gray-900 p-4 rounded mb-6 md:mb-3">
@@ -236,8 +236,8 @@ const IndexPage = () => {
                 </div>
             </section>
             <div className="h-16 bg-white dark:bg-gray-900"/>
-            <div className="m-auto py-10 px-2 bg-green-50 shadow-xl shadow-green-50 dark:bg-emerald-950">
-                <div id="LogIn" className="flex flex-col justify-center items-center px-4 md:px-10 py-12 my-40 bg-white dark:bg-gray-900 rounded-lg mx-auto md:w-3/6 xl:w-2/5">
+            <div style={{background:"url(/bgImage2.svg)"}} className="m-auto py-10 px-2">
+                <div id="LogIn" className="flex flex-col justify-center items-center px-4 md:px-16 py-12 mt-40 mb-52 bg-white dark:bg-gray-800 rounded-lg mx-auto md:w-4/6 xl:w-2/5">
                     <h2 className="my-8 text-3xl font-extrabold text-gray-900 text-center dark:text-white">
                     {language==="English"?"Log in":"ログイン"}
                     </h2>
@@ -291,8 +291,7 @@ const IndexPage = () => {
                     </p> */}
                     </form>          
                 </div>
-                <div className="border-b-8 border-b-white dark:border-b-gray-900"/>
-                <div id="SignUp" className="flex flex-col justify-center items-center px-4 md:px-10 py-12 my-40 bg-white dark:bg-gray-900 rounded-lg mx-auto md:w-3/6 xl:w-2/5">
+                <div id="SignUp" className="flex flex-col justify-center items-center px-4 md:px-16 py-12 my-40 bg-white dark:bg-gray-800 rounded-lg mx-auto md:w-4/6 xl:w-2/5">
                     <h2 className="my-8 text-3xl font-extrabold text-gray-900 text-center dark:text-white">
                     {language==="English"?"Sign up":"サインアップ"}
                     </h2>
@@ -343,15 +342,16 @@ const IndexPage = () => {
                     </form>
                 
                 
+                </div>
             </div>
-            </div>
+
             <footer>
-            <div className="bg-gray-50 dark:bg-gray-900">
+            <div className="bg-gray-50 dark:bg-gray-800">
                 <div className="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
                     <a href="./" className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900 dark:text-white">
                         <img src="/emochaLogo.png" className="w-10 h-10 text-white rounded"/>
                     </a>
-                    <p className="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4 dark:text-white">&copy; 2024 emocha — 
+                    <p className="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4 dark:text-white">Made with ❤️ and  
                         <a href="https://github.com/hirafish/emocha" rel="noopener noreferrer" translate="no" className="text-gray-600 ml-1 dark:text-white" target="_blank">
                             りんごらてオバケ 🍏☕👻
                         </a>
