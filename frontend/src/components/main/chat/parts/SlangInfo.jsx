@@ -13,7 +13,7 @@ const SlangInfo=({slangsList})=>{
                     <span className="w-full flex flex-col justify-center items-center">
                         {slangsList.map((slangObj,index)=>{
                             return(
-                            <p key={index} className="h-4 flex items-center dark:text-white"><DisplayEmojis emojiShortcodesList={[slangObj.shortcodes]} /> {userSettings.language === "English"?"means":"は"} " {slangObj.meaning} " {userSettings.language === "English"?"":"という意味です"}</p>
+                            <p key={index} className="h-4 flex items-center dark:text-white"><DisplayEmojis emojiShortcodesList={[slangObj.shortcodes]} /> {userSettings.language === "English"?"means":"は、英語で"} " {slangObj.meaning} " {userSettings.language === "English"?"in Japanese.":"という意味です"}</p>
                             )
                         })}
                     </span>
