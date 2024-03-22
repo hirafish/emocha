@@ -8,7 +8,7 @@ export const EnglishSlangProvider=props=>{
     const {children}=props;
 
     // スラングのセットを定義
-    const [englishSlang, setEnglishSlang] = useState({
+    const [EnglishSlang, setEnglishSlang] = useState({
         English:{},
       });
 
@@ -19,7 +19,7 @@ export const EnglishSlangProvider=props=>{
             if (snapshot.exists()) {
                 // console.log(snapshot.val());
                 setEnglishSlang({
-                    ...englishSlang,
+                    ...EnglishSlang,
                     English:snapshot.val()
                 });
             } else {
@@ -29,7 +29,7 @@ export const EnglishSlangProvider=props=>{
     },[]);
     
     return (
-        <EnglishSlangContext.Provider value={{englishSlang, setEnglishSlang}}>
+        <EnglishSlangContext.Provider value={{EnglishSlang, setEnglishSlang}}>
             {children}
         </EnglishSlangContext.Provider>
     );

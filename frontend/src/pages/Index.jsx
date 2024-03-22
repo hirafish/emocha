@@ -15,11 +15,14 @@ import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import { LanguagesCatalogContext } from "../components/providers/LanguagesCatalogProvider";
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 
+import  { JapaneseCheckSlangs, EnglishCheckSlangs } from "../components/main/slangs/CheckSlangs";
 
 
 
 const IndexPage = () => {
   const { userSettings } = useContext(UserSettingsContext);
+  // JapaneseCheckSlangs();
+  EnglishCheckSlangs();
 
   //ユーザー登録---------------------
   const [email, setEmail] = useState("");

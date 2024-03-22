@@ -1,6 +1,10 @@
+import { JapaneseSlangContext } from "../../providers/JapaneseSlangProvider";
+import { EnglishSlangContext } from "../../providers/EnglishSlangProvider";
+
 // スラングの情報を取得
 export const GetSlangsList=(message)=>{
     const postData=message;
+    console.log(postData);
     // firebaseを参照してスラングが含まれてないときは空配列を返す
     const slangsList=
         [
