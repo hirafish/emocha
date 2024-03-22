@@ -22,8 +22,7 @@ const JapaneseCheckSlangs = (postData) => {
             slangObject.isbad = japaneseSlang.Japanese[postData[i]].isbad;
 
         }else if(postData[i].includes("skin-tone")){
-            let word = postData[i].substring(0, 11);
-            console.log(word);
+            let word = postData[i].slice(0, -13);
             if (Object.keys(japaneseSlang.Japanese).includes(word)) {
                 slangFlag = true;
                 slangObject.shortcodes = word;
@@ -64,8 +63,7 @@ const EnglishCheckSlangs = (postData) => {
             slangObject.isbad = EnglishSlang.English[postData[i]].isbad;
 
         }else if(postData[i].includes("skin-tone")){
-            let word = postData[i].substring(0, 11);
-            console.log(word);
+            let word = postData[i].slice(0, -13);
             if (Object.keys(EnglishSlang.English).includes(word)) {
                 slangFlag = true;
                 slangObject.shortcodes = word;

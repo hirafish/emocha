@@ -35,10 +35,6 @@ const Navigation=(props)=>{
                     </div>
                 </div>
                 <div className="text-gray-800 mt-8 w-4 h-4">
-                    {/* {userSettings.id}
-                    <span className="inline-block align-text-bottom">
-                        <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" className="w-4 h-4"><path d="M19 9l-7 7-7-7"></path></svg>
-                    </span> */}
                 </div>
             </div>
 

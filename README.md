@@ -1,5 +1,8 @@
 # emocha
 
+## architecture overview
+![architecture overview](https://github.com/hirafish/emocha/assets/103473179/948f3adc-1d38-4100-80a0-ff3a778b8dad)
+
 ## 🍏 Setup
 ### docker
 * Docker version 25.0.3

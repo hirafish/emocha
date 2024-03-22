@@ -75,7 +75,6 @@ const Settings = () => {
         language: postData.language,
         snsUrl: postData.snsUrl,
       };
-      console.log(payload);
       await set(userRef, payload);
       localStorage.setItem("image", postData.icon.image);
       localStorage.setItem("color", postData.icon.color);
@@ -91,7 +90,6 @@ const Settings = () => {
   // Sendボタンをクリックした時の処理
   const handleClickSend = async () => {
     const postData = previews;
-    console.log(postData);
     try {
       const response = await sendUserData(postData);
       if (response === true) {
@@ -99,12 +97,10 @@ const Settings = () => {
         alert("設定を更新しました！");
       } else {
         alert("現在、設定を更新することができません。");
-        console.log("更新できませんでした");
       }
     } catch (error) {
       console.log("Fetch Error:", error);
       alert("現在、設定を更新することができません。");
-      console.log("更新できませんでした");
     }
   };
 
@@ -127,12 +123,9 @@ const Settings = () => {
   const handleClickDeleteAccount = () => {
     // user消したらもってこれなくなるかもだからuserIDを取得しておく
     const userId = userSettings.id;
-    console.log(user);
-    console.log(userId);
     deleteUser(user)
       .then(() => {
         deleteUserData(userId);
-        console.log(user);
         localStorage.clear();
         alert("アカウントを削除しました！");
         window.location.href = "/";
@@ -355,7 +348,6 @@ const Settings = () => {
             className="inline-block text-gray-700 hover:text-gray-900 align-bottom"
           >
             <span className="h-6 w-6 p-1 rounded-md hover:bg-gray-400 dark:hover:bg-gray-700 flex justify-center items-center">
-              {/* <img src="/navIcon/close.svg" className="dark:text-white" /> */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 384 512"

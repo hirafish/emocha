@@ -17,7 +17,6 @@ export const JapaneseSlangProvider=props=>{
         get(child(ref_slang, `Japanese`))
         .then((snapshot) => {
             if (snapshot.exists()) {
-                // console.log(snapshot.val());
                 setJapaneseSlang({
                     ...japaneseSlang,
                     Japanese:snapshot.val()

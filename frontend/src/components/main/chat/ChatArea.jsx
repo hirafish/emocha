@@ -91,7 +91,6 @@ const ChatArea = () => {
           <SenderInfo />
           {messages[0]
             ? messages.map((message, index) => {
-                console.log(message);
                 if (message.userId === userId) {
                   return (
                     <span key={index}>

@@ -27,6 +27,10 @@ const OthersMessage=({chatData})=>{
             }
         );
     };
+    const unixTime=chatData.uploadTimeUnix;
+    const dateTime=new Date(unixTime)
+    const monthsList=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    const sendDate=String(dateTime.getDate())+" "+monthsList[dateTime.getMonth()];
 
     return(
         <div className="message mb-4">
@@ -46,7 +50,7 @@ const OthersMessage=({chatData})=>{
                             <DisplayEmojis emojiShortcodesList={chatData.message} />
                         </span>
                     </div>
-                    {/* <div className="pl-4"><small className="text-gray-500">15 April</small></div> */}
+                    <div className="pl-4"><small className="text-gray-500">{sendDate}</small></div>
                 </div>
             </div>
         </div>

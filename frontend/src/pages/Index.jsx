@@ -1,4 +1,4 @@
-import { useNavigate,NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState,useEffect } from "react";
 import LogoSet from "../components/main/globalParts/LogoSet";
 import {
@@ -15,19 +15,8 @@ import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import { LanguagesCatalogContext } from "../components/providers/LanguagesCatalogProvider";
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 
-import  { JapaneseCheckSlangs, EnglishCheckSlangs } from "../components/main/slangs/CheckSlangs";
-
-
 
 const IndexPage = () => {
-  const { userSettings } = useContext(UserSettingsContext);
-
-  
-  // const  JapaneseSlangList   = JapaneseCheckSlangs(postData)  ;
-  // const  EnglishSlangList  = EnglishCheckSlangs(postData);
-  // console.log( JapaneseSlangList);
-  // console.log( EnglishSlangList);
-
   //ユーザー登録---------------------
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -67,7 +56,6 @@ const IndexPage = () => {
       );
       const user = userCredential.user;
       await sendUserData(user.uid); // ここで処理を待つ
-      console.log("ユーザー登録完了", user);
       navigation("/main/home");
     } catch (error) {
       const errorCode = error.code;
@@ -110,7 +98,6 @@ const IndexPage = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log("ログイン完了", user.uid);
         const userId = user.uid;
 
         // Realtime Databaseに保存されているユーザー設定を取得
