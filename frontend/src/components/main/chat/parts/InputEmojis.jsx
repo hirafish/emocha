@@ -196,7 +196,7 @@ const InputEmojis = () => {
                     <DisplayEmojis
                       emojiShortcodesList={[slangObj.shortcodes]}
                     />{" "}
-                    means " {slangObj.meaning} " in Japanese.
+                    {userSettings.language === "English"?"means":"は、英語で"} " {slangObj.meaning} " {userSettings.language === "English"?"in Japanese.":"という意味です。"}
                   </span>
                 );
               })
@@ -208,14 +208,14 @@ const InputEmojis = () => {
             type="button"
             className="mx-5 w-20 inline-flex items-center justify-center px-4 py-2 text-sm font-medium tracking-wide text-white transition-colors duration-200 bg-blue-600 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 focus:shadow-outline focus:outline-none"
           >
-            Send
+            {userSettings.language === "English"?"Send":"送信"}
           </button>
           <button
             onClick={handleClickFix}
             type="button"
             className="mx-5 w-20 inline-flex items-center justify-center px-4 py-2 text-sm font-medium tracking-wide transition-colors duration-200 bg-white border rounded-md text-neutral-500 hover:text-neutral-700 border-neutral-200/70 hover:bg-neutral-100 active:bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-200/60 focus:shadow-outline"
           >
-            Fix
+            {userSettings.language === "English"?"Fix":"修正"}
           </button>
         </div>
       </div>
