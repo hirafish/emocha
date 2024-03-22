@@ -2,14 +2,10 @@ import { JapaneseSlangContext } from "../../providers/JapaneseSlangProvider"
 import { EnglishSlangContext } from "../../providers/EnglishSlangProvider"
 import { useContext } from "react"
 
-const postData = [
-    ":nail_care:",
-    ":avocado:",
-    ":jack_o_lantern:",
-]
+
 
 //Englishユーザーの時に使う
-const JapaneseCheckSlangs = () => {
+const JapaneseCheckSlangs = (postData) => {
     const { japaneseSlang } = useContext( JapaneseSlangContext );
     var slangList = [];
 
@@ -27,15 +23,16 @@ const JapaneseCheckSlangs = () => {
         if (slangFlag){
             slangList.push(slangObject);
             slangFlag = false;
-        }
-        return slangList;
+        }  
         
     }
+
+    return slangList;
 
 }
 
 //Japaneseユーザーの時に使う
-const EnglishCheckSlangs = () => {
+const EnglishCheckSlangs = (postData) => {
 
     const { EnglishSlang } = useContext( EnglishSlangContext );
     var slangList = [];
@@ -54,11 +51,9 @@ const EnglishCheckSlangs = () => {
         if (slangFlag){
             slangList.push(slangObject);
             slangFlag = false;
-        }
-        return slangList;
-        
+        }        
     }
-
+    return slangList;
 
 }
 
