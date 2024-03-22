@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate,NavLink } from "react-router-dom";
 import { useState,useEffect } from "react";
 import LogoSet from "../components/main/globalParts/LogoSet";
 import {
@@ -204,9 +204,9 @@ const IndexPage = () => {
   return (
     <div className="main flex-1 flex flex-col min-h-0 dark:bg-gray-900">
         <header className="sticky top-0 w-full bg-white shadow flex justify-between dark:bg-gray-900 dark:shadow-gray-100">
-            <span className="text-xl xl:text-3xl font-medium mx-8 dark:text-white flex items-center">
+            <a href="./" className="text-xl xl:text-3xl font-medium mx-8 dark:text-white flex items-center">
                 <LogoSet />
-            </span>
+            </a>
             <div className="my-4 mr-6 xl:mr-10 flex justify-center items-center">
                 <span className="flex items-center justify-center p-1 mr-2 rounded-md hover:bg-gray-300  cursor-pointer dark:hover:bg-gray-700">
                     <DarkModeSwitch
