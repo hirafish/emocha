@@ -74,6 +74,15 @@ const IndexPage = () => {
         case "auth/weak-password":
           setSignupError("⚠️Password should be at least 6 characters");
           break;
+        case "auth/missing-password":
+            setSignupError("⚠️Please enter your password");
+            break;
+        case "auth/email-already-exists":
+            setSignupError("⚠️Email address is already in use by an existing user");
+            break;
+        case "auth/id-token-expired":
+            setSignupError("⚠️This account has expired");
+            break;
         default:
           setSignupError(
             "⚠️An error has occurred. Please contact the management."
@@ -274,7 +283,7 @@ const IndexPage = () => {
                                 aria-labelledby="password-5211139-label"
                             />
                         </div>
-                            {loginError && <p className="text-red-500 mt-2 text-center">{loginError}</p>}
+                            {loginError && <p className="text-red-500 mt-2 text-center mb-2">{loginError}</p>}
                         <button
                         type="button"
                         onClick={handleSubmitLogin}
@@ -329,7 +338,7 @@ const IndexPage = () => {
                             />
                         </div>
                     {signupError && (
-                        <p className="text-red-500 mt-2 text-center">{signupError}</p>
+                        <p className="text-red-500 mt-2 text-center mb-2">{signupError}</p>
                     )}
                         <button
                         type="button"
