@@ -52,7 +52,6 @@ const InputEmojis = () => {
         try {
           const parentClassNameText =
             event.target.offsetParent.childNodes[1].className;
-          //  console.log(event.target.offsetParent.childNodes[1])
           if (parentClassNameText.includes("attention")) {
             setShowEmojiPicker(tailwindShowEmojiPicker);
           } else {
@@ -120,14 +119,11 @@ const InputEmojis = () => {
         //   setSlangsList(outSlangsList);
         //   setShowAttention(tailwindShowAttention);
         // } else {
-          console.log(postdData);
           // バックエンドに送信
           sendChatData(postdData, userId);
-          alert("送信しました！");
           setInputEmojis([]);
         // }
       } else {
-        alert("絵文字が空です！");
       }
     } catch (error) {
       console.log("Send Error:", error);
@@ -143,8 +139,6 @@ const InputEmojis = () => {
     try {
       // バックエンドに送信
       sendChatData(inputEmojis, userId);
-      console.log(inputEmojis);
-      alert("送信しました！");
       setInputEmojis([]);
     } catch (error) {
       console.log("Send Error:", error);

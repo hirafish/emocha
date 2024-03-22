@@ -23,7 +23,6 @@ const JapaneseCheckSlangs = (postData) => {
 
         }else if(postData[i].includes("skin-tone")){
             let word = postData[i].slice(0, -13);
-            console.log(word);
             if (Object.keys(japaneseSlang.Japanese).includes(word)) {
                 slangFlag = true;
                 slangObject.shortcodes = word;
@@ -65,7 +64,6 @@ const EnglishCheckSlangs = (postData) => {
 
         }else if(postData[i].includes("skin-tone")){
             let word = postData[i].slice(0, -13);
-            console.log(word);
             if (Object.keys(EnglishSlang.English).includes(word)) {
                 slangFlag = true;
                 slangObject.shortcodes = word;
