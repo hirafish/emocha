@@ -15,19 +15,38 @@ const TranslateIconCatalog=(originIconValue)=>{
         Snowman:{ja:"雪だるま"},
         Football:{ja:"サッカーボール"},
         Baseball:{ja:"野球ボール"},
-        Basketball:{ja:"バスケットボール"}       
+        Basketball:{ja:"バスケットボール"},
+        Astronaut:{ja:"宇宙飛行士"},
+        Meteor:{ja:"メテオ"},
+        IceCream:{ja:"アイス"},
+        ChessKing:{ja:"チェスキング"},
+        ChessKnight:{ja:"チェスナイト"},
+        ChessQueen:{ja:"チェスクイーン"},
+        Star:{ja:"スター"},
+        Heart:{ja:"ハート"},
+        Poo:{ja:"うんち"}
     }
     const iconsColors={
         Black:{ja:"ブラック"},
+        Gray:{ja:"グレー"},
         Red:{ja:"レッド"},
         Yellow:{ja:"イエロー"},
         Orange:{ja:"オレンジ"},
+        Amber:{ja:"こはく"},
         Brown:{ja:"ブラウン"},
+        Lime:{ja:"ライム"},
+        Emerald:{ja:"エメラルド"},
+        Teal:{ja:"ティール"},
         Green:{ja:"グリーン"},
+        Cyan:{ja:"シアン"},
+        Sky:{ja:"スカイ"},
         Blue:{ja:"ブルー"},
-        Indigo:{ja:"インディゴ"},
-        Purple:{ja:"パークル"},
-        Pink:{ja:"ピンク"}
+        Indigo:{ja:"あいいろ"},
+        Purple:{ja:"パープル"},
+        Fuchsia:{ja:"フクシャ"},
+        Pink:{ja:"ピンク"},
+        Rose:{ja:"ローズ"},
+        Violet:{ja:"すみれ"}
     }
     let result=undefined;
     if(Object.keys(iconsColors).includes(originIconValue)){
