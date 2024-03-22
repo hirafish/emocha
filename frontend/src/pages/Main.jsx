@@ -90,8 +90,8 @@ const MainLayout = () => {
   }, [isDarkMode]);
 
   if (userSettings.id === null) {
-    return <Navigate replace to="/" />;
     console.log("ログインしていません");
+    return <Navigate replace to="/" />;
   } else {
     return (
       <div

@@ -7,6 +7,9 @@ import TranslateIconCatalog from "./globalParts/TranslateIconCatalog";
 import { useNavigate } from "react-router-dom";
 import { db } from "../../firebase/config";
 import { ref, set, get } from "firebase/database";
+import { getAuth, deleteUser } from "firebase/auth";
+
+
 
 const Settings = () => {
   // アイコンのデザインセットと言語設定セットを取得
@@ -111,11 +114,19 @@ const Settings = () => {
   // ----------------------------------------------------
   // アカウント削除の処理
   const navigate = useNavigate();
+  const auth = getAuth();
+  const user = auth.currentUser;
 
   const handleClickDeleteAccount = () => {
-    // ここでアカウント削除の処理をする
-    alert("アカウントを削除しました！");
-    navigate("/");
+    deleteUser(user).then(() => {
+        console.log(user);
+        alert("アカウントを削除しました！");
+        navigate("/");
+      }).catch((error) => {
+        alert("アカウントを削除できませんでした。");
+        
+      });
+    
   };
   const tailwindNotShowDeleteAccount = "hidden";
   const tailwindShowDeleteAccount =
