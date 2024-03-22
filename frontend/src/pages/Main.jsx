@@ -1,7 +1,6 @@
 import Navigation from "../components/main/nav/Navigation";
 import { Outlet, Navigate } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { UserSettingsContext } from "../components/providers/UserSettingsProvider";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 import { DarkModeContext } from "../components/providers/DarkModeProviders";
@@ -56,7 +55,6 @@ const MainLayout = () => {
     } catch {}
   };
   // ------------------------------
-  const navigate = useNavigate();
 
   // ログアウトボタンの処理
   const handleClickLogOut = () => {
@@ -70,7 +68,7 @@ const MainLayout = () => {
     localStorage.removeItem("snsUrl");
     localStorage.removeItem("language");
     alert("ログアウトしました！");
-    navigate("/");
+    window.location.href = "/";
   };
 
   // --------------------------------

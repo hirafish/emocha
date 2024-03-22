@@ -4,7 +4,6 @@ import { LanguagesCatalogContext } from "../providers/LanguagesCatalogProvider";
 import { UserSettingsContext } from "../providers/UserSettingsProvider";
 import UserIcon from "./globalParts/UserIcon";
 import TranslateIconCatalog from "./globalParts/TranslateIconCatalog";
-import { useNavigate } from "react-router-dom";
 import { db } from "../../firebase/config";
 import { ref, set, remove } from "firebase/database";
 import { getAuth, deleteUser } from "firebase/auth";
@@ -122,7 +121,6 @@ const Settings = () => {
   };
 
   // アカウント削除の処理
-  const navigate = useNavigate();
   const auth = getAuth();
   const user = auth.currentUser;
 
@@ -137,7 +135,7 @@ const Settings = () => {
         console.log(user);
         localStorage.clear();
         alert("アカウントを削除しました！");
-        navigate("/");
+        window.location.href = "/";
       })
       .catch((error) => {
         alert("アカウントを削除できませんでした。");
