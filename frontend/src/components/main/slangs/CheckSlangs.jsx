@@ -1,17 +1,18 @@
+import { useContext } from "react"
 import { JapaneseSlangContext } from "../../providers/JapaneseSlangProvider"
 import { EnglishSlangContext } from "../../providers/EnglishSlangProvider"
-import { useContext } from "react"
+
 
 
 
 //Englishユーザーの時に使う
 const JapaneseCheckSlangs = (postData) => {
     const { japaneseSlang } = useContext( JapaneseSlangContext );
-    var slangList = [];
+    let slangList = [];
 
     for (let i = 0; i < postData.length; i++) {
-        var slangObject = {};
-        var slangFlag = false;
+        let slangObject = {};
+        let slangFlag = false;
 
         if (Object.keys(japaneseSlang.Japanese).includes(postData[i])) {
             slangFlag = true;
@@ -35,11 +36,11 @@ const JapaneseCheckSlangs = (postData) => {
 const EnglishCheckSlangs = (postData) => {
 
     const { EnglishSlang } = useContext( EnglishSlangContext );
-    var slangList = [];
+    let slangList = [];
 
     for (let i = 0; i < postData.length; i++) {
-        var slangObject = {};
-        var slangFlag = false;
+        let slangObject = {};
+        let slangFlag = false;
 
         if (Object.keys(EnglishSlang.English).includes(postData[i])) {
             slangFlag = true;

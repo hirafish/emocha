@@ -1,16 +1,22 @@
-import { JapaneseSlangContext } from "../../providers/JapaneseSlangProvider";
-import { EnglishSlangContext } from "../../providers/EnglishSlangProvider";
+import { useContext } from "react";
+import  { JapaneseCheckSlangs, EnglishCheckSlangs } from "./CheckSlangs";
+import { UserSettingsContext } from "../../providers/UserSettingsProvider";
 
 // スラングの情報を取得
-export const GetSlangsList=(message)=>{
-    const postData=message;
-    console.log(postData);
+const GetSlangsList=(message)=>{
+    const {userSettings}=useContext(UserSettingsContext);
+    const userLanguage=userSettings.language;
     // firebaseを参照してスラングが含まれてないときは空配列を返す
-    const slangsList=
-        [
-            {shortcodes:":nail_care:",meaning:"I do't care"},
-            {shortcodes:":avocado:",meaning:"basic"},
-            {shortcodes:":billed_cap:",meaning:"lie"}
-        ];
+    let slangsList = [];
+    const postData=message;    
+
+    if (userLanguage==="English"){
+        slangsList=JapaneseCheckSlangs(message);
+
+    }else{
+        slangsList=EnglishCheckSlangs(message);
+    }    
     return slangsList;
 };
+
+export { GetSlangsList };

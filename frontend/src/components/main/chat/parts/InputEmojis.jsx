@@ -113,19 +113,19 @@ const InputEmojis = () => {
   // 送信ボタン
   const handleClickCheckButton = () => {
     try {
-      const postdData = inputEmojis;
+      const postdData = inputEmojis;     
       if (postdData[0]) {
-        const slangsList = GetSlangsList(postdData);
-        if (slangsList[0]) {
-          setSlangsList(slangsList);
-          setShowAttention(tailwindShowAttention);
-        } else {
+        // const outSlangsList = GetSlangsList(postdData);
+        // if (outSlangsList[0]) {
+        //   setSlangsList(outSlangsList);
+        //   setShowAttention(tailwindShowAttention);
+        // } else {
           console.log(postdData);
           // バックエンドに送信
           sendChatData(postdData, userId);
           alert("送信しました！");
           setInputEmojis([]);
-        }
+        // }
       } else {
         alert("絵文字が空です！");
       }
