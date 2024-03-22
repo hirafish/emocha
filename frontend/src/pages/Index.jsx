@@ -88,7 +88,7 @@ const IndexPage = () => {
         case "auth/missing-password":
             setSignupError(["⚠️Please enter your password.","⚠️パスワードを入力してください。"]);
             break;
-        case "auth/email-already-exists":
+        case "auth/email-already-in-use":
             setSignupError(["⚠️This email address is already in use by an existing user.","⚠️このメールアドレスはすでに使用されています。"]);
             break;
         default:
