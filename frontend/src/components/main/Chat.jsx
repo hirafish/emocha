@@ -1,6 +1,6 @@
+import { useContext } from "react";
 import ChatRoomList from "./chat/ChatRoomList";
 import ChatArea from "./chat/ChatArea";
-import { useContext } from "react";
 import { UserSettingsContext } from "../providers/UserSettingsProvider";
 
 const Chat=()=>{

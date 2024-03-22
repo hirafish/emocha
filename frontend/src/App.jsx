@@ -3,8 +3,11 @@ import { FetchFromPython } from './components/api/Sample';
 import { ConnectSocketIo } from './components/socketio/Socketio';
 import { BrowserRouter } from 'react-router-dom';
 import Router from './components/router/Router';
+import { JapaneseSlangProvider } from './components/providers/JapaneseSlangProvider';
+import { EnglishSlangProvider } from './components/providers/EnglishSlangProvider';
 
 function App() {
+
   // FastAPIとの通信
 
   // (async()=>{
@@ -29,9 +32,13 @@ function App() {
 
   return (
       <BrowserRouter>
-        <div id="App" className="w-full h-svh dark:bg-gray-900">
-              <Router />
-        </div>
+        <EnglishSlangProvider>
+        <JapaneseSlangProvider>
+            <div id="App" className="w-full h-svh dark:bg-gray-900">
+                <Router />
+            </div>
+        </JapaneseSlangProvider>
+        </EnglishSlangProvider>
       </BrowserRouter>
   );
 }
