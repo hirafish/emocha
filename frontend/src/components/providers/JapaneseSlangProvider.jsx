@@ -14,7 +14,7 @@ export const JapaneseSlangProvider=props=>{
 
     useEffect(()=>{
         const ref_slang = ref(db_slang)
-        get(child(ref_slang, `japanese`))
+        get(child(ref_slang, `Japanese`))
         .then((snapshot) => {
             if (snapshot.exists()) {
                 // console.log(snapshot.val());

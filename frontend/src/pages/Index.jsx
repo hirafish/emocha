@@ -21,8 +21,8 @@ import  { JapaneseCheckSlangs, EnglishCheckSlangs } from "../components/main/sla
 
 const IndexPage = () => {
   const { userSettings } = useContext(UserSettingsContext);
-  // JapaneseCheckSlangs();
-  EnglishCheckSlangs();
+  JapaneseCheckSlangs();
+  // EnglishCheckSlangs();
 
   //ユーザー登録---------------------
   const [email, setEmail] = useState("");
