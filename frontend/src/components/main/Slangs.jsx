@@ -20,7 +20,7 @@ const Slangs=()=>{
             <div className="lg:block heading flex-2 w-11/12 m-auto">
                 <h1 className="text-xl py-3 xl:text-3xl xl:text-gray-700 xl:mb-4 dark:text-white ">{userSettings.language==="English"?"Slangs":"スラング一覧"}</h1>
             </div>
-            <div className="md:flex justify-evenly">
+            <div className="md:flex justify-evenly mx-4">
                 <div className="my-10 mx-auto">
                     <h2 className="text-center text-xl my-10 dark:text-white">Meaning in Japanese</h2>
                     <div className="border rounded-lg">
