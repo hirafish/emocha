@@ -42,7 +42,17 @@ const ChatArea = () => {
         messagesArray.map(async (message) => {
           const userRef = ref(db, `Users/${message.userId}`);
           const userSnapshot = await get(userRef);
-          const userData = userSnapshot.val();
+          let userData = userSnapshot.val();
+
+          if (!userData) {
+            userData = {
+              id: "0000000000",
+              name: "deleted user",
+              iconText: "@Ghost;Black;",
+              language: "English",
+              snsUrl: "",
+            };
+          }
 
           return {
             ...message,
