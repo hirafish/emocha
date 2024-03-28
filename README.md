@@ -1,9 +1,29 @@
-# emocha
+<div align="center">
+    <h1 align="center">emocha</h1>
+    <p>start an emoji-only chat!</p>
+    <p>
+        <a href="https://skillicons.dev">
+            <img src="https://skillicons.dev/icons?i=javascript,tailwind,react,nodejs,docker,firebase,vercel&theme=light" />
+        </a>
+    </p>
+    <p><a href="https://emocha-slet.vercel.app/">View Demo</a></p>
+    <img width="800" alt="スクリーンショット 2024-03-28 18 16 27" src="https://github.com/hirafish/emocha/assets/103473179/f1a0d1bc-bf0e-492c-8296-0c46040662e1">
+</div>
 
-## architecture overview
+## 📖 Docs
+
+- [💻 Architecture Overview](#architectureoverview)
+- [🔧 Setup](#setup)
+- [🚀 Quick Start](#quickstart)
+- [👻 Usage](#usage)
+- [👀 Frontend README (Quick start, File Structure Overview, and Data Structure)](frontend/README.md)
+
+<h2 id="architectureoverview">💻 Architecture Overview</h2>
+
 ![architecture overview](https://github.com/hirafish/emocha/assets/103473179/948f3adc-1d38-4100-80a0-ff3a778b8dad)
 
-## 🍏 Setup
+<h2 id="setup">🔧 Setup</h2>
+
 ### docker
 * Docker version 25.0.3
 * Docker Compose version v2.24.5-desktop.1
@@ -23,7 +43,8 @@ DB_DATABASE_NAME="emocha_db"
 ```
 （↑環境変数はdocker-composeで定義しているものを使用）
 
-## ☕ Quick start
+<h2 id="quickstart">🚀 Quick Start</h2>
+
 1. dockerコンテナを構築・起動する（２回目以降は`--build`なし）
     ```
     docker compose up --build
@@ -64,7 +85,8 @@ DB_DATABASE_NAME="emocha_db"
     ```
 
 
-## 👻 Usage
+<h2 id="usage">👻 Usage</h2>
+
 ### docker copmose
 * dockerコンテナを構築・起動する
     ```
