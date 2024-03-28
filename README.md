@@ -1,6 +1,6 @@
 <div align="center">
     <h1 align="center">emocha</h1>
-    <p>start an emoji-only chat!</p>
+    <p>Let's start an emoji-only chat !</p>
     <p>
         <a href="https://skillicons.dev">
             <img src="https://skillicons.dev/icons?i=javascript,tailwind,react,nodejs,docker,firebase,vercel&theme=light" />
